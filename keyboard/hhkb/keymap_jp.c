@@ -105,13 +105,13 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
           // ACTION_MODS(MOD_LALT | MOD_LSFT | MOD_LCTL | MOD_LGUI);
           add_weak_mods(MOD_BIT(KC_LSHIFT));
           add_weak_mods(MOD_BIT(KC_LALT));
-          add_weak_mods(MOD_BIT(KC_LGUI));
+          // add_weak_mods(MOD_BIT(KC_LGUI));
           add_weak_mods(MOD_BIT(KC_LCTL));
           send_keyboard_report();
         }else{
           del_weak_mods(MOD_BIT(KC_LSHIFT));
           del_weak_mods(MOD_BIT(KC_LALT));
-          del_weak_mods(MOD_BIT(KC_LGUI));
+          // del_weak_mods(MOD_BIT(KC_LGUI));
           del_weak_mods(MOD_BIT(KC_LCTL));
           send_keyboard_report();
         }

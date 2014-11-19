@@ -507,7 +507,7 @@ LOAD /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000     0x42ee
+.text           0x0000000000000000     0x42e2
  *(.vectors)
  .vectors       0x0000000000000000       0xac /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/crtm32u4.o
                 0x0000000000000000                __vectors
@@ -630,448 +630,448 @@ LOAD /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a
                 0x00000000000008b4                . = ALIGN (0x2)
  *(.text.*)
  .text.action_function
-                0x00000000000008b4       0x44 obj_hhkb_lufa/keymap_jp.o
+                0x00000000000008b4       0x38 obj_hhkb_lufa/keymap_jp.o
                 0x00000000000008b4                action_function
  .text.keymap_key_to_keycode
-                0x00000000000008f8       0x24 obj_hhkb_lufa/keymap_common.o
-                0x00000000000008f8                keymap_key_to_keycode
+                0x00000000000008ec       0x24 obj_hhkb_lufa/keymap_common.o
+                0x00000000000008ec                keymap_key_to_keycode
  .text.keymap_fn_to_action
-                0x000000000000091c       0x14 obj_hhkb_lufa/keymap_common.o
-                0x000000000000091c                keymap_fn_to_action
+                0x0000000000000910       0x14 obj_hhkb_lufa/keymap_common.o
+                0x0000000000000910                keymap_fn_to_action
  .text.matrix_init
-                0x0000000000000930       0x54 obj_hhkb_lufa/matrix.o
-                0x0000000000000930                matrix_init
+                0x0000000000000924       0x54 obj_hhkb_lufa/matrix.o
+                0x0000000000000924                matrix_init
  .text.matrix_scan
-                0x0000000000000984      0x13c obj_hhkb_lufa/matrix.o
-                0x0000000000000984                matrix_scan
+                0x0000000000000978      0x13c obj_hhkb_lufa/matrix.o
+                0x0000000000000978                matrix_scan
  .text.matrix_get_row
-                0x0000000000000ac0       0x10 obj_hhkb_lufa/matrix.o
-                0x0000000000000ac0                matrix_get_row
+                0x0000000000000ab4       0x10 obj_hhkb_lufa/matrix.o
+                0x0000000000000ab4                matrix_get_row
  .text.matrix_print
-                0x0000000000000ad0       0x50 obj_hhkb_lufa/matrix.o
-                0x0000000000000ad0                matrix_print
- .text.led_set  0x0000000000000b20        0xe obj_hhkb_lufa/led.o
-                0x0000000000000b20                led_set
+                0x0000000000000ac4       0x50 obj_hhkb_lufa/matrix.o
+                0x0000000000000ac4                matrix_print
+ .text.led_set  0x0000000000000b14        0xe obj_hhkb_lufa/led.o
+                0x0000000000000b14                led_set
  .text.keyboard_leds
-                0x0000000000000b2e        0x6 obj_hhkb_lufa/protocol/lufa/lufa.o
+                0x0000000000000b22        0x6 obj_hhkb_lufa/protocol/lufa/lufa.o
  .text.send_consumer
-                0x0000000000000b34       0x68 obj_hhkb_lufa/protocol/lufa/lufa.o
+                0x0000000000000b28       0x68 obj_hhkb_lufa/protocol/lufa/lufa.o
  .text.send_system
-                0x0000000000000b9c       0x6a obj_hhkb_lufa/protocol/lufa/lufa.o
+                0x0000000000000b90       0x6a obj_hhkb_lufa/protocol/lufa/lufa.o
  .text.send_mouse
-                0x0000000000000c06       0x48 obj_hhkb_lufa/protocol/lufa/lufa.o
+                0x0000000000000bfa       0x48 obj_hhkb_lufa/protocol/lufa/lufa.o
  .text.send_keyboard
-                0x0000000000000c4e       0x9e obj_hhkb_lufa/protocol/lufa/lufa.o
+                0x0000000000000c42       0x9e obj_hhkb_lufa/protocol/lufa/lufa.o
  .text.EVENT_USB_Device_Connect
-                0x0000000000000cec        0x2 obj_hhkb_lufa/protocol/lufa/lufa.o
-                0x0000000000000cec                EVENT_USB_Device_Connect
+                0x0000000000000ce0        0x2 obj_hhkb_lufa/protocol/lufa/lufa.o
+                0x0000000000000ce0                EVENT_USB_Device_Connect
  .text.EVENT_USB_Device_Disconnect
-                0x0000000000000cee        0x2 obj_hhkb_lufa/protocol/lufa/lufa.o
-                0x0000000000000cee                EVENT_USB_Device_Disconnect
+                0x0000000000000ce2        0x2 obj_hhkb_lufa/protocol/lufa/lufa.o
+                0x0000000000000ce2                EVENT_USB_Device_Disconnect
  .text.EVENT_USB_Device_Reset
-                0x0000000000000cf0        0x2 obj_hhkb_lufa/protocol/lufa/lufa.o
-                0x0000000000000cf0                EVENT_USB_Device_Reset
+                0x0000000000000ce4        0x2 obj_hhkb_lufa/protocol/lufa/lufa.o
+                0x0000000000000ce4                EVENT_USB_Device_Reset
  .text.EVENT_USB_Device_Suspend
-                0x0000000000000cf2        0x2 obj_hhkb_lufa/protocol/lufa/lufa.o
-                0x0000000000000cf2                EVENT_USB_Device_Suspend
+                0x0000000000000ce6        0x2 obj_hhkb_lufa/protocol/lufa/lufa.o
+                0x0000000000000ce6                EVENT_USB_Device_Suspend
  .text.EVENT_USB_Device_WakeUp
-                0x0000000000000cf4        0x4 obj_hhkb_lufa/protocol/lufa/lufa.o
-                0x0000000000000cf4                EVENT_USB_Device_WakeUp
+                0x0000000000000ce8        0x4 obj_hhkb_lufa/protocol/lufa/lufa.o
+                0x0000000000000ce8                EVENT_USB_Device_WakeUp
  .text.EVENT_USB_Device_StartOfFrame
-                0x0000000000000cf8        0x2 obj_hhkb_lufa/protocol/lufa/lufa.o
-                0x0000000000000cf8                EVENT_USB_Device_StartOfFrame
+                0x0000000000000cec        0x2 obj_hhkb_lufa/protocol/lufa/lufa.o
+                0x0000000000000cec                EVENT_USB_Device_StartOfFrame
  .text.EVENT_USB_Device_ConfigurationChanged
-                0x0000000000000cfa       0x28 obj_hhkb_lufa/protocol/lufa/lufa.o
-                0x0000000000000cfa                EVENT_USB_Device_ConfigurationChanged
+                0x0000000000000cee       0x28 obj_hhkb_lufa/protocol/lufa/lufa.o
+                0x0000000000000cee                EVENT_USB_Device_ConfigurationChanged
  .text.EVENT_USB_Device_ControlRequest
-                0x0000000000000d22      0x174 obj_hhkb_lufa/protocol/lufa/lufa.o
-                0x0000000000000d22                EVENT_USB_Device_ControlRequest
+                0x0000000000000d16      0x174 obj_hhkb_lufa/protocol/lufa/lufa.o
+                0x0000000000000d16                EVENT_USB_Device_ControlRequest
  .text.startup.main
-                0x0000000000000e96       0x80 obj_hhkb_lufa/protocol/lufa/lufa.o
-                0x0000000000000e96                main
+                0x0000000000000e8a       0x80 obj_hhkb_lufa/protocol/lufa/lufa.o
+                0x0000000000000e8a                main
  .text.CALLBACK_USB_GetDescriptor
-                0x0000000000000f16       0xca obj_hhkb_lufa/protocol/lufa/descriptor.o
-                0x0000000000000f16                CALLBACK_USB_GetDescriptor
+                0x0000000000000f0a       0xca obj_hhkb_lufa/protocol/lufa/descriptor.o
+                0x0000000000000f0a                CALLBACK_USB_GetDescriptor
  .text.USB_Device_SendRemoteWakeup
-                0x0000000000000fe0       0x2c obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
-                0x0000000000000fe0                USB_Device_SendRemoteWakeup
+                0x0000000000000fd4       0x2c obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
+                0x0000000000000fd4                USB_Device_SendRemoteWakeup
  .text.Endpoint_ConfigureEndpoint_Prv
-                0x000000000000100c       0x6e obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
-                0x000000000000100c                Endpoint_ConfigureEndpoint_Prv
+                0x0000000000001000       0x6e obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+                0x0000000000001000                Endpoint_ConfigureEndpoint_Prv
  .text.Endpoint_ClearStatusStage
-                0x000000000000107a       0x42 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
-                0x000000000000107a                Endpoint_ClearStatusStage
+                0x000000000000106e       0x42 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+                0x000000000000106e                Endpoint_ClearStatusStage
  .text.Endpoint_WaitUntilReady
-                0x00000000000010bc       0x64 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
-                0x00000000000010bc                Endpoint_WaitUntilReady
+                0x00000000000010b0       0x64 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+                0x00000000000010b0                Endpoint_WaitUntilReady
  .text.USB_Disable
-                0x0000000000001120       0x34 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
-                0x0000000000001120                USB_Disable
+                0x0000000000001114       0x34 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+                0x0000000000001114                USB_Disable
  .text.USB_ResetInterface
-                0x0000000000001154       0x86 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
-                0x0000000000001154                USB_ResetInterface
+                0x0000000000001148       0x86 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+                0x0000000000001148                USB_ResetInterface
  .text.USB_Init
-                0x00000000000011da       0x18 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
-                0x00000000000011da                USB_Init
+                0x00000000000011ce       0x18 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+                0x00000000000011ce                USB_Init
  .text.USB_INT_DisableAllInterrupts
-                0x00000000000011f2       0x10 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
-                0x00000000000011f2                USB_INT_DisableAllInterrupts
+                0x00000000000011e6       0x10 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+                0x00000000000011e6                USB_INT_DisableAllInterrupts
  .text.USB_INT_ClearAllInterrupts
-                0x0000000000001202        0xa obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
-                0x0000000000001202                USB_INT_ClearAllInterrupts
+                0x00000000000011f6        0xa obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+                0x00000000000011f6                USB_INT_ClearAllInterrupts
  .text.__vector_10
-                0x000000000000120c      0x196 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
-                0x000000000000120c                __vector_10
+                0x0000000000001200      0x196 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+                0x0000000000001200                __vector_10
  .text.Endpoint_Write_Stream_LE
-                0x00000000000013a2       0xa2 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
-                0x00000000000013a2                Endpoint_Write_Stream_LE
+                0x0000000000001396       0xa2 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+                0x0000000000001396                Endpoint_Write_Stream_LE
  .text.Endpoint_Write_Control_Stream_LE
-                0x0000000000001444       0xbe obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
-                0x0000000000001444                Endpoint_Write_Control_Stream_LE
+                0x0000000000001438       0xbe obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+                0x0000000000001438                Endpoint_Write_Control_Stream_LE
  .text.Endpoint_Write_Control_PStream_LE
-                0x0000000000001502       0xc0 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
-                0x0000000000001502                Endpoint_Write_Control_PStream_LE
+                0x00000000000014f6       0xc0 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+                0x00000000000014f6                Endpoint_Write_Control_PStream_LE
  .text.USB_Device_ProcessControlRequest
-                0x00000000000015c2      0x2e0 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/DeviceStandardReq.o
-                0x00000000000015c2                USB_Device_ProcessControlRequest
+                0x00000000000015b6      0x2e0 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/DeviceStandardReq.o
+                0x00000000000015b6                USB_Device_ProcessControlRequest
  .text.USB_USBTask
-                0x00000000000018a2       0x3a obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/USBTask.o
-                0x00000000000018a2                USB_USBTask
+                0x0000000000001896       0x3a obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/USBTask.o
+                0x0000000000001896                USB_USBTask
  .text.host_set_driver
-                0x00000000000018dc        0xa obj_hhkb_lufa/common/host.o
-                0x00000000000018dc                host_set_driver
+                0x00000000000018d0        0xa obj_hhkb_lufa/common/host.o
+                0x00000000000018d0                host_set_driver
  .text.host_get_driver
-                0x00000000000018e6        0xa obj_hhkb_lufa/common/host.o
-                0x00000000000018e6                host_get_driver
+                0x00000000000018da        0xa obj_hhkb_lufa/common/host.o
+                0x00000000000018da                host_get_driver
  .text.host_keyboard_leds
-                0x00000000000018f0       0x18 obj_hhkb_lufa/common/host.o
-                0x00000000000018f0                host_keyboard_leds
+                0x00000000000018e4       0x18 obj_hhkb_lufa/common/host.o
+                0x00000000000018e4                host_keyboard_leds
  .text.host_keyboard_send
-                0x0000000000001908       0x16 obj_hhkb_lufa/common/host.o
-                0x0000000000001908                host_keyboard_send
+                0x00000000000018fc       0x16 obj_hhkb_lufa/common/host.o
+                0x00000000000018fc                host_keyboard_send
  .text.host_mouse_send
-                0x000000000000191e       0x16 obj_hhkb_lufa/common/host.o
-                0x000000000000191e                host_mouse_send
+                0x0000000000001912       0x16 obj_hhkb_lufa/common/host.o
+                0x0000000000001912                host_mouse_send
  .text.host_system_send
-                0x0000000000001934       0x2c obj_hhkb_lufa/common/host.o
-                0x0000000000001934                host_system_send
+                0x0000000000001928       0x2c obj_hhkb_lufa/common/host.o
+                0x0000000000001928                host_system_send
  .text.host_consumer_send
-                0x0000000000001960       0x2c obj_hhkb_lufa/common/host.o
-                0x0000000000001960                host_consumer_send
+                0x0000000000001954       0x2c obj_hhkb_lufa/common/host.o
+                0x0000000000001954                host_consumer_send
  .text.keyboard_init
-                0x000000000000198c        0xc obj_hhkb_lufa/common/keyboard.o
-                0x000000000000198c                keyboard_init
+                0x0000000000001980        0xc obj_hhkb_lufa/common/keyboard.o
+                0x0000000000001980                keyboard_init
  .text.keyboard_set_leds
-                0x0000000000001998        0x4 obj_hhkb_lufa/common/keyboard.o
-                0x0000000000001998                keyboard_set_leds
+                0x000000000000198c        0x4 obj_hhkb_lufa/common/keyboard.o
+                0x000000000000198c                keyboard_set_leds
  .text.keyboard_task
-                0x000000000000199c      0x146 obj_hhkb_lufa/common/keyboard.o
-                0x000000000000199c                keyboard_task
+                0x0000000000001990      0x146 obj_hhkb_lufa/common/keyboard.o
+                0x0000000000001990                keyboard_task
  .text.action_exec
-                0x0000000000001ae2       0x5c obj_hhkb_lufa/common/action.o
-                0x0000000000001ae2                action_exec
+                0x0000000000001ad6       0x5c obj_hhkb_lufa/common/action.o
+                0x0000000000001ad6                action_exec
  .text.register_code
-                0x0000000000001b3e      0x13e obj_hhkb_lufa/common/action.o
-                0x0000000000001b3e                register_code
+                0x0000000000001b32      0x13e obj_hhkb_lufa/common/action.o
+                0x0000000000001b32                register_code
  .text.unregister_code
-                0x0000000000001c7c       0x52 obj_hhkb_lufa/common/action.o
-                0x0000000000001c7c                unregister_code
+                0x0000000000001c70       0x52 obj_hhkb_lufa/common/action.o
+                0x0000000000001c70                unregister_code
  .text.register_mods
-                0x0000000000001cce        0xe obj_hhkb_lufa/common/action.o
-                0x0000000000001cce                register_mods
+                0x0000000000001cc2        0xe obj_hhkb_lufa/common/action.o
+                0x0000000000001cc2                register_mods
  .text.unregister_mods
-                0x0000000000001cdc        0xe obj_hhkb_lufa/common/action.o
-                0x0000000000001cdc                unregister_mods
+                0x0000000000001cd0        0xe obj_hhkb_lufa/common/action.o
+                0x0000000000001cd0                unregister_mods
  .text.process_action
-                0x0000000000001cea      0x668 obj_hhkb_lufa/common/action.o
-                0x0000000000001cea                process_action
+                0x0000000000001cde      0x668 obj_hhkb_lufa/common/action.o
+                0x0000000000001cde                process_action
  .text.clear_keyboard_but_mods
-                0x0000000000002352       0x24 obj_hhkb_lufa/common/action.o
-                0x0000000000002352                clear_keyboard_but_mods
+                0x0000000000002346       0x24 obj_hhkb_lufa/common/action.o
+                0x0000000000002346                clear_keyboard_but_mods
  .text.clear_keyboard
-                0x0000000000002376        0x8 obj_hhkb_lufa/common/action.o
-                0x0000000000002376                clear_keyboard
+                0x000000000000236a        0x8 obj_hhkb_lufa/common/action.o
+                0x000000000000236a                clear_keyboard
  .text.is_tap_key
-                0x000000000000237e       0x42 obj_hhkb_lufa/common/action.o
-                0x000000000000237e                is_tap_key
+                0x0000000000002372       0x42 obj_hhkb_lufa/common/action.o
+                0x0000000000002372                is_tap_key
  .text.debug_event
-                0x00000000000023c0       0x1e obj_hhkb_lufa/common/action.o
-                0x00000000000023c0                debug_event
+                0x00000000000023b4       0x1e obj_hhkb_lufa/common/action.o
+                0x00000000000023b4                debug_event
  .text.debug_record
-                0x00000000000023de       0x20 obj_hhkb_lufa/common/action.o
-                0x00000000000023de                debug_record
+                0x00000000000023d2       0x20 obj_hhkb_lufa/common/action.o
+                0x00000000000023d2                debug_record
  .text.debug_waiting_buffer
-                0x00000000000023fe       0x42 obj_hhkb_lufa/common/action_tapping.o
+                0x00000000000023f2       0x42 obj_hhkb_lufa/common/action_tapping.o
  .text.debug_tapping_key
-                0x0000000000002440       0x1c obj_hhkb_lufa/common/action_tapping.o
+                0x0000000000002434       0x1c obj_hhkb_lufa/common/action_tapping.o
  .text.waiting_buffer_scan_tap
-                0x000000000000245c       0xf0 obj_hhkb_lufa/common/action_tapping.o
+                0x0000000000002450       0xf0 obj_hhkb_lufa/common/action_tapping.o
  .text.process_tapping
-                0x000000000000254c      0x3a2 obj_hhkb_lufa/common/action_tapping.o
+                0x0000000000002540      0x3a2 obj_hhkb_lufa/common/action_tapping.o
  .text.action_tapping_process
-                0x00000000000028ee      0x16c obj_hhkb_lufa/common/action_tapping.o
-                0x00000000000028ee                action_tapping_process
+                0x00000000000028e2      0x16c obj_hhkb_lufa/common/action_tapping.o
+                0x00000000000028e2                action_tapping_process
  .text.action_macro_play
-                0x0000000000002a5a       0xfe obj_hhkb_lufa/common/action_macro.o
-                0x0000000000002a5a                action_macro_play
+                0x0000000000002a4e       0xfe obj_hhkb_lufa/common/action_macro.o
+                0x0000000000002a4e                action_macro_play
  .text.default_layer_state_set
-                0x0000000000002b58       0x14 obj_hhkb_lufa/common/action_layer.o
+                0x0000000000002b4c       0x14 obj_hhkb_lufa/common/action_layer.o
  .text.layer_state_set
-                0x0000000000002b6c       0x14 obj_hhkb_lufa/common/action_layer.o
+                0x0000000000002b60       0x14 obj_hhkb_lufa/common/action_layer.o
  .text.default_layer_debug
-                0x0000000000002b80        0x2 obj_hhkb_lufa/common/action_layer.o
-                0x0000000000002b80                default_layer_debug
+                0x0000000000002b74        0x2 obj_hhkb_lufa/common/action_layer.o
+                0x0000000000002b74                default_layer_debug
  .text.default_layer_set
-                0x0000000000002b82        0x4 obj_hhkb_lufa/common/action_layer.o
-                0x0000000000002b82                default_layer_set
+                0x0000000000002b76        0x4 obj_hhkb_lufa/common/action_layer.o
+                0x0000000000002b76                default_layer_set
  .text.default_layer_or
-                0x0000000000002b86       0x24 obj_hhkb_lufa/common/action_layer.o
-                0x0000000000002b86                default_layer_or
+                0x0000000000002b7a       0x24 obj_hhkb_lufa/common/action_layer.o
+                0x0000000000002b7a                default_layer_or
  .text.default_layer_and
-                0x0000000000002baa       0x24 obj_hhkb_lufa/common/action_layer.o
-                0x0000000000002baa                default_layer_and
+                0x0000000000002b9e       0x24 obj_hhkb_lufa/common/action_layer.o
+                0x0000000000002b9e                default_layer_and
  .text.default_layer_xor
-                0x0000000000002bce       0x24 obj_hhkb_lufa/common/action_layer.o
-                0x0000000000002bce                default_layer_xor
+                0x0000000000002bc2       0x24 obj_hhkb_lufa/common/action_layer.o
+                0x0000000000002bc2                default_layer_xor
  .text.layer_clear
-                0x0000000000002bf2        0xa obj_hhkb_lufa/common/action_layer.o
-                0x0000000000002bf2                layer_clear
+                0x0000000000002be6        0xa obj_hhkb_lufa/common/action_layer.o
+                0x0000000000002be6                layer_clear
  .text.layer_move
-                0x0000000000002bfc       0x1e obj_hhkb_lufa/common/action_layer.o
-                0x0000000000002bfc                layer_move
+                0x0000000000002bf0       0x1e obj_hhkb_lufa/common/action_layer.o
+                0x0000000000002bf0                layer_move
  .text.layer_on
-                0x0000000000002c1a       0x36 obj_hhkb_lufa/common/action_layer.o
-                0x0000000000002c1a                layer_on
+                0x0000000000002c0e       0x36 obj_hhkb_lufa/common/action_layer.o
+                0x0000000000002c0e                layer_on
  .text.layer_off
-                0x0000000000002c50       0x3e obj_hhkb_lufa/common/action_layer.o
-                0x0000000000002c50                layer_off
+                0x0000000000002c44       0x3e obj_hhkb_lufa/common/action_layer.o
+                0x0000000000002c44                layer_off
  .text.layer_invert
-                0x0000000000002c8e       0x36 obj_hhkb_lufa/common/action_layer.o
-                0x0000000000002c8e                layer_invert
+                0x0000000000002c82       0x36 obj_hhkb_lufa/common/action_layer.o
+                0x0000000000002c82                layer_invert
  .text.layer_or
-                0x0000000000002cc4       0x24 obj_hhkb_lufa/common/action_layer.o
-                0x0000000000002cc4                layer_or
+                0x0000000000002cb8       0x24 obj_hhkb_lufa/common/action_layer.o
+                0x0000000000002cb8                layer_or
  .text.layer_and
-                0x0000000000002ce8       0x24 obj_hhkb_lufa/common/action_layer.o
-                0x0000000000002ce8                layer_and
+                0x0000000000002cdc       0x24 obj_hhkb_lufa/common/action_layer.o
+                0x0000000000002cdc                layer_and
  .text.layer_xor
-                0x0000000000002d0c       0x24 obj_hhkb_lufa/common/action_layer.o
-                0x0000000000002d0c                layer_xor
+                0x0000000000002d00       0x24 obj_hhkb_lufa/common/action_layer.o
+                0x0000000000002d00                layer_xor
  .text.layer_debug
-                0x0000000000002d30        0x2 obj_hhkb_lufa/common/action_layer.o
-                0x0000000000002d30                layer_debug
+                0x0000000000002d24        0x2 obj_hhkb_lufa/common/action_layer.o
+                0x0000000000002d24                layer_debug
  .text.layer_switch_get_action
-                0x0000000000002d32       0x86 obj_hhkb_lufa/common/action_layer.o
-                0x0000000000002d32                layer_switch_get_action
- .text.add_key  0x0000000000002db8       0x7a obj_hhkb_lufa/common/action_util.o
-                0x0000000000002db8                add_key
- .text.del_key  0x0000000000002e32       0x5e obj_hhkb_lufa/common/action_util.o
-                0x0000000000002e32                del_key
+                0x0000000000002d26       0x86 obj_hhkb_lufa/common/action_layer.o
+                0x0000000000002d26                layer_switch_get_action
+ .text.add_key  0x0000000000002dac       0x7a obj_hhkb_lufa/common/action_util.o
+                0x0000000000002dac                add_key
+ .text.del_key  0x0000000000002e26       0x5e obj_hhkb_lufa/common/action_util.o
+                0x0000000000002e26                del_key
  .text.clear_keys
-                0x0000000000002e90       0x1c obj_hhkb_lufa/common/action_util.o
-                0x0000000000002e90                clear_keys
+                0x0000000000002e84       0x1c obj_hhkb_lufa/common/action_util.o
+                0x0000000000002e84                clear_keys
  .text.add_mods
-                0x0000000000002eac        0xc obj_hhkb_lufa/common/action_util.o
-                0x0000000000002eac                add_mods
+                0x0000000000002ea0        0xc obj_hhkb_lufa/common/action_util.o
+                0x0000000000002ea0                add_mods
  .text.del_mods
-                0x0000000000002eb8        0xe obj_hhkb_lufa/common/action_util.o
-                0x0000000000002eb8                del_mods
+                0x0000000000002eac        0xe obj_hhkb_lufa/common/action_util.o
+                0x0000000000002eac                del_mods
  .text.clear_mods
-                0x0000000000002ec6        0x6 obj_hhkb_lufa/common/action_util.o
-                0x0000000000002ec6                clear_mods
+                0x0000000000002eba        0x6 obj_hhkb_lufa/common/action_util.o
+                0x0000000000002eba                clear_mods
  .text.add_weak_mods
-                0x0000000000002ecc        0xc obj_hhkb_lufa/common/action_util.o
-                0x0000000000002ecc                add_weak_mods
+                0x0000000000002ec0        0xc obj_hhkb_lufa/common/action_util.o
+                0x0000000000002ec0                add_weak_mods
  .text.del_weak_mods
-                0x0000000000002ed8        0xe obj_hhkb_lufa/common/action_util.o
-                0x0000000000002ed8                del_weak_mods
+                0x0000000000002ecc        0xe obj_hhkb_lufa/common/action_util.o
+                0x0000000000002ecc                del_weak_mods
  .text.clear_weak_mods
-                0x0000000000002ee6        0x6 obj_hhkb_lufa/common/action_util.o
-                0x0000000000002ee6                clear_weak_mods
+                0x0000000000002eda        0x6 obj_hhkb_lufa/common/action_util.o
+                0x0000000000002eda                clear_weak_mods
  .text.set_oneshot_mods
-                0x0000000000002eec       0x12 obj_hhkb_lufa/common/action_util.o
-                0x0000000000002eec                set_oneshot_mods
+                0x0000000000002ee0       0x12 obj_hhkb_lufa/common/action_util.o
+                0x0000000000002ee0                set_oneshot_mods
  .text.clear_oneshot_mods
-                0x0000000000002efe        0xe obj_hhkb_lufa/common/action_util.o
-                0x0000000000002efe                clear_oneshot_mods
+                0x0000000000002ef2        0xe obj_hhkb_lufa/common/action_util.o
+                0x0000000000002ef2                clear_oneshot_mods
  .text.has_anykey
-                0x0000000000002f0c       0x26 obj_hhkb_lufa/common/action_util.o
-                0x0000000000002f0c                has_anykey
+                0x0000000000002f00       0x26 obj_hhkb_lufa/common/action_util.o
+                0x0000000000002f00                has_anykey
  .text.send_keyboard_report
-                0x0000000000002f32       0x9a obj_hhkb_lufa/common/action_util.o
-                0x0000000000002f32                send_keyboard_report
+                0x0000000000002f26       0x9a obj_hhkb_lufa/common/action_util.o
+                0x0000000000002f26                send_keyboard_report
  .text.keycode_to_action
-                0x0000000000002fcc      0x14e obj_hhkb_lufa/common/keymap.o
+                0x0000000000002fc0      0x14e obj_hhkb_lufa/common/keymap.o
  .text.action_for_key
-                0x000000000000311a       0xf4 obj_hhkb_lufa/common/keymap.o
-                0x000000000000311a                action_for_key
+                0x000000000000310e       0xf4 obj_hhkb_lufa/common/keymap.o
+                0x000000000000310e                action_for_key
  .text.action_get_macro
-                0x000000000000320e        0x6 obj_hhkb_lufa/common/keymap.o
-                0x000000000000320e                action_get_macro
+                0x0000000000003202        0x6 obj_hhkb_lufa/common/keymap.o
+                0x0000000000003202                action_get_macro
  .text.timer_init
-                0x0000000000003214       0x12 obj_hhkb_lufa/common/timer.o
-                0x0000000000003214                timer_init
+                0x0000000000003208       0x12 obj_hhkb_lufa/common/timer.o
+                0x0000000000003208                timer_init
  .text.timer_read
-                0x0000000000003226       0x1a obj_hhkb_lufa/common/timer.o
-                0x0000000000003226                timer_read
+                0x000000000000321a       0x1a obj_hhkb_lufa/common/timer.o
+                0x000000000000321a                timer_read
  .text.timer_elapsed
-                0x0000000000003240       0x5c obj_hhkb_lufa/common/timer.o
-                0x0000000000003240                timer_elapsed
+                0x0000000000003234       0x5c obj_hhkb_lufa/common/timer.o
+                0x0000000000003234                timer_elapsed
  .text.__vector_21
-                0x000000000000329c       0x4a obj_hhkb_lufa/common/timer.o
-                0x000000000000329c                __vector_21
+                0x0000000000003290       0x4a obj_hhkb_lufa/common/timer.o
+                0x0000000000003290                __vector_21
  .text.bootloader_jump
-                0x00000000000032e6       0x46 obj_hhkb_lufa/common/bootloader.o
-                0x00000000000032e6                bootloader_jump
+                0x00000000000032da       0x46 obj_hhkb_lufa/common/bootloader.o
+                0x00000000000032da                bootloader_jump
  .text.suspend_power_down
-                0x000000000000332c       0x44 obj_hhkb_lufa/common/suspend.o
-                0x000000000000332c                suspend_power_down
+                0x0000000000003320       0x44 obj_hhkb_lufa/common/suspend.o
+                0x0000000000003320                suspend_power_down
  .text.suspend_wakeup_condition
-                0x0000000000003370       0x20 obj_hhkb_lufa/common/suspend.o
-                0x0000000000003370                suspend_wakeup_condition
+                0x0000000000003364       0x20 obj_hhkb_lufa/common/suspend.o
+                0x0000000000003364                suspend_wakeup_condition
  .text.suspend_wakeup_init
-                0x0000000000003390        0x4 obj_hhkb_lufa/common/suspend.o
-                0x0000000000003390                suspend_wakeup_init
+                0x0000000000003384        0x4 obj_hhkb_lufa/common/suspend.o
+                0x0000000000003384                suspend_wakeup_init
  .text.__vector_12
-                0x0000000000003394       0x14 obj_hhkb_lufa/common/suspend.o
-                0x0000000000003394                __vector_12
- .text.bitrev   0x00000000000033a8       0x24 obj_hhkb_lufa/common/util.o
-                0x00000000000033a8                bitrev
+                0x0000000000003388       0x14 obj_hhkb_lufa/common/suspend.o
+                0x0000000000003388                __vector_12
+ .text.bitrev   0x000000000000339c       0x24 obj_hhkb_lufa/common/util.o
+                0x000000000000339c                bitrev
  .text.scan_keycode
-                0x00000000000033cc       0x66 obj_hhkb_lufa/common/bootmagic.o
+                0x00000000000033c0       0x66 obj_hhkb_lufa/common/bootmagic.o
  .text.bootmagic_scan_keycode
-                0x0000000000003432       0x1c obj_hhkb_lufa/common/bootmagic.o
-                0x0000000000003432                bootmagic_scan_keycode
+                0x0000000000003426       0x1c obj_hhkb_lufa/common/bootmagic.o
+                0x0000000000003426                bootmagic_scan_keycode
  .text.bootmagic
-                0x000000000000344e      0x256 obj_hhkb_lufa/common/bootmagic.o
-                0x000000000000344e                bootmagic
+                0x0000000000003442      0x256 obj_hhkb_lufa/common/bootmagic.o
+                0x0000000000003442                bootmagic
  .text.eeconfig_init
-                0x00000000000036a4       0x34 obj_hhkb_lufa/common/eeconfig.o
-                0x00000000000036a4                eeconfig_init
+                0x0000000000003698       0x34 obj_hhkb_lufa/common/eeconfig.o
+                0x0000000000003698                eeconfig_init
  .text.eeconfig_is_enabled
-                0x00000000000036d8       0x16 obj_hhkb_lufa/common/eeconfig.o
-                0x00000000000036d8                eeconfig_is_enabled
+                0x00000000000036cc       0x16 obj_hhkb_lufa/common/eeconfig.o
+                0x00000000000036cc                eeconfig_is_enabled
  .text.eeconfig_read_debug
-                0x00000000000036ee        0x8 obj_hhkb_lufa/common/eeconfig.o
-                0x00000000000036ee                eeconfig_read_debug
+                0x00000000000036e2        0x8 obj_hhkb_lufa/common/eeconfig.o
+                0x00000000000036e2                eeconfig_read_debug
  .text.eeconfig_write_debug
-                0x00000000000036f6        0xa obj_hhkb_lufa/common/eeconfig.o
-                0x00000000000036f6                eeconfig_write_debug
+                0x00000000000036ea        0xa obj_hhkb_lufa/common/eeconfig.o
+                0x00000000000036ea                eeconfig_write_debug
  .text.eeconfig_read_default_layer
-                0x0000000000003700        0x8 obj_hhkb_lufa/common/eeconfig.o
-                0x0000000000003700                eeconfig_read_default_layer
+                0x00000000000036f4        0x8 obj_hhkb_lufa/common/eeconfig.o
+                0x00000000000036f4                eeconfig_read_default_layer
  .text.eeconfig_write_default_layer
-                0x0000000000003708        0xa obj_hhkb_lufa/common/eeconfig.o
-                0x0000000000003708                eeconfig_write_default_layer
+                0x00000000000036fc        0xa obj_hhkb_lufa/common/eeconfig.o
+                0x00000000000036fc                eeconfig_write_default_layer
  .text.eeconfig_read_keymap
-                0x0000000000003712        0x8 obj_hhkb_lufa/common/eeconfig.o
-                0x0000000000003712                eeconfig_read_keymap
+                0x0000000000003706        0x8 obj_hhkb_lufa/common/eeconfig.o
+                0x0000000000003706                eeconfig_read_keymap
  .text.eeconfig_write_keymap
-                0x000000000000371a        0xa obj_hhkb_lufa/common/eeconfig.o
-                0x000000000000371a                eeconfig_write_keymap
+                0x000000000000370e        0xa obj_hhkb_lufa/common/eeconfig.o
+                0x000000000000370e                eeconfig_write_keymap
  .text.move_unit
-                0x0000000000003724       0x90 obj_hhkb_lufa/common/mousekey.o
+                0x0000000000003718       0x90 obj_hhkb_lufa/common/mousekey.o
  .text.wheel_unit
-                0x00000000000037b4       0x72 obj_hhkb_lufa/common/mousekey.o
+                0x00000000000037a8       0x72 obj_hhkb_lufa/common/mousekey.o
  .text.mousekey_on
-                0x0000000000003826       0xd0 obj_hhkb_lufa/common/mousekey.o
-                0x0000000000003826                mousekey_on
+                0x000000000000381a       0xd0 obj_hhkb_lufa/common/mousekey.o
+                0x000000000000381a                mousekey_on
  .text.mousekey_off
-                0x00000000000038f6      0x10e obj_hhkb_lufa/common/mousekey.o
-                0x00000000000038f6                mousekey_off
+                0x00000000000038ea      0x10e obj_hhkb_lufa/common/mousekey.o
+                0x00000000000038ea                mousekey_off
  .text.mousekey_send
-                0x0000000000003a04       0x16 obj_hhkb_lufa/common/mousekey.o
-                0x0000000000003a04                mousekey_send
+                0x00000000000039f8       0x16 obj_hhkb_lufa/common/mousekey.o
+                0x00000000000039f8                mousekey_send
  .text.mousekey_task
-                0x0000000000003a1a      0x142 obj_hhkb_lufa/common/mousekey.o
-                0x0000000000003a1a                mousekey_task
+                0x0000000000003a0e      0x142 obj_hhkb_lufa/common/mousekey.o
+                0x0000000000003a0e                mousekey_task
  .text.mousekey_clear
-                0x0000000000003b5c       0x18 obj_hhkb_lufa/common/mousekey.o
-                0x0000000000003b5c                mousekey_clear
+                0x0000000000003b50       0x18 obj_hhkb_lufa/common/mousekey.o
+                0x0000000000003b50                mousekey_clear
  .text.mousekey_param_inc
-                0x0000000000003b74       0xee obj_hhkb_lufa/common/command.o
+                0x0000000000003b68       0xee obj_hhkb_lufa/common/command.o
  .text.mousekey_param_dec
-                0x0000000000003c62       0xa4 obj_hhkb_lufa/common/command.o
+                0x0000000000003c56       0xa4 obj_hhkb_lufa/common/command.o
  .text.switch_default_layer
-                0x0000000000003d06       0x22 obj_hhkb_lufa/common/command.o
+                0x0000000000003cfa       0x22 obj_hhkb_lufa/common/command.o
  .text.command_extra
-                0x0000000000003d28        0x4 obj_hhkb_lufa/common/command.o
-                0x0000000000003d28                command_extra
+                0x0000000000003d1c        0x4 obj_hhkb_lufa/common/command.o
+                0x0000000000003d1c                command_extra
  .text.command_proc
-                0x0000000000003d2c      0x2bc obj_hhkb_lufa/common/command.o
-                0x0000000000003d2c                command_proc
+                0x0000000000003d20      0x2bc obj_hhkb_lufa/common/command.o
+                0x0000000000003d20                command_proc
  .text.avr-libc.fplib
-                0x0000000000003fe8        0xa /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(fixsfsi.o)
-                0x0000000000003fe8                __fixsfsi
+                0x0000000000003fdc        0xa /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(fixsfsi.o)
+                0x0000000000003fdc                __fixsfsi
  .text.avr-libc.fplib
-                0x0000000000003ff2       0x58 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(fixunssfsi.o)
-                0x0000000000003ff2                __fixunssfsi
+                0x0000000000003fe6       0x58 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(fixunssfsi.o)
+                0x0000000000003fe6                __fixunssfsi
  .text.avr-libc.fplib
-                0x000000000000404a       0x7a /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(floatsisf.o)
-                0x000000000000404a                __floatunsisf
-                0x000000000000404e                __floatsisf
+                0x000000000000403e       0x7a /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(floatsisf.o)
+                0x000000000000403e                __floatunsisf
+                0x0000000000004042                __floatsisf
  .text.avr-libc.fplib
-                0x00000000000040c4       0x44 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(fp_split3.o)
-                0x00000000000040c4                __fp_split3
-                0x00000000000040d4                __fp_splitA
+                0x00000000000040b8       0x44 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(fp_split3.o)
+                0x00000000000040b8                __fp_split3
+                0x00000000000040c8                __fp_splitA
  .text.avr-libc.fplib
-                0x0000000000004108        0xe /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(fp_zero.o)
-                0x0000000000004108                __fp_zero
-                0x000000000000410a                __fp_szero
+                0x00000000000040fc        0xe /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(fp_zero.o)
+                0x00000000000040fc                __fp_zero
+                0x00000000000040fe                __fp_szero
  .text.avr-libc.fplib
-                0x0000000000004116        0x4 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(mulsf3.o)
-                0x0000000000004116                __mulsf3
+                0x000000000000410a        0x4 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(mulsf3.o)
+                0x000000000000410a                __mulsf3
  .text.avr-libc.fplib
-                0x000000000000411a       0xc2 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(mulsf3x.o)
-                0x000000000000412e                __mulsf3x
-                0x0000000000004132                __mulsf3_pse
+                0x000000000000410e       0xc2 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(mulsf3x.o)
+                0x0000000000004122                __mulsf3x
+                0x0000000000004126                __mulsf3_pse
  .text.avr-libc.fplib
-                0x00000000000041dc        0xc /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(fp_inf.o)
-                0x00000000000041dc                __fp_inf
+                0x00000000000041d0        0xc /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(fp_inf.o)
+                0x00000000000041d0                __fp_inf
  .text.avr-libc.fplib
-                0x00000000000041e8        0x6 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(fp_nan.o)
-                0x00000000000041e8                __fp_nan
+                0x00000000000041dc        0x6 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(fp_nan.o)
+                0x00000000000041dc                __fp_nan
  .text.avr-libc.fplib
-                0x00000000000041ee        0xe /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(fp_pscA.o)
-                0x00000000000041ee                __fp_pscA
+                0x00000000000041e2        0xe /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(fp_pscA.o)
+                0x00000000000041e2                __fp_pscA
  .text.avr-libc.fplib
-                0x00000000000041fc        0xe /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(fp_pscB.o)
-                0x00000000000041fc                __fp_pscB
+                0x00000000000041f0        0xe /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(fp_pscB.o)
+                0x00000000000041f0                __fp_pscB
  .text.avr-libc.fplib
-                0x000000000000420a       0x22 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(fp_round.o)
-                0x000000000000420a                __fp_round
+                0x00000000000041fe       0x22 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libm.a(fp_round.o)
+                0x00000000000041fe                __fp_round
  .text.libgcc.div
-                0x000000000000422c       0x28 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_divmodhi4.o)
-                0x000000000000422c                __divmodhi4
-                0x000000000000422c                _div
- .text.libgcc   0x0000000000004254        0xc /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_tablejump.o)
-                0x0000000000004254                __tablejump2__
-                0x0000000000004258                __tablejump__
+                0x0000000000004220       0x28 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_divmodhi4.o)
+                0x0000000000004220                __divmodhi4
+                0x0000000000004220                _div
+ .text.libgcc   0x0000000000004248        0xc /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_tablejump.o)
+                0x0000000000004248                __tablejump2__
+                0x000000000000424c                __tablejump__
  .text.libgcc.div
-                0x0000000000004260       0x28 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_udivmodhi4.o)
-                0x0000000000004260                __udivmodhi4
+                0x0000000000004254       0x28 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_udivmodhi4.o)
+                0x0000000000004254                __udivmodhi4
  .text.avr-libc
-                0x0000000000004288       0x10 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libc.a(eerd_byte_atmega32u4.o)
-                0x0000000000004288                __eerd_byte_m32u4
+                0x000000000000427c       0x10 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libc.a(eerd_byte_atmega32u4.o)
+                0x000000000000427c                __eerd_byte_m32u4
  .text.avr-libc
-                0x0000000000004298        0xc /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libc.a(eerd_word_atmega32u4.o)
-                0x0000000000004298                __eerd_word_m32u4
+                0x000000000000428c        0xc /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libc.a(eerd_word_atmega32u4.o)
+                0x000000000000428c                __eerd_word_m32u4
  .text.avr-libc
-                0x00000000000042a4       0x1c /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libc.a(eewr_byte_atmega32u4.o)
-                0x00000000000042a4                __eewr_byte_m32u4
-                0x00000000000042a6                __eewr_r18_m32u4
+                0x0000000000004298       0x1c /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libc.a(eewr_byte_atmega32u4.o)
+                0x0000000000004298                __eewr_byte_m32u4
+                0x000000000000429a                __eewr_r18_m32u4
  .text.avr-libc
-                0x00000000000042c0        0xa /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libc.a(eewr_word_atmega32u4.o)
-                0x00000000000042c0                __eewr_word_m32u4
+                0x00000000000042b4        0xa /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libc.a(eewr_word_atmega32u4.o)
+                0x00000000000042b4                __eewr_word_m32u4
  .text.avr-libc
-                0x00000000000042ca       0x20 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libc.a(eerd_block_atmega32u4.o)
-                0x00000000000042ca                __eerd_block_m32u4
-                0x00000000000042ce                __eerd_blraw_m32u4
-                0x00000000000042ea                . = ALIGN (0x2)
+                0x00000000000042be       0x20 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/libc.a(eerd_block_atmega32u4.o)
+                0x00000000000042be                __eerd_block_m32u4
+                0x00000000000042c2                __eerd_blraw_m32u4
+                0x00000000000042de                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000000000042ea        0x0 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_exit.o)
-                0x00000000000042ea                exit
-                0x00000000000042ea                _exit
+ .fini9         0x00000000000042de        0x0 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_exit.o)
+                0x00000000000042de                exit
+                0x00000000000042de                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -1090,11 +1090,11 @@ LOAD /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000000000042ea        0x4 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_exit.o)
+ .fini0         0x00000000000042de        0x4 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_exit.o)
  *(.fini0)
-                0x00000000000042ee                _etext = .
+                0x00000000000042e2                _etext = .
 
-.data           0x0000000000800100       0x32 load address 0x00000000000042ee
+.data           0x0000000000800100       0x32 load address 0x00000000000042e2
                 0x0000000000800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x0000000000800100        0x0 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/lib/avr5/crtm32u4.o
@@ -1215,8 +1215,8 @@ LOAD /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a
                 0x00000000008001ed                USB_DeviceState
                 0x00000000008001ee                USB_ControlRequest
                 0x00000000008001f6                PROVIDE (__bss_end, .)
-                0x00000000000042ee                __data_load_start = LOADADDR (.data)
-                0x0000000000004320                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000000000042e2                __data_load_start = LOADADDR (.data)
+                0x0000000000004314                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00000000008001f6        0x4
                 0x00000000008001f6                PROVIDE (__noinit_start, .)
@@ -1447,51 +1447,51 @@ LOAD /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0xfdae
+.debug_info     0x0000000000000000     0xfd88
  *(.debug_info)
- .debug_info    0x0000000000000000      0xcbb obj_hhkb_lufa/keymap_jp.o
- .debug_info    0x0000000000000cbb      0x720 obj_hhkb_lufa/keymap_common.o
- .debug_info    0x00000000000013db      0x5b1 obj_hhkb_lufa/matrix.o
- .debug_info    0x000000000000198c       0x91 obj_hhkb_lufa/led.o
- .debug_info    0x0000000000001a1d      0xffa obj_hhkb_lufa/protocol/lufa/lufa.o
- .debug_info    0x0000000000002a17      0x7bc obj_hhkb_lufa/protocol/lufa/descriptor.o
- .debug_info    0x00000000000031d3       0xd2 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
- .debug_info    0x00000000000032a5      0x61b obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
- .debug_info    0x00000000000038c0       0x56 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Host_AVR8.o
- .debug_info    0x0000000000003916       0x56 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Pipe_AVR8.o
- .debug_info    0x000000000000396c      0x4bd obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
- .debug_info    0x0000000000003e29      0x673 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
- .debug_info    0x000000000000449c     0x17ad obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
- .debug_info    0x0000000000005c49       0x56 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/PipeStream_AVR8.o
- .debug_info    0x0000000000005c9f      0x3c9 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/ConfigDescriptors.o
- .debug_info    0x0000000000006068      0xa7f obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/DeviceStandardReq.o
- .debug_info    0x0000000000006ae7       0x78 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/Events.o
- .debug_info    0x0000000000006b5f      0x26f obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/USBTask.o
- .debug_info    0x0000000000006dce      0x738 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Class/Common/HIDParser.o
- .debug_info    0x0000000000007506      0x4bb obj_hhkb_lufa/common/host.o
- .debug_info    0x00000000000079c1      0x500 obj_hhkb_lufa/common/keyboard.o
- .debug_info    0x0000000000007ec1     0x1643 obj_hhkb_lufa/common/action.o
- .debug_info    0x0000000000009504      0xf27 obj_hhkb_lufa/common/action_tapping.o
- .debug_info    0x000000000000a42b      0x95a obj_hhkb_lufa/common/action_macro.o
- .debug_info    0x000000000000ad85      0x76b obj_hhkb_lufa/common/action_layer.o
- .debug_info    0x000000000000b4f0      0x65d obj_hhkb_lufa/common/action_util.o
- .debug_info    0x000000000000bb4d      0xecc obj_hhkb_lufa/common/keymap.o
- .debug_info    0x000000000000ca19      0x208 obj_hhkb_lufa/common/timer.o
- .debug_info    0x000000000000cc21       0x56 obj_hhkb_lufa/common/print.o
- .debug_info    0x000000000000cc77       0xfc obj_hhkb_lufa/common/debug.o
- .debug_info    0x000000000000cd73      0x1a0 obj_hhkb_lufa/common/bootloader.o
- .debug_info    0x000000000000cf13      0x15e obj_hhkb_lufa/common/suspend.o
- .debug_info    0x000000000000d071      0x29b obj_hhkb_lufa/common/util.o
- .debug_info    0x000000000000d30c      0xec9 obj_hhkb_lufa/common/bootmagic.o
- .debug_info    0x000000000000e1d5      0x3cf obj_hhkb_lufa/common/eeconfig.o
- .debug_info    0x000000000000e5a4      0x631 obj_hhkb_lufa/common/mousekey.o
- .debug_info    0x000000000000ebd5      0xe85 obj_hhkb_lufa/common/command.o
- .debug_info    0x000000000000fa5a       0x8e /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_divmodhi4.o)
- .debug_info    0x000000000000fae8       0x8e /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_exit.o)
- .debug_info    0x000000000000fb76       0x8e /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_tablejump.o)
- .debug_info    0x000000000000fc04       0x8e /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_copy_data.o)
- .debug_info    0x000000000000fc92       0x8e /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_clear_bss.o)
- .debug_info    0x000000000000fd20       0x8e /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_udivmodhi4.o)
+ .debug_info    0x0000000000000000      0xc95 obj_hhkb_lufa/keymap_jp.o
+ .debug_info    0x0000000000000c95      0x720 obj_hhkb_lufa/keymap_common.o
+ .debug_info    0x00000000000013b5      0x5b1 obj_hhkb_lufa/matrix.o
+ .debug_info    0x0000000000001966       0x91 obj_hhkb_lufa/led.o
+ .debug_info    0x00000000000019f7      0xffa obj_hhkb_lufa/protocol/lufa/lufa.o
+ .debug_info    0x00000000000029f1      0x7bc obj_hhkb_lufa/protocol/lufa/descriptor.o
+ .debug_info    0x00000000000031ad       0xd2 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
+ .debug_info    0x000000000000327f      0x61b obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+ .debug_info    0x000000000000389a       0x56 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Host_AVR8.o
+ .debug_info    0x00000000000038f0       0x56 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Pipe_AVR8.o
+ .debug_info    0x0000000000003946      0x4bd obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+ .debug_info    0x0000000000003e03      0x673 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+ .debug_info    0x0000000000004476     0x17ad obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+ .debug_info    0x0000000000005c23       0x56 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/PipeStream_AVR8.o
+ .debug_info    0x0000000000005c79      0x3c9 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/ConfigDescriptors.o
+ .debug_info    0x0000000000006042      0xa7f obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/DeviceStandardReq.o
+ .debug_info    0x0000000000006ac1       0x78 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/Events.o
+ .debug_info    0x0000000000006b39      0x26f obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/USBTask.o
+ .debug_info    0x0000000000006da8      0x738 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Class/Common/HIDParser.o
+ .debug_info    0x00000000000074e0      0x4bb obj_hhkb_lufa/common/host.o
+ .debug_info    0x000000000000799b      0x500 obj_hhkb_lufa/common/keyboard.o
+ .debug_info    0x0000000000007e9b     0x1643 obj_hhkb_lufa/common/action.o
+ .debug_info    0x00000000000094de      0xf27 obj_hhkb_lufa/common/action_tapping.o
+ .debug_info    0x000000000000a405      0x95a obj_hhkb_lufa/common/action_macro.o
+ .debug_info    0x000000000000ad5f      0x76b obj_hhkb_lufa/common/action_layer.o
+ .debug_info    0x000000000000b4ca      0x65d obj_hhkb_lufa/common/action_util.o
+ .debug_info    0x000000000000bb27      0xecc obj_hhkb_lufa/common/keymap.o
+ .debug_info    0x000000000000c9f3      0x208 obj_hhkb_lufa/common/timer.o
+ .debug_info    0x000000000000cbfb       0x56 obj_hhkb_lufa/common/print.o
+ .debug_info    0x000000000000cc51       0xfc obj_hhkb_lufa/common/debug.o
+ .debug_info    0x000000000000cd4d      0x1a0 obj_hhkb_lufa/common/bootloader.o
+ .debug_info    0x000000000000ceed      0x15e obj_hhkb_lufa/common/suspend.o
+ .debug_info    0x000000000000d04b      0x29b obj_hhkb_lufa/common/util.o
+ .debug_info    0x000000000000d2e6      0xec9 obj_hhkb_lufa/common/bootmagic.o
+ .debug_info    0x000000000000e1af      0x3cf obj_hhkb_lufa/common/eeconfig.o
+ .debug_info    0x000000000000e57e      0x631 obj_hhkb_lufa/common/mousekey.o
+ .debug_info    0x000000000000ebaf      0xe85 obj_hhkb_lufa/common/command.o
+ .debug_info    0x000000000000fa34       0x8e /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_divmodhi4.o)
+ .debug_info    0x000000000000fac2       0x8e /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_exit.o)
+ .debug_info    0x000000000000fb50       0x8e /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_tablejump.o)
+ .debug_info    0x000000000000fbde       0x8e /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_copy_data.o)
+ .debug_info    0x000000000000fc6c       0x8e /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_clear_bss.o)
+ .debug_info    0x000000000000fcfa       0x8e /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_udivmodhi4.o)
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev   0x0000000000000000     0x3bd1
@@ -1540,52 +1540,52 @@ LOAD /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a
  .debug_abbrev  0x0000000000003ba9       0x14 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_clear_bss.o)
  .debug_abbrev  0x0000000000003bbd       0x14 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_udivmodhi4.o)
 
-.debug_line     0x0000000000000000     0x56ab
+.debug_line     0x0000000000000000     0x56a9
  *(.debug_line)
- .debug_line    0x0000000000000000      0x142 obj_hhkb_lufa/keymap_jp.o
- .debug_line    0x0000000000000142      0x144 obj_hhkb_lufa/keymap_common.o
- .debug_line    0x0000000000000286      0x246 obj_hhkb_lufa/matrix.o
- .debug_line    0x00000000000004cc       0x8f obj_hhkb_lufa/led.o
- .debug_line    0x000000000000055b      0x67f obj_hhkb_lufa/protocol/lufa/lufa.o
- .debug_line    0x0000000000000bda      0x21a obj_hhkb_lufa/protocol/lufa/descriptor.o
- .debug_line    0x0000000000000df4      0x154 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
- .debug_line    0x0000000000000f48      0x3ff obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
- .debug_line    0x0000000000001347       0x1d obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Host_AVR8.o
- .debug_line    0x0000000000001364       0x1d obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Pipe_AVR8.o
- .debug_line    0x0000000000001381      0x2ba obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
- .debug_line    0x000000000000163b      0x432 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
- .debug_line    0x0000000000001a6d      0xd00 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
- .debug_line    0x000000000000276d       0x1d obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/PipeStream_AVR8.o
- .debug_line    0x000000000000278a      0x1b6 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/ConfigDescriptors.o
- .debug_line    0x0000000000002940      0x3aa obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/DeviceStandardReq.o
- .debug_line    0x0000000000002cea       0x6e obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/Events.o
- .debug_line    0x0000000000002d58        0x0 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/HostStandardReq.o
- .debug_line    0x0000000000002d58      0x1b9 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/USBTask.o
- .debug_line    0x0000000000002f11      0x26d obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Class/Common/HIDParser.o
- .debug_line    0x000000000000317e      0x19b obj_hhkb_lufa/common/host.o
- .debug_line    0x0000000000003319      0x1ab obj_hhkb_lufa/common/keyboard.o
- .debug_line    0x00000000000034c4      0x452 obj_hhkb_lufa/common/action.o
- .debug_line    0x0000000000003916      0x2ac obj_hhkb_lufa/common/action_tapping.o
- .debug_line    0x0000000000003bc2      0x1b3 obj_hhkb_lufa/common/action_macro.o
- .debug_line    0x0000000000003d75      0x1ea obj_hhkb_lufa/common/action_layer.o
- .debug_line    0x0000000000003f5f      0x2ae obj_hhkb_lufa/common/action_util.o
- .debug_line    0x000000000000420d      0x206 obj_hhkb_lufa/common/keymap.o
- .debug_line    0x0000000000004413      0x13b obj_hhkb_lufa/common/timer.o
- .debug_line    0x000000000000454e       0x1d obj_hhkb_lufa/common/print.o
- .debug_line    0x000000000000456b       0x9d obj_hhkb_lufa/common/debug.o
- .debug_line    0x0000000000004608      0x1ba obj_hhkb_lufa/common/bootloader.o
- .debug_line    0x00000000000047c2       0xf4 obj_hhkb_lufa/common/suspend.o
- .debug_line    0x00000000000048b6      0x1ab obj_hhkb_lufa/common/util.o
- .debug_line    0x0000000000004a61      0x26f obj_hhkb_lufa/common/bootmagic.o
- .debug_line    0x0000000000004cd0      0x18b obj_hhkb_lufa/common/eeconfig.o
- .debug_line    0x0000000000004e5b      0x32f obj_hhkb_lufa/common/mousekey.o
- .debug_line    0x000000000000518a      0x2c9 obj_hhkb_lufa/common/command.o
- .debug_line    0x0000000000005453       0x6c /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_divmodhi4.o)
- .debug_line    0x00000000000054bf       0x5b /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_exit.o)
- .debug_line    0x000000000000551a       0x5f /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_tablejump.o)
- .debug_line    0x0000000000005579       0x64 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_copy_data.o)
- .debug_line    0x00000000000055dd       0x61 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_clear_bss.o)
- .debug_line    0x000000000000563e       0x6d /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_udivmodhi4.o)
+ .debug_line    0x0000000000000000      0x140 obj_hhkb_lufa/keymap_jp.o
+ .debug_line    0x0000000000000140      0x144 obj_hhkb_lufa/keymap_common.o
+ .debug_line    0x0000000000000284      0x246 obj_hhkb_lufa/matrix.o
+ .debug_line    0x00000000000004ca       0x8f obj_hhkb_lufa/led.o
+ .debug_line    0x0000000000000559      0x67f obj_hhkb_lufa/protocol/lufa/lufa.o
+ .debug_line    0x0000000000000bd8      0x21a obj_hhkb_lufa/protocol/lufa/descriptor.o
+ .debug_line    0x0000000000000df2      0x154 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Device_AVR8.o
+ .debug_line    0x0000000000000f46      0x3ff obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Endpoint_AVR8.o
+ .debug_line    0x0000000000001345       0x1d obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Host_AVR8.o
+ .debug_line    0x0000000000001362       0x1d obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/Pipe_AVR8.o
+ .debug_line    0x000000000000137f      0x2ba obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBController_AVR8.o
+ .debug_line    0x0000000000001639      0x432 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/USBInterrupt_AVR8.o
+ .debug_line    0x0000000000001a6b      0xd00 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/EndpointStream_AVR8.o
+ .debug_line    0x000000000000276b       0x1d obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/AVR8/PipeStream_AVR8.o
+ .debug_line    0x0000000000002788      0x1b6 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/ConfigDescriptors.o
+ .debug_line    0x000000000000293e      0x3aa obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/DeviceStandardReq.o
+ .debug_line    0x0000000000002ce8       0x6e obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/Events.o
+ .debug_line    0x0000000000002d56        0x0 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/HostStandardReq.o
+ .debug_line    0x0000000000002d56      0x1b9 obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/USBTask.o
+ .debug_line    0x0000000000002f0f      0x26d obj_hhkb_lufa/protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Class/Common/HIDParser.o
+ .debug_line    0x000000000000317c      0x19b obj_hhkb_lufa/common/host.o
+ .debug_line    0x0000000000003317      0x1ab obj_hhkb_lufa/common/keyboard.o
+ .debug_line    0x00000000000034c2      0x452 obj_hhkb_lufa/common/action.o
+ .debug_line    0x0000000000003914      0x2ac obj_hhkb_lufa/common/action_tapping.o
+ .debug_line    0x0000000000003bc0      0x1b3 obj_hhkb_lufa/common/action_macro.o
+ .debug_line    0x0000000000003d73      0x1ea obj_hhkb_lufa/common/action_layer.o
+ .debug_line    0x0000000000003f5d      0x2ae obj_hhkb_lufa/common/action_util.o
+ .debug_line    0x000000000000420b      0x206 obj_hhkb_lufa/common/keymap.o
+ .debug_line    0x0000000000004411      0x13b obj_hhkb_lufa/common/timer.o
+ .debug_line    0x000000000000454c       0x1d obj_hhkb_lufa/common/print.o
+ .debug_line    0x0000000000004569       0x9d obj_hhkb_lufa/common/debug.o
+ .debug_line    0x0000000000004606      0x1ba obj_hhkb_lufa/common/bootloader.o
+ .debug_line    0x00000000000047c0       0xf4 obj_hhkb_lufa/common/suspend.o
+ .debug_line    0x00000000000048b4      0x1ab obj_hhkb_lufa/common/util.o
+ .debug_line    0x0000000000004a5f      0x26f obj_hhkb_lufa/common/bootmagic.o
+ .debug_line    0x0000000000004cce      0x18b obj_hhkb_lufa/common/eeconfig.o
+ .debug_line    0x0000000000004e59      0x32f obj_hhkb_lufa/common/mousekey.o
+ .debug_line    0x0000000000005188      0x2c9 obj_hhkb_lufa/common/command.o
+ .debug_line    0x0000000000005451       0x6c /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_divmodhi4.o)
+ .debug_line    0x00000000000054bd       0x5b /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_exit.o)
+ .debug_line    0x0000000000005518       0x5f /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_tablejump.o)
+ .debug_line    0x0000000000005577       0x64 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_copy_data.o)
+ .debug_line    0x00000000000055db       0x61 /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_clear_bss.o)
+ .debug_line    0x000000000000563c       0x6d /usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/avr5/libgcc.a(_udivmodhi4.o)
 
 .debug_frame    0x0000000000000000     0x17c4
  *(.debug_frame)
