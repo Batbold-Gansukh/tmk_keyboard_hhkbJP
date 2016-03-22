@@ -26,11 +26,11 @@
   12:keymap_jp.c   **** 
   13:keymap_jp.c   ****     /* Layer 0: Default Layer */
   14:keymap_jp.c   ****     [0] = \
-  15:keymap_jp.c   ****     KEYMAP_JP(ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, GRV,BSPC, \
-  16:keymap_jp.c   ****               TAB, Q,   W,   F,   P,   G,   J,   L,   U,   Y,   SCLN,   LBRC,RBRC, \
-  17:keymap_jp.c   ****               LGUI,A,   R,   S,   T,   D,   H,   N,   E,   I,   O,QUOT,BSLS,ENT, \
-  18:keymap_jp.c   ****               LSFT,Z,   X,   C,   V,   B,   K,   M,   COMM,DOT, SLSH,RO,  UP,  FN8, \
-  19:keymap_jp.c   ****               FN1, ZKHK,LCTL,LALT,FN2,     SPC,      FN9,KANA,RALT,FN1, LEFT,DOWN,RGHT),
+  15:keymap_jp.c   ****     KEYMAP_JP(ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,    MINS, EQL, GRV,BSPC, \
+  16:keymap_jp.c   ****               TAB, Q,   W,   F,   P,   G,   J,   L,   U,   Y,   SCLN, LBRC, RBRC, \
+  17:keymap_jp.c   ****               LGUI,A,   R,   S,   T,   D,   H,   N,   E,   I,   O,    QUOT, BSLS,ENT, \
+  18:keymap_jp.c   ****               LSFT,Z,   X,   C,   V,   B,   K,   M,   COMM,DOT, SLSH, RSFT, UP,  FN8, \
+  19:keymap_jp.c   ****               LCTL,ZKHK,LCTL,LALT,FN2,     SPC,       FN9 ,RCTL,RALT, FN1,  LEFT,DOWN,RGHT),
   20:keymap_jp.c   **** 
   21:keymap_jp.c   ****     /* Layer 1: HHKB mode (HHKB Fn)
   22:keymap_jp.c   ****      * ,-----------------------------------------------------------.
@@ -72,9 +72,9 @@
   58:keymap_jp.c   ****               TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS,     TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS),
   59:keymap_jp.c   ****     [5] = \
   60:keymap_jp.c   ****     KEYMAP_JP(PWR, TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS, TRNS, TRNS,
-  61:keymap_jp.c   ****               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,LBRACKET,RBRACKET,TRNS,TRNS,TRNS, TRNS, \
+  61:keymap_jp.c   ****               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN6,FN7,TRNS, TRNS,TRNS,TRNS, \
   62:keymap_jp.c   ****               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,KP_ASTERISK,KP_PLUS,MINUS,SLASH,TRNS,TRNS,TRNS,ENT, \
-  63:keymap_jp.c   ****               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN6, FN7,TRNS,TRNS,TRNS,TRNS,TRNS, \
+  63:keymap_jp.c   ****               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
   64:keymap_jp.c   ****               TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS,     TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS),
   65:keymap_jp.c   ****     [6] = \
   66:keymap_jp.c   ****     KEYMAP_JP(ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, JYEN,BSPC, \
@@ -120,14 +120,14 @@
   23               		.loc 1 98 0
   24 0000 6230      		cpi r22,lo8(2)
   25 0002 01F4      		brne .L5
+  26 0004 FC01      		movw r30,r24
   99:keymap_jp.c   ****         case 2:
  100:keymap_jp.c   ****             // Shift parentheses example: LShft + tap '('
  101:keymap_jp.c   ****             // http://stevelosh.com/blog/2012/10/a-modern-space-cadet/#shift-parentheses
  102:keymap_jp.c   ****             // http://geekhack.org/index.php?topic=41989.msg1304899#msg1304899
  103:keymap_jp.c   **** 
  104:keymap_jp.c   ****         if (record->event.pressed){
-  26               		.loc 1 104 0
-  27 0004 FC01      		movw r30,r24
+  27               		.loc 1 104 0
   28 0006 8281      		ldd r24,Z+2
   29               	.LVL1:
   30 0008 8823      		tst r24
@@ -198,7 +198,7 @@
   88 0015 00        		.byte	0
   89 0016 29        		.byte	41
   90 0017 2B        		.byte	43
-  91 0018 C1        		.byte	-63
+  91 0018 E0        		.byte	-32
   92 0019 E1        		.byte	-31
   93 001a E3        		.byte	-29
   94 001b 00        		.byte	0
@@ -262,7 +262,7 @@
  152 0055 00        		.byte	0
  153 0056 26        		.byte	38
  154 0057 18        		.byte	24
- 155 0058 88        		.byte	-120
+ 155 0058 E4        		.byte	-28
  156 0059 36        		.byte	54
  157 005a 08        		.byte	8
  158 005b 00        		.byte	0
@@ -319,7 +319,7 @@
  209 008e 2E        		.byte	46
  210 008f 2F        		.byte	47
  211 0090 50        		.byte	80
- 212 0091 87        		.byte	-121
+ 212 0091 E5        		.byte	-27
  213 0092 34        		.byte	52
  214 0093 00        		.byte	0
  215 0094 00        		.byte	0
@@ -901,17 +901,17 @@
  791 02d4 00        		.byte	0
  792 02d5 00        		.byte	0
  793 02d6 01        		.byte	1
- 794 02d7 30        		.byte	48
+ 794 02d7 C7        		.byte	-57
  795 02d8 01        		.byte	1
- 796 02d9 C7        		.byte	-57
+ 796 02d9 01        		.byte	1
  797 02da 2D        		.byte	45
  798 02db 00        		.byte	0
  799 02dc 00        		.byte	0
  800 02dd 00        		.byte	0
  801 02de 01        		.byte	1
- 802 02df 2F        		.byte	47
+ 802 02df C6        		.byte	-58
  803 02e0 01        		.byte	1
- 804 02e1 C6        		.byte	-58
+ 804 02e1 01        		.byte	1
  805 02e2 57        		.byte	87
  806 02e3 00        		.byte	0
  807 02e4 00        		.byte	0
@@ -1093,7 +1093,7 @@
  983               		.comm	keymap_config,1,1
  984               		.text
  985               	.Letext0:
- 986               		.file 2 "/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/stdint.h"
+ 986               		.file 2 "/usr/local/Cellar/avr-gcc/4.9.3/avr/include/stdint.h"
  987               		.file 3 "../../common/keycode.h"
  988               		.file 4 "../../common/keyboard.h"
  989               		.file 5 "../../common/action_code.h"
@@ -1103,14 +1103,14 @@
  993               		.file 9 "../../common/action_util.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 keymap_jp.c
-/var/folders/v2/b1yj77p14vj4p1lnqz7_zzbr0000gn/T//cc9Wb32A.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/v2/b1yj77p14vj4p1lnqz7_zzbr0000gn/T//cc9Wb32A.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/v2/b1yj77p14vj4p1lnqz7_zzbr0000gn/T//cc9Wb32A.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/v2/b1yj77p14vj4p1lnqz7_zzbr0000gn/T//cc9Wb32A.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/v2/b1yj77p14vj4p1lnqz7_zzbr0000gn/T//cc9Wb32A.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/v2/b1yj77p14vj4p1lnqz7_zzbr0000gn/T//cc9Wb32A.s:13     .text.action_function:0000000000000000 action_function
-/var/folders/v2/b1yj77p14vj4p1lnqz7_zzbr0000gn/T//cc9Wb32A.s:72     .progmem.data:0000000000000000 fn_actions
-/var/folders/v2/b1yj77p14vj4p1lnqz7_zzbr0000gn/T//cc9Wb32A.s:86     .progmem.data:0000000000000014 keymaps
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cczgf404.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cczgf404.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cczgf404.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cczgf404.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cczgf404.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cczgf404.s:13     .text.action_function:0000000000000000 action_function
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cczgf404.s:72     .progmem.data:0000000000000000 fn_actions
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cczgf404.s:86     .progmem.data:0000000000000014 keymaps
                             *COM*:0000000000000001 keymap_config
 
 UNDEFINED SYMBOLS

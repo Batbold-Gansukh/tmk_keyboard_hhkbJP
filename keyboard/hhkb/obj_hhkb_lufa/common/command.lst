@@ -450,206 +450,204 @@
  430:../../common/command.c ****     switch (param) {
   22               		.loc 1 430 0
   23 0000 8330      		cpi r24,lo8(3)
-  24 0002 01F0      		breq .L5
-  25 0004 00F4      		brsh .L9
+  24 0002 01F0      		breq .L3
+  25 0004 00F4      		brsh .L4
   26 0006 8130      		cpi r24,lo8(1)
-  27 0008 01F0      		breq .L3
+  27 0008 01F0      		breq .L5
   28 000a 8230      		cpi r24,lo8(2)
-  29 000c 01F0      		breq .+2
-  30 000e 00C0      		rjmp .L1
-  31 0010 00C0      		rjmp .L4
-  32               	.L9:
-  33 0012 8530      		cpi r24,lo8(5)
-  34 0014 01F4      		brne .+2
-  35 0016 00C0      		rjmp .L7
-  36 0018 00F0      		brlo .L6
-  37 001a 8630      		cpi r24,lo8(6)
-  38 001c 01F0      		breq .+2
-  39 001e 00C0      		rjmp .L1
-  40 0020 00C0      		rjmp .L8
-  41               	.L3:
+  29 000c 01F0      		breq .L6
+  30 000e 0895      		ret
+  31               	.L4:
+  32 0010 8530      		cpi r24,lo8(5)
+  33 0012 01F4      		brne .+2
+  34 0014 00C0      		rjmp .L7
+  35 0016 00F0      		brlo .L8
+  36 0018 8630      		cpi r24,lo8(6)
+  37 001a 01F4      		brne .+2
+  38 001c 00C0      		rjmp .L9
+  39 001e 0895      		ret
+  40               	.L5:
  431:../../common/command.c ****         case 1:
  432:../../common/command.c ****             if (mk_delay + inc < UINT8_MAX)
-  42               		.loc 1 432 0
-  43 0022 2091 0000 		lds r18,mk_delay
-  44 0026 862F      		mov r24,r22
-  45               	.LVL1:
-  46 0028 90E0      		ldi r25,0
-  47 002a 820F      		add r24,r18
-  48 002c 911D      		adc r25,__zero_reg__
-  49 002e 8F3F      		cpi r24,-1
-  50 0030 9105      		cpc r25,__zero_reg__
-  51 0032 00F4      		brsh .L10
+  41               		.loc 1 432 0
+  42 0020 8091 0000 		lds r24,mk_delay
+  43               	.LVL1:
+  44 0024 262F      		mov r18,r22
+  45 0026 30E0      		ldi r19,0
+  46 0028 280F      		add r18,r24
+  47 002a 311D      		adc r19,__zero_reg__
+  48 002c 2F3F      		cpi r18,-1
+  49 002e 3105      		cpc r19,__zero_reg__
+  50 0030 04F4      		brge .L10
  433:../../common/command.c ****                 mk_delay += inc;
-  52               		.loc 1 433 0
-  53 0034 620F      		add r22,r18
-  54               	.LVL2:
-  55 0036 6093 0000 		sts mk_delay,r22
-  56 003a 0895      		ret
-  57               	.LVL3:
-  58               	.L10:
+  51               		.loc 1 433 0
+  52 0032 680F      		add r22,r24
+  53               	.LVL2:
+  54 0034 6093 0000 		sts mk_delay,r22
+  55 0038 0895      		ret
+  56               	.LVL3:
+  57               	.L10:
  434:../../common/command.c ****             else
  435:../../common/command.c ****                 mk_delay = UINT8_MAX;
-  59               		.loc 1 435 0
-  60 003c 8FEF      		ldi r24,lo8(-1)
-  61 003e 8093 0000 		sts mk_delay,r24
-  62 0042 0895      		ret
-  63               	.LVL4:
-  64               	.L4:
+  58               		.loc 1 435 0
+  59 003a 8FEF      		ldi r24,lo8(-1)
+  60 003c 8093 0000 		sts mk_delay,r24
+  61 0040 0895      		ret
+  62               	.LVL4:
+  63               	.L6:
  436:../../common/command.c ****             PRINT_SET_VAL(mk_delay);
  437:../../common/command.c ****             break;
  438:../../common/command.c ****         case 2:
  439:../../common/command.c ****             if (mk_interval + inc < UINT8_MAX)
-  65               		.loc 1 439 0
-  66 0044 2091 0000 		lds r18,mk_interval
-  67 0048 862F      		mov r24,r22
-  68               	.LVL5:
-  69 004a 90E0      		ldi r25,0
-  70 004c 820F      		add r24,r18
-  71 004e 911D      		adc r25,__zero_reg__
-  72 0050 8F3F      		cpi r24,-1
-  73 0052 9105      		cpc r25,__zero_reg__
-  74 0054 00F4      		brsh .L11
+  64               		.loc 1 439 0
+  65 0042 8091 0000 		lds r24,mk_interval
+  66               	.LVL5:
+  67 0046 262F      		mov r18,r22
+  68 0048 30E0      		ldi r19,0
+  69 004a 280F      		add r18,r24
+  70 004c 311D      		adc r19,__zero_reg__
+  71 004e 2F3F      		cpi r18,-1
+  72 0050 3105      		cpc r19,__zero_reg__
+  73 0052 04F4      		brge .L11
  440:../../common/command.c ****                 mk_interval += inc;
-  75               		.loc 1 440 0
-  76 0056 620F      		add r22,r18
-  77               	.LVL6:
-  78 0058 6093 0000 		sts mk_interval,r22
-  79 005c 0895      		ret
-  80               	.LVL7:
-  81               	.L11:
+  74               		.loc 1 440 0
+  75 0054 680F      		add r22,r24
+  76               	.LVL6:
+  77 0056 6093 0000 		sts mk_interval,r22
+  78 005a 0895      		ret
+  79               	.LVL7:
+  80               	.L11:
  441:../../common/command.c ****             else
  442:../../common/command.c ****                 mk_interval = UINT8_MAX;
-  82               		.loc 1 442 0
-  83 005e 8FEF      		ldi r24,lo8(-1)
-  84 0060 8093 0000 		sts mk_interval,r24
-  85 0064 0895      		ret
-  86               	.LVL8:
-  87               	.L5:
+  81               		.loc 1 442 0
+  82 005c 8FEF      		ldi r24,lo8(-1)
+  83 005e 8093 0000 		sts mk_interval,r24
+  84 0062 0895      		ret
+  85               	.LVL8:
+  86               	.L3:
  443:../../common/command.c ****             PRINT_SET_VAL(mk_interval);
  444:../../common/command.c ****             break;
  445:../../common/command.c ****         case 3:
  446:../../common/command.c ****             if (mk_max_speed + inc < UINT8_MAX)
-  88               		.loc 1 446 0
-  89 0066 2091 0000 		lds r18,mk_max_speed
-  90 006a 862F      		mov r24,r22
-  91               	.LVL9:
-  92 006c 90E0      		ldi r25,0
-  93 006e 820F      		add r24,r18
-  94 0070 911D      		adc r25,__zero_reg__
-  95 0072 8F3F      		cpi r24,-1
-  96 0074 9105      		cpc r25,__zero_reg__
-  97 0076 00F4      		brsh .L12
+  87               		.loc 1 446 0
+  88 0064 8091 0000 		lds r24,mk_max_speed
+  89               	.LVL9:
+  90 0068 262F      		mov r18,r22
+  91 006a 30E0      		ldi r19,0
+  92 006c 280F      		add r18,r24
+  93 006e 311D      		adc r19,__zero_reg__
+  94 0070 2F3F      		cpi r18,-1
+  95 0072 3105      		cpc r19,__zero_reg__
+  96 0074 04F4      		brge .L12
  447:../../common/command.c ****                 mk_max_speed += inc;
-  98               		.loc 1 447 0
-  99 0078 620F      		add r22,r18
- 100               	.LVL10:
- 101 007a 6093 0000 		sts mk_max_speed,r22
- 102 007e 0895      		ret
- 103               	.LVL11:
- 104               	.L12:
+  97               		.loc 1 447 0
+  98 0076 680F      		add r22,r24
+  99               	.LVL10:
+ 100 0078 6093 0000 		sts mk_max_speed,r22
+ 101 007c 0895      		ret
+ 102               	.LVL11:
+ 103               	.L12:
  448:../../common/command.c ****             else
  449:../../common/command.c ****                 mk_max_speed = UINT8_MAX;
- 105               		.loc 1 449 0
- 106 0080 8FEF      		ldi r24,lo8(-1)
- 107 0082 8093 0000 		sts mk_max_speed,r24
- 108 0086 0895      		ret
- 109               	.LVL12:
- 110               	.L6:
+ 104               		.loc 1 449 0
+ 105 007e 8FEF      		ldi r24,lo8(-1)
+ 106 0080 8093 0000 		sts mk_max_speed,r24
+ 107 0084 0895      		ret
+ 108               	.LVL12:
+ 109               	.L8:
  450:../../common/command.c ****             PRINT_SET_VAL(mk_max_speed);
  451:../../common/command.c ****             break;
  452:../../common/command.c ****         case 4:
  453:../../common/command.c ****             if (mk_time_to_max + inc < UINT8_MAX)
- 111               		.loc 1 453 0
- 112 0088 2091 0000 		lds r18,mk_time_to_max
- 113 008c 862F      		mov r24,r22
- 114               	.LVL13:
- 115 008e 90E0      		ldi r25,0
- 116 0090 820F      		add r24,r18
- 117 0092 911D      		adc r25,__zero_reg__
- 118 0094 8F3F      		cpi r24,-1
- 119 0096 9105      		cpc r25,__zero_reg__
- 120 0098 00F4      		brsh .L13
+ 110               		.loc 1 453 0
+ 111 0086 8091 0000 		lds r24,mk_time_to_max
+ 112               	.LVL13:
+ 113 008a 262F      		mov r18,r22
+ 114 008c 30E0      		ldi r19,0
+ 115 008e 280F      		add r18,r24
+ 116 0090 311D      		adc r19,__zero_reg__
+ 117 0092 2F3F      		cpi r18,-1
+ 118 0094 3105      		cpc r19,__zero_reg__
+ 119 0096 04F4      		brge .L13
  454:../../common/command.c ****                 mk_time_to_max += inc;
- 121               		.loc 1 454 0
- 122 009a 620F      		add r22,r18
- 123               	.LVL14:
- 124 009c 6093 0000 		sts mk_time_to_max,r22
- 125 00a0 0895      		ret
- 126               	.LVL15:
- 127               	.L13:
+ 120               		.loc 1 454 0
+ 121 0098 680F      		add r22,r24
+ 122               	.LVL14:
+ 123 009a 6093 0000 		sts mk_time_to_max,r22
+ 124 009e 0895      		ret
+ 125               	.LVL15:
+ 126               	.L13:
  455:../../common/command.c ****             else
  456:../../common/command.c ****                 mk_time_to_max = UINT8_MAX;
- 128               		.loc 1 456 0
- 129 00a2 8FEF      		ldi r24,lo8(-1)
- 130 00a4 8093 0000 		sts mk_time_to_max,r24
- 131 00a8 0895      		ret
- 132               	.LVL16:
- 133               	.L7:
+ 127               		.loc 1 456 0
+ 128 00a0 8FEF      		ldi r24,lo8(-1)
+ 129 00a2 8093 0000 		sts mk_time_to_max,r24
+ 130 00a6 0895      		ret
+ 131               	.LVL16:
+ 132               	.L7:
  457:../../common/command.c ****             PRINT_SET_VAL(mk_time_to_max);
  458:../../common/command.c ****             break;
  459:../../common/command.c ****         case 5:
  460:../../common/command.c ****             if (mk_wheel_max_speed + inc < UINT8_MAX)
- 134               		.loc 1 460 0
- 135 00aa 2091 0000 		lds r18,mk_wheel_max_speed
- 136 00ae 862F      		mov r24,r22
- 137               	.LVL17:
- 138 00b0 90E0      		ldi r25,0
- 139 00b2 820F      		add r24,r18
- 140 00b4 911D      		adc r25,__zero_reg__
- 141 00b6 8F3F      		cpi r24,-1
- 142 00b8 9105      		cpc r25,__zero_reg__
- 143 00ba 00F4      		brsh .L14
+ 133               		.loc 1 460 0
+ 134 00a8 8091 0000 		lds r24,mk_wheel_max_speed
+ 135               	.LVL17:
+ 136 00ac 262F      		mov r18,r22
+ 137 00ae 30E0      		ldi r19,0
+ 138 00b0 280F      		add r18,r24
+ 139 00b2 311D      		adc r19,__zero_reg__
+ 140 00b4 2F3F      		cpi r18,-1
+ 141 00b6 3105      		cpc r19,__zero_reg__
+ 142 00b8 04F4      		brge .L14
  461:../../common/command.c ****                 mk_wheel_max_speed += inc;
- 144               		.loc 1 461 0
- 145 00bc 620F      		add r22,r18
- 146               	.LVL18:
- 147 00be 6093 0000 		sts mk_wheel_max_speed,r22
- 148 00c2 0895      		ret
- 149               	.LVL19:
- 150               	.L14:
+ 143               		.loc 1 461 0
+ 144 00ba 680F      		add r22,r24
+ 145               	.LVL18:
+ 146 00bc 6093 0000 		sts mk_wheel_max_speed,r22
+ 147 00c0 0895      		ret
+ 148               	.LVL19:
+ 149               	.L14:
  462:../../common/command.c ****             else
  463:../../common/command.c ****                 mk_wheel_max_speed = UINT8_MAX;
- 151               		.loc 1 463 0
- 152 00c4 8FEF      		ldi r24,lo8(-1)
- 153 00c6 8093 0000 		sts mk_wheel_max_speed,r24
- 154 00ca 0895      		ret
- 155               	.LVL20:
- 156               	.L8:
+ 150               		.loc 1 463 0
+ 151 00c2 8FEF      		ldi r24,lo8(-1)
+ 152 00c4 8093 0000 		sts mk_wheel_max_speed,r24
+ 153 00c8 0895      		ret
+ 154               	.LVL20:
+ 155               	.L9:
  464:../../common/command.c ****             PRINT_SET_VAL(mk_wheel_max_speed);
  465:../../common/command.c ****             break;
  466:../../common/command.c ****         case 6:
  467:../../common/command.c ****             if (mk_wheel_time_to_max + inc < UINT8_MAX)
- 157               		.loc 1 467 0
- 158 00cc 2091 0000 		lds r18,mk_wheel_time_to_max
- 159 00d0 862F      		mov r24,r22
- 160               	.LVL21:
- 161 00d2 90E0      		ldi r25,0
- 162 00d4 820F      		add r24,r18
- 163 00d6 911D      		adc r25,__zero_reg__
- 164 00d8 8F3F      		cpi r24,-1
- 165 00da 9105      		cpc r25,__zero_reg__
- 166 00dc 00F4      		brsh .L15
+ 156               		.loc 1 467 0
+ 157 00ca 8091 0000 		lds r24,mk_wheel_time_to_max
+ 158               	.LVL21:
+ 159 00ce 262F      		mov r18,r22
+ 160 00d0 30E0      		ldi r19,0
+ 161 00d2 280F      		add r18,r24
+ 162 00d4 311D      		adc r19,__zero_reg__
+ 163 00d6 2F3F      		cpi r18,-1
+ 164 00d8 3105      		cpc r19,__zero_reg__
+ 165 00da 04F4      		brge .L15
  468:../../common/command.c ****                 mk_wheel_time_to_max += inc;
- 167               		.loc 1 468 0
- 168 00de 620F      		add r22,r18
- 169               	.LVL22:
- 170 00e0 6093 0000 		sts mk_wheel_time_to_max,r22
- 171 00e4 0895      		ret
- 172               	.LVL23:
- 173               	.L15:
+ 166               		.loc 1 468 0
+ 167 00dc 680F      		add r22,r24
+ 168               	.LVL22:
+ 169 00de 6093 0000 		sts mk_wheel_time_to_max,r22
+ 170 00e2 0895      		ret
+ 171               	.LVL23:
+ 172               	.L15:
  469:../../common/command.c ****             else
  470:../../common/command.c ****                 mk_wheel_time_to_max = UINT8_MAX;
- 174               		.loc 1 470 0
- 175 00e6 8FEF      		ldi r24,lo8(-1)
- 176 00e8 8093 0000 		sts mk_wheel_time_to_max,r24
- 177               	.L1:
- 178 00ec 0895      		ret
- 179               		.cfi_endproc
- 180               	.LFE110:
- 182               		.section	.text.mousekey_param_dec,"ax",@progbits
- 184               	mousekey_param_dec:
- 185               	.LFB111:
+ 173               		.loc 1 470 0
+ 174 00e4 8FEF      		ldi r24,lo8(-1)
+ 175 00e6 8093 0000 		sts mk_wheel_time_to_max,r24
+ 176 00ea 0895      		ret
+ 177               		.cfi_endproc
+ 178               	.LFE110:
+ 180               		.section	.text.mousekey_param_dec,"ax",@progbits
+ 182               	mousekey_param_dec:
+ 183               	.LFB111:
  471:../../common/command.c ****             PRINT_SET_VAL(mk_wheel_time_to_max);
  472:../../common/command.c ****             break;
  473:../../common/command.c ****     }
@@ -657,167 +655,765 @@
  475:../../common/command.c **** 
  476:../../common/command.c **** static void mousekey_param_dec(uint8_t param, uint8_t dec)
  477:../../common/command.c **** {
- 186               		.loc 1 477 0
- 187               		.cfi_startproc
- 188               	.LVL24:
- 189               	/* prologue: function */
- 190               	/* frame size = 0 */
- 191               	/* stack size = 0 */
- 192               	.L__stack_usage = 0
+ 184               		.loc 1 477 0
+ 185               		.cfi_startproc
+ 186               	.LVL24:
+ 187               	/* prologue: function */
+ 188               	/* frame size = 0 */
+ 189               	/* stack size = 0 */
+ 190               	.L__stack_usage = 0
  478:../../common/command.c ****     switch (param) {
- 193               		.loc 1 478 0
- 194 0000 8330      		cpi r24,lo8(3)
- 195 0002 01F0      		breq .L20
- 196 0004 00F4      		brsh .L24
- 197 0006 8130      		cpi r24,lo8(1)
- 198 0008 01F0      		breq .L18
- 199 000a 8230      		cpi r24,lo8(2)
- 200 000c 01F0      		breq .+2
- 201 000e 00C0      		rjmp .L16
- 202 0010 00C0      		rjmp .L19
- 203               	.L24:
- 204 0012 8530      		cpi r24,lo8(5)
- 205 0014 01F0      		breq .L22
- 206 0016 00F0      		brlo .L21
- 207 0018 8630      		cpi r24,lo8(6)
- 208 001a 01F0      		breq .+2
- 209 001c 00C0      		rjmp .L16
- 210 001e 00C0      		rjmp .L23
- 211               	.L18:
+ 191               		.loc 1 478 0
+ 192 0000 8330      		cpi r24,lo8(3)
+ 193 0002 01F0      		breq .L19
+ 194 0004 00F4      		brsh .L20
+ 195 0006 8130      		cpi r24,lo8(1)
+ 196 0008 01F0      		breq .L21
+ 197 000a 8230      		cpi r24,lo8(2)
+ 198 000c 01F0      		breq .L22
+ 199 000e 0895      		ret
+ 200               	.L20:
+ 201 0010 8530      		cpi r24,lo8(5)
+ 202 0012 01F0      		breq .L23
+ 203 0014 00F0      		brlo .L24
+ 204 0016 8630      		cpi r24,lo8(6)
+ 205 0018 01F0      		breq .L25
+ 206 001a 0895      		ret
+ 207               	.L21:
  479:../../common/command.c ****         case 1:
  480:../../common/command.c ****             if (mk_delay > dec)
- 212               		.loc 1 480 0
- 213 0020 8091 0000 		lds r24,mk_delay
- 214               	.LVL25:
- 215 0024 6817      		cp r22,r24
- 216 0026 00F4      		brsh .L25
+ 208               		.loc 1 480 0
+ 209 001c 8091 0000 		lds r24,mk_delay
+ 210               	.LVL25:
+ 211 0020 6817      		cp r22,r24
+ 212 0022 00F4      		brsh .L26
  481:../../common/command.c ****                 mk_delay -= dec;
- 217               		.loc 1 481 0
- 218 0028 861B      		sub r24,r22
- 219 002a 8093 0000 		sts mk_delay,r24
- 220 002e 0895      		ret
- 221               	.L25:
+ 213               		.loc 1 481 0
+ 214 0024 861B      		sub r24,r22
+ 215 0026 8093 0000 		sts mk_delay,r24
+ 216 002a 0895      		ret
+ 217               	.L26:
  482:../../common/command.c ****             else
  483:../../common/command.c ****                 mk_delay = 0;
- 222               		.loc 1 483 0
- 223 0030 1092 0000 		sts mk_delay,__zero_reg__
- 224 0034 0895      		ret
- 225               	.LVL26:
- 226               	.L19:
+ 218               		.loc 1 483 0
+ 219 002c 1092 0000 		sts mk_delay,__zero_reg__
+ 220 0030 0895      		ret
+ 221               	.LVL26:
+ 222               	.L22:
  484:../../common/command.c ****             PRINT_SET_VAL(mk_delay);
  485:../../common/command.c ****             break;
  486:../../common/command.c ****         case 2:
  487:../../common/command.c ****             if (mk_interval > dec)
- 227               		.loc 1 487 0
- 228 0036 8091 0000 		lds r24,mk_interval
- 229               	.LVL27:
- 230 003a 6817      		cp r22,r24
- 231 003c 00F4      		brsh .L26
+ 223               		.loc 1 487 0
+ 224 0032 8091 0000 		lds r24,mk_interval
+ 225               	.LVL27:
+ 226 0036 6817      		cp r22,r24
+ 227 0038 00F4      		brsh .L27
  488:../../common/command.c ****                 mk_interval -= dec;
- 232               		.loc 1 488 0
- 233 003e 861B      		sub r24,r22
- 234 0040 8093 0000 		sts mk_interval,r24
- 235 0044 0895      		ret
- 236               	.L26:
+ 228               		.loc 1 488 0
+ 229 003a 861B      		sub r24,r22
+ 230 003c 8093 0000 		sts mk_interval,r24
+ 231 0040 0895      		ret
+ 232               	.L27:
  489:../../common/command.c ****             else
  490:../../common/command.c ****                 mk_interval = 0;
- 237               		.loc 1 490 0
- 238 0046 1092 0000 		sts mk_interval,__zero_reg__
- 239 004a 0895      		ret
- 240               	.LVL28:
- 241               	.L20:
+ 233               		.loc 1 490 0
+ 234 0042 1092 0000 		sts mk_interval,__zero_reg__
+ 235 0046 0895      		ret
+ 236               	.LVL28:
+ 237               	.L19:
  491:../../common/command.c ****             PRINT_SET_VAL(mk_interval);
  492:../../common/command.c ****             break;
  493:../../common/command.c ****         case 3:
  494:../../common/command.c ****             if (mk_max_speed > dec)
- 242               		.loc 1 494 0
- 243 004c 8091 0000 		lds r24,mk_max_speed
- 244               	.LVL29:
- 245 0050 6817      		cp r22,r24
- 246 0052 00F4      		brsh .L27
+ 238               		.loc 1 494 0
+ 239 0048 8091 0000 		lds r24,mk_max_speed
+ 240               	.LVL29:
+ 241 004c 6817      		cp r22,r24
+ 242 004e 00F4      		brsh .L28
  495:../../common/command.c ****                 mk_max_speed -= dec;
- 247               		.loc 1 495 0
- 248 0054 861B      		sub r24,r22
- 249 0056 8093 0000 		sts mk_max_speed,r24
- 250 005a 0895      		ret
- 251               	.L27:
+ 243               		.loc 1 495 0
+ 244 0050 861B      		sub r24,r22
+ 245 0052 8093 0000 		sts mk_max_speed,r24
+ 246 0056 0895      		ret
+ 247               	.L28:
  496:../../common/command.c ****             else
  497:../../common/command.c ****                 mk_max_speed = 0;
- 252               		.loc 1 497 0
- 253 005c 1092 0000 		sts mk_max_speed,__zero_reg__
- 254 0060 0895      		ret
- 255               	.LVL30:
- 256               	.L21:
+ 248               		.loc 1 497 0
+ 249 0058 1092 0000 		sts mk_max_speed,__zero_reg__
+ 250 005c 0895      		ret
+ 251               	.LVL30:
+ 252               	.L24:
  498:../../common/command.c ****             PRINT_SET_VAL(mk_max_speed);
  499:../../common/command.c ****             break;
  500:../../common/command.c ****         case 4:
  501:../../common/command.c ****             if (mk_time_to_max > dec)
- 257               		.loc 1 501 0
- 258 0062 8091 0000 		lds r24,mk_time_to_max
- 259               	.LVL31:
- 260 0066 6817      		cp r22,r24
- 261 0068 00F4      		brsh .L28
+ 253               		.loc 1 501 0
+ 254 005e 8091 0000 		lds r24,mk_time_to_max
+ 255               	.LVL31:
+ 256 0062 6817      		cp r22,r24
+ 257 0064 00F4      		brsh .L29
  502:../../common/command.c ****                 mk_time_to_max -= dec;
- 262               		.loc 1 502 0
- 263 006a 861B      		sub r24,r22
- 264 006c 8093 0000 		sts mk_time_to_max,r24
- 265 0070 0895      		ret
- 266               	.L28:
+ 258               		.loc 1 502 0
+ 259 0066 861B      		sub r24,r22
+ 260 0068 8093 0000 		sts mk_time_to_max,r24
+ 261 006c 0895      		ret
+ 262               	.L29:
  503:../../common/command.c ****             else
  504:../../common/command.c ****                 mk_time_to_max = 0;
- 267               		.loc 1 504 0
- 268 0072 1092 0000 		sts mk_time_to_max,__zero_reg__
- 269 0076 0895      		ret
- 270               	.LVL32:
- 271               	.L22:
+ 263               		.loc 1 504 0
+ 264 006e 1092 0000 		sts mk_time_to_max,__zero_reg__
+ 265 0072 0895      		ret
+ 266               	.LVL32:
+ 267               	.L23:
  505:../../common/command.c ****             PRINT_SET_VAL(mk_time_to_max);
  506:../../common/command.c ****             break;
  507:../../common/command.c ****         case 5:
  508:../../common/command.c ****             if (mk_wheel_max_speed > dec)
- 272               		.loc 1 508 0
- 273 0078 8091 0000 		lds r24,mk_wheel_max_speed
- 274               	.LVL33:
- 275 007c 6817      		cp r22,r24
- 276 007e 00F4      		brsh .L29
+ 268               		.loc 1 508 0
+ 269 0074 8091 0000 		lds r24,mk_wheel_max_speed
+ 270               	.LVL33:
+ 271 0078 6817      		cp r22,r24
+ 272 007a 00F4      		brsh .L30
  509:../../common/command.c ****                 mk_wheel_max_speed -= dec;
- 277               		.loc 1 509 0
- 278 0080 861B      		sub r24,r22
- 279 0082 8093 0000 		sts mk_wheel_max_speed,r24
- 280 0086 0895      		ret
- 281               	.L29:
+ 273               		.loc 1 509 0
+ 274 007c 861B      		sub r24,r22
+ 275 007e 8093 0000 		sts mk_wheel_max_speed,r24
+ 276 0082 0895      		ret
+ 277               	.L30:
  510:../../common/command.c ****             else
  511:../../common/command.c ****                 mk_wheel_max_speed = 0;
- 282               		.loc 1 511 0
- 283 0088 1092 0000 		sts mk_wheel_max_speed,__zero_reg__
- 284 008c 0895      		ret
- 285               	.LVL34:
- 286               	.L23:
+ 278               		.loc 1 511 0
+ 279 0084 1092 0000 		sts mk_wheel_max_speed,__zero_reg__
+ 280 0088 0895      		ret
+ 281               	.LVL34:
+ 282               	.L25:
  512:../../common/command.c ****             PRINT_SET_VAL(mk_wheel_max_speed);
  513:../../common/command.c ****             break;
  514:../../common/command.c ****         case 6:
  515:../../common/command.c ****             if (mk_wheel_time_to_max > dec)
- 287               		.loc 1 515 0
- 288 008e 8091 0000 		lds r24,mk_wheel_time_to_max
- 289               	.LVL35:
- 290 0092 6817      		cp r22,r24
- 291 0094 00F4      		brsh .L30
+ 283               		.loc 1 515 0
+ 284 008a 8091 0000 		lds r24,mk_wheel_time_to_max
+ 285               	.LVL35:
+ 286 008e 6817      		cp r22,r24
+ 287 0090 00F4      		brsh .L31
  516:../../common/command.c ****                 mk_wheel_time_to_max -= dec;
- 292               		.loc 1 516 0
- 293 0096 861B      		sub r24,r22
- 294 0098 8093 0000 		sts mk_wheel_time_to_max,r24
- 295 009c 0895      		ret
- 296               	.L30:
+ 288               		.loc 1 516 0
+ 289 0092 861B      		sub r24,r22
+ 290 0094 8093 0000 		sts mk_wheel_time_to_max,r24
+ 291 0098 0895      		ret
+ 292               	.L31:
  517:../../common/command.c ****             else
  518:../../common/command.c ****                 mk_wheel_time_to_max = 0;
- 297               		.loc 1 518 0
- 298 009e 1092 0000 		sts mk_wheel_time_to_max,__zero_reg__
- 299               	.L16:
- 300 00a2 0895      		ret
- 301               		.cfi_endproc
- 302               	.LFE111:
- 304               		.section	.text.switch_default_layer,"ax",@progbits
- 306               	switch_default_layer:
- 307               	.LFB115:
+ 293               		.loc 1 518 0
+ 294 009a 1092 0000 		sts mk_wheel_time_to_max,__zero_reg__
+ 295 009e 0895      		ret
+ 296               		.cfi_endproc
+ 297               	.LFE111:
+ 299               		.section	.text.command_extra,"ax",@progbits
+ 300               		.weak	command_extra
+ 302               	command_extra:
+ 303               	.LFB103:
+  95:../../common/command.c ****     return false;
+ 304               		.loc 1 95 0
+ 305               		.cfi_startproc
+ 306               	.LVL36:
+ 307               	/* prologue: function */
+ 308               	/* frame size = 0 */
+ 309               	/* stack size = 0 */
+ 310               	.L__stack_usage = 0
+  97:../../common/command.c **** 
+ 311               		.loc 1 97 0
+ 312 0000 80E0      		ldi r24,0
+ 313               	.LVL37:
+ 314 0002 0895      		ret
+ 315               		.cfi_endproc
+ 316               	.LFE103:
+ 318               		.section	.text.command_proc,"ax",@progbits
+ 319               	.global	command_proc
+ 321               	command_proc:
+ 322               	.LFB102:
+  71:../../common/command.c ****     switch (state) {
+ 323               		.loc 1 71 0
+ 324               		.cfi_startproc
+ 325 0000 CF93      		push r28
+ 326               	.LCFI0:
+ 327               		.cfi_def_cfa_offset 3
+ 328               		.cfi_offset 28, -2
+ 329               	/* prologue: function */
+ 330               	/* frame size = 0 */
+ 331               	/* stack size = 1 */
+ 332               	.L__stack_usage = 1
+  72:../../common/command.c ****         case ONESHOT:
+ 333               		.loc 1 72 0
+ 334 0002 9091 0000 		lds r25,state
+ 335 0006 9130      		cpi r25,lo8(1)
+ 336 0008 01F4      		brne .+2
+ 337 000a 00C0      		rjmp .L35
+ 338 000c C82F      		mov r28,r24
+ 339 000e 9130      		cpi r25,lo8(1)
+ 340 0010 00F0      		brlo .L36
+ 341 0012 9230      		cpi r25,lo8(2)
+ 342 0014 01F4      		brne .+2
+ 343 0016 00C0      		rjmp .L37
+ 344 0018 00C0      		rjmp .L103
+ 345               	.L36:
+  74:../../common/command.c ****                 return false;
+ 346               		.loc 1 74 0
+ 347 001a E091 0000 		lds r30,keyboard_report
+ 348 001e F091 0000 		lds r31,keyboard_report+1
+ 349 0022 8081      		ld r24,Z
+ 350 0024 8232      		cpi r24,lo8(34)
+ 351 0026 01F0      		breq .+2
+ 352 0028 00C0      		rjmp .L72
+  76:../../common/command.c ****         case CONSOLE:
+ 353               		.loc 1 76 0
+ 354 002a 8C2F      		mov r24,r28
+ 355 002c 0E94 0000 		call command_extra
+ 356 0030 8111      		cpse r24,__zero_reg__
+ 357 0032 00C0      		rjmp .L44
+ 358               	.LBB38:
+ 359               	.LBB39:
+ 169:../../common/command.c **** #ifdef SLEEP_LED_ENABLE
+ 360               		.loc 1 169 0
+ 361 0034 8C2F      		mov r24,r28
+ 362 0036 90E0      		ldi r25,0
+ 363 0038 FC01      		movw r30,r24
+ 364 003a 3697      		sbiw r30,6
+ 365 003c E334      		cpi r30,67
+ 366 003e F105      		cpc r31,__zero_reg__
+ 367 0040 00F0      		brlo .+2
+ 368 0042 00C0      		rjmp .L74
+ 369 0044 E050      		subi r30,lo8(-(gs(.L41)))
+ 370 0046 F040      		sbci r31,hi8(-(gs(.L41)))
+ 371 0048 0C94 0000 		jmp __tablejump2__
+ 372               		.section	.progmem.gcc_sw_table.command_proc,"a",@progbits
+ 373               		.p2align	1
+ 374               	.L41:
+ 375 0000 0000      		.word gs(.L40)
+ 376 0002 0000      		.word gs(.L42)
+ 377 0004 0000      		.word gs(.L43)
+ 378 0006 0000      		.word gs(.L74)
+ 379 0008 0000      		.word gs(.L74)
+ 380 000a 0000      		.word gs(.L44)
+ 381 000c 0000      		.word gs(.L74)
+ 382 000e 0000      		.word gs(.L74)
+ 383 0010 0000      		.word gs(.L45)
+ 384 0012 0000      		.word gs(.L74)
+ 385 0014 0000      		.word gs(.L46)
+ 386 0016 0000      		.word gs(.L47)
+ 387 0018 0000      		.word gs(.L74)
+ 388 001a 0000      		.word gs(.L74)
+ 389 001c 0000      		.word gs(.L74)
+ 390 001e 0000      		.word gs(.L74)
+ 391 0020 0000      		.word gs(.L48)
+ 392 0022 0000      		.word gs(.L49)
+ 393 0024 0000      		.word gs(.L74)
+ 394 0026 0000      		.word gs(.L44)
+ 395 0028 0000      		.word gs(.L74)
+ 396 002a 0000      		.word gs(.L50)
+ 397 002c 0000      		.word gs(.L74)
+ 398 002e 0000      		.word gs(.L74)
+ 399 0030 0000      		.word gs(.L51)
+ 400 0032 0000      		.word gs(.L51)
+ 401 0034 0000      		.word gs(.L51)
+ 402 0036 0000      		.word gs(.L51)
+ 403 0038 0000      		.word gs(.L51)
+ 404 003a 0000      		.word gs(.L51)
+ 405 003c 0000      		.word gs(.L51)
+ 406 003e 0000      		.word gs(.L51)
+ 407 0040 0000      		.word gs(.L51)
+ 408 0042 0000      		.word gs(.L52)
+ 409 0044 0000      		.word gs(.L74)
+ 410 0046 0000      		.word gs(.L52)
+ 411 0048 0000      		.word gs(.L74)
+ 412 004a 0000      		.word gs(.L74)
+ 413 004c 0000      		.word gs(.L74)
+ 414 004e 0000      		.word gs(.L74)
+ 415 0050 0000      		.word gs(.L74)
+ 416 0052 0000      		.word gs(.L74)
+ 417 0054 0000      		.word gs(.L74)
+ 418 0056 0000      		.word gs(.L74)
+ 419 0058 0000      		.word gs(.L74)
+ 420 005a 0000      		.word gs(.L74)
+ 421 005c 0000      		.word gs(.L74)
+ 422 005e 0000      		.word gs(.L52)
+ 423 0060 0000      		.word gs(.L74)
+ 424 0062 0000      		.word gs(.L74)
+ 425 0064 0000      		.word gs(.L44)
+ 426 0066 0000      		.word gs(.L53)
+ 427 0068 0000      		.word gs(.L54)
+ 428 006a 0000      		.word gs(.L54)
+ 429 006c 0000      		.word gs(.L54)
+ 430 006e 0000      		.word gs(.L54)
+ 431 0070 0000      		.word gs(.L54)
+ 432 0072 0000      		.word gs(.L54)
+ 433 0074 0000      		.word gs(.L54)
+ 434 0076 0000      		.word gs(.L54)
+ 435 0078 0000      		.word gs(.L54)
+ 436 007a 0000      		.word gs(.L54)
+ 437 007c 0000      		.word gs(.L54)
+ 438 007e 0000      		.word gs(.L54)
+ 439 0080 0000      		.word gs(.L55)
+ 440 0082 0000      		.word gs(.L74)
+ 441 0084 0000      		.word gs(.L56)
+ 442               		.section	.text.command_proc
+ 443               	.L43:
+ 444               	.LBB40:
+ 445               	.LBB41:
+ 137:../../common/command.c ****     print("debug_config.raw: "); print_hex8(dc.raw); print("\n");
+ 446               		.loc 1 137 0
+ 447 004c 0E94 0000 		call eeconfig_read_debug
+ 145:../../common/command.c ****     print("keymap_config.raw: "); print_hex8(kc.raw); print("\n");
+ 448               		.loc 1 145 0
+ 449 0050 0E94 0000 		call eeconfig_read_keymap
+ 450 0054 00C0      		rjmp .L44
+ 451               	.L53:
+ 452               	.LBE41:
+ 453               	.LBE40:
+ 185:../../common/command.c ****                 host_driver = host_get_driver();
+ 454               		.loc 1 185 0
+ 455 0056 0E94 0000 		call host_get_driver
+ 456 005a 892B      		or r24,r25
+ 457 005c 01F0      		breq .L57
+ 186:../../common/command.c ****                 host_set_driver(0);
+ 458               		.loc 1 186 0
+ 459 005e 0E94 0000 		call host_get_driver
+ 460 0062 9093 0000 		sts host_driver.4865+1,r25
+ 461 0066 8093 0000 		sts host_driver.4865,r24
+ 187:../../common/command.c ****                 print("Locked.\n");
+ 462               		.loc 1 187 0
+ 463 006a 80E0      		ldi r24,0
+ 464 006c 90E0      		ldi r25,0
+ 465 006e 00C0      		rjmp .L99
+ 466               	.L57:
+ 190:../../common/command.c ****                 print("Unlocked.\n");
+ 467               		.loc 1 190 0
+ 468 0070 8091 0000 		lds r24,host_driver.4865
+ 469 0074 9091 0000 		lds r25,host_driver.4865+1
+ 470               	.L99:
+ 471 0078 0E94 0000 		call host_set_driver
+ 472 007c 00C0      		rjmp .L44
+ 473               	.L40:
+ 199:../../common/command.c ****             debug_keyboard = false;
+ 474               		.loc 1 199 0
+ 475 007e 8091 0000 		lds r24,debug_config
+ 202:../../common/command.c ****             command_console_help();
+ 476               		.loc 1 202 0
+ 477 0082 817F      		andi r24,lo8(-15)
+ 478 0084 8E7F      		andi r24,lo8(~(1<<0))
+ 479 0086 8093 0000 		sts debug_config,r24
+ 206:../../common/command.c ****             break;
+ 480               		.loc 1 206 0
+ 481 008a 81E0      		ldi r24,lo8(1)
+ 482 008c 8093 0000 		sts state,r24
+ 483 0090 00C0      		rjmp .L44
+ 484               	.L56:
+ 209:../../common/command.c ****             print("\n\nJump to bootloader... ");
+ 485               		.loc 1 209 0
+ 486 0092 0E94 0000 		call clear_keyboard
+ 487               	.LBB42:
+ 488               	.LBB43:
+ 489               		.file 2 "/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h"
+   1:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** /* Copyright (c) 2002, Marek Michalkiewicz
+   2:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    Copyright (c) 2004,2005,2007 Joerg Wunsch
+   3:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    Copyright (c) 2007  Florin-Viorel Petrov
+   4:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    All rights reserved.
+   5:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+   6:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    Redistribution and use in source and binary forms, with or without
+   7:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    modification, are permitted provided that the following conditions are met:
+   8:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+   9:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    * Redistributions of source code must retain the above copyright
+  10:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****      notice, this list of conditions and the following disclaimer.
+  11:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+  12:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    * Redistributions in binary form must reproduce the above copyright
+  13:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****      notice, this list of conditions and the following disclaimer in
+  14:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****      the documentation and/or other materials provided with the
+  15:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****      distribution.
+  16:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+  17:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    * Neither the name of the copyright holders nor the names of
+  18:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****      contributors may be used to endorse or promote products derived
+  19:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****      from this software without specific prior written permission.
+  20:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+  21:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  22:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****   AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  23:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  24:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****   ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+  25:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****   LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  26:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****   CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  27:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****   SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  28:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****   INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  29:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****   CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  30:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  31:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****   POSSIBILITY OF SUCH DAMAGE. */
+  32:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+  33:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** /* $Id: delay.h.in 2385 2013-05-03 13:14:20Z joerg_wunsch $ */
+  34:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+  35:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** #ifndef _UTIL_DELAY_H_
+  36:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** #define _UTIL_DELAY_H_ 1
+  37:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+  38:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** #ifndef __HAS_DELAY_CYCLES
+  39:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** #define __HAS_DELAY_CYCLES 1
+  40:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** #endif
+  41:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+  42:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** #include <inttypes.h>
+  43:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** #include <util/delay_basic.h>
+  44:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** #include <math.h>
+  45:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+  46:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** /** \file */
+  47:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** /** \defgroup util_delay <util/delay.h>: Convenience functions for busy-wait delay loops
+  48:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     \code
+  49:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     #define F_CPU 1000000UL  // 1 MHz
+  50:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     //#define F_CPU 14.7456E6
+  51:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     #include <util/delay.h>
+  52:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     \endcode
+  53:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+  54:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     \note As an alternative method, it is possible to pass the
+  55:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     F_CPU macro down to the compiler from the Makefile.
+  56:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     Obviously, in that case, no \c \#define statement should be
+  57:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     used.
+  58:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+  59:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     The functions in this header file are wrappers around the basic
+  60:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     busy-wait functions from <util/delay_basic.h>.  They are meant as
+  61:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     convenience functions where actual time values can be specified
+  62:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     rather than a number of cycles to wait for.  The idea behind is
+  63:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     that compile-time constant expressions will be eliminated by
+  64:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     compiler optimization so floating-point expressions can be used
+  65:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     to calculate the number of delay cycles needed based on the CPU
+  66:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     frequency passed by the macro F_CPU.
+  67:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+  68:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     \note In order for these functions to work as intended, compiler
+  69:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     optimizations <em>must</em> be enabled, and the delay time
+  70:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     <em>must</em> be an expression that is a known constant at
+  71:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     compile-time.  If these requirements are not met, the resulting
+  72:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     delay will be much longer (and basically unpredictable), and
+  73:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     applications that otherwise do not use floating-point calculations
+  74:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     will experience severe code bloat by the floating-point library
+  75:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     routines linked into the application.
+  76:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+  77:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     The functions available allow the specification of microsecond, and
+  78:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     millisecond delays directly, using the application-supplied macro
+  79:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     F_CPU as the CPU clock frequency (in Hertz).
+  80:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+  81:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** */
+  82:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+  83:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** #if !defined(__DOXYGEN__)
+  84:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** static inline void _delay_us(double __us) __attribute__((always_inline));
+  85:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** static inline void _delay_ms(double __ms) __attribute__((always_inline));
+  86:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** #endif
+  87:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+  88:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** #ifndef F_CPU
+  89:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** /* prevent compiler error by supplying a default */
+  90:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** # warning "F_CPU not defined for <util/delay.h>"
+  91:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** # define F_CPU 1000000UL
+  92:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** #endif
+  93:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+  94:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** #ifndef __OPTIMIZE__
+  95:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** # warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+  96:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** #endif
+  97:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+  98:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** #if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__) && \
+  99:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****   !defined(__DELAY_BACKWARD_COMPATIBLE__) &&	   \
+ 100:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****   __STDC_HOSTED__
+ 101:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** #  include <math.h>
+ 102:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** #endif
+ 103:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+ 104:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** /**
+ 105:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    \ingroup util_delay
+ 106:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+ 107:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    Perform a delay of \c __ms milliseconds, using _delay_loop_2().
+ 108:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+ 109:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    The macro F_CPU is supposed to be defined to a
+ 110:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    constant defining the CPU clock frequency (in Hertz).
+ 111:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+ 112:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    The maximal possible delay is 262.14 ms / F_CPU in MHz.
+ 113:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+ 114:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    When the user request delay which exceed the maximum possible one,
+ 115:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    _delay_ms() provides a decreased resolution functionality. In this
+ 116:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    mode _delay_ms() will work with a resolution of 1/10 ms, providing
+ 117:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    delays up to 6.5535 seconds (independent from CPU frequency).  The
+ 118:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    user will not be informed about decreased resolution.
+ 119:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+ 120:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    If the avr-gcc toolchain has __builtin_avr_delay_cycles(unsigned long)
+ 121:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    support, maximal possible delay is 4294967.295 ms/ F_CPU in MHz. For
+ 122:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    values greater than the maximal possible delay, overflows results in
+ 123:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    no delay i.e., 0ms.
+ 124:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+ 125:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    Conversion of __us into clock cycles may not always result in integer.
+ 126:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    By default, the clock cycles rounded up to next integer. This ensures that
+ 127:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    the user gets atleast __us microseconds of delay.
+ 128:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+ 129:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    Alternatively, user can define __DELAY_ROUND_DOWN__ and __DELAY_ROUND_CLOSEST__
+ 130:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    to round down and round to closest integer.
+ 131:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+ 132:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    Note: The new implementation of _delay_ms(double __ms) with 
+ 133:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****     __builtin_avr_delay_cycles(unsigned long) support is not backward compatible. 
+ 134:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    User can define __DELAY_BACKWARD_COMPATIBLE__ to get a backward compatible delay.
+ 135:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    Also, the backward compatible
+ 136:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    algorithm will be chosen if the code is compiled in a <em>freestanding
+ 137:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    environment</em> (GCC option \c -ffreestanding), as the math functions
+ 138:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****    required for rounding are not available to the compiler then.
+ 139:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+ 140:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****  */
+ 141:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** void
+ 142:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** _delay_ms(double __ms)
+ 143:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** {
+ 144:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 	double __tmp ; 
+ 145:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** #if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__) && \
+ 146:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****   !defined(__DELAY_BACKWARD_COMPATIBLE__) &&	   \
+ 147:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h ****   __STDC_HOSTED__
+ 148:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 	uint32_t __ticks_dc;
+ 149:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 	extern void __builtin_avr_delay_cycles(unsigned long);
+ 150:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 	__tmp = ((F_CPU) / 1e3) * __ms;
+ 151:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+ 152:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 	#if defined(__DELAY_ROUND_DOWN__)
+ 153:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 		__ticks_dc = (uint32_t)fabs(__tmp);
+ 154:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+ 155:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 	#elif defined(__DELAY_ROUND_CLOSEST__)
+ 156:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 		__ticks_dc = (uint32_t)(fabs(__tmp)+0.5);
+ 157:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+ 158:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 	#else
+ 159:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 		//round up by default
+ 160:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+ 161:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 	#endif
+ 162:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 
+ 163:/usr/local/Cellar/avr-gcc/4.9.2/avr/include/util/delay.h **** 	__builtin_avr_delay_cycles(__ticks_dc);
+ 490               		.loc 2 163 0
+ 491 0096 2FEF      		ldi r18,lo8(3199999)
+ 492 0098 83ED      		ldi r24,hi8(3199999)
+ 493 009a 90E3      		ldi r25,hlo8(3199999)
+ 494 009c 2150      		1: subi r18,1
+ 495 009e 8040      		sbci r24,0
+ 496 00a0 9040      		sbci r25,0
+ 497 00a2 01F4      		brne 1b
+ 498 00a4 00C0      		rjmp .
+ 499 00a6 0000      		nop
+ 500               	.LBE43:
+ 501               	.LBE42:
+ 212:../../common/command.c ****             print("not supported.\n");
+ 502               		.loc 1 212 0
+ 503 00a8 0E94 0000 		call bootloader_jump
+ 504 00ac 00C0      		rjmp .L44
+ 505               	.L42:
+ 216:../../common/command.c ****                 print("\nDEBUG: disabled.\n");
+ 506               		.loc 1 216 0
+ 507 00ae 8091 0000 		lds r24,debug_config
+ 508 00b2 80FF      		sbrs r24,0
+ 509 00b4 00C0      		rjmp .L58
+ 221:../../common/command.c ****             } else {
+ 510               		.loc 1 221 0
+ 511 00b6 817F      		andi r24,lo8(-15)
+ 512 00b8 8E7F      		andi r24,lo8(~(1<<0))
+ 513 00ba 00C0      		rjmp .L100
+ 514               	.L50:
+ 228:../../common/command.c ****             if (debug_matrix) {
+ 515               		.loc 1 228 0
+ 516 00bc 8091 0000 		lds r24,debug_config
+ 517 00c0 81FB      		bst r24,1
+ 518 00c2 2227      		clr r18
+ 519 00c4 20F9      		bld r18,0
+ 520 00c6 91E0      		ldi r25,lo8(1)
+ 521 00c8 9227      		eor r25,r18
+ 522 00ca 90FB      		bst r25,0
+ 523 00cc 81F9      		bld r24,1
+ 524               	.L96:
+ 237:../../common/command.c ****             if (debug_keyboard) {
+ 525               		.loc 1 237 0
+ 526 00ce 8093 0000 		sts debug_config,r24
+ 238:../../common/command.c ****                 print("\nDEBUG: keyboard enabled.\n");
+ 527               		.loc 1 238 0
+ 528 00d2 9923      		tst r25
+ 529 00d4 01F4      		brne .+2
+ 530 00d6 00C0      		rjmp .L44
+ 531               	.L58:
+ 224:../../common/command.c ****             }
+ 532               		.loc 1 224 0
+ 533 00d8 8091 0000 		lds r24,debug_config
+ 534 00dc 8160      		ori r24,lo8(1<<0)
+ 535               	.L100:
+ 536 00de 8093 0000 		sts debug_config,r24
+ 537 00e2 00C0      		rjmp .L44
+ 538               	.L45:
+ 237:../../common/command.c ****             if (debug_keyboard) {
+ 539               		.loc 1 237 0
+ 540 00e4 8091 0000 		lds r24,debug_config
+ 541 00e8 82FB      		bst r24,2
+ 542 00ea 2227      		clr r18
+ 543 00ec 20F9      		bld r18,0
+ 544 00ee 91E0      		ldi r25,lo8(1)
+ 545 00f0 9227      		eor r25,r18
+ 546 00f2 90FB      		bst r25,0
+ 547 00f4 82F9      		bld r24,2
+ 548 00f6 00C0      		rjmp .L96
+ 549               	.L46:
+ 246:../../common/command.c ****             if (debug_mouse) {
+ 550               		.loc 1 246 0
+ 551 00f8 8091 0000 		lds r24,debug_config
+ 552 00fc 83FB      		bst r24,3
+ 553 00fe 2227      		clr r18
+ 554 0100 20F9      		bld r18,0
+ 555 0102 91E0      		ldi r25,lo8(1)
+ 556 0104 9227      		eor r25,r18
+ 557 0106 90FB      		bst r25,0
+ 558 0108 83F9      		bld r24,3
+ 559 010a 00C0      		rjmp .L96
+ 560               	.L49:
+ 300:../../common/command.c ****             break;
+ 561               		.loc 1 300 0
+ 562 010c 8091 0000 		lds r24,timer_count
+ 563 0110 9091 0000 		lds r25,timer_count+1
+ 564 0114 A091 0000 		lds r26,timer_count+2
+ 565 0118 B091 0000 		lds r27,timer_count+3
+ 566 011c BF93      		push r27
+ 567               	.LCFI1:
+ 568               		.cfi_def_cfa_offset 4
+ 569 011e AF93      		push r26
+ 570               	.LCFI2:
+ 571               		.cfi_def_cfa_offset 5
+ 572 0120 9F93      		push r25
+ 573               	.LCFI3:
+ 574               		.cfi_def_cfa_offset 6
+ 575 0122 8F93      		push r24
+ 576               	.LCFI4:
+ 577               		.cfi_def_cfa_offset 7
+ 578 0124 80E0      		ldi r24,lo8(__c.4879)
+ 579 0126 90E0      		ldi r25,hi8(__c.4879)
+ 580 0128 9F93      		push r25
+ 581               	.LCFI5:
+ 582               		.cfi_def_cfa_offset 8
+ 583 012a 8F93      		push r24
+ 584               	.LCFI6:
+ 585               		.cfi_def_cfa_offset 9
+ 586 012c 0E94 0000 		call __xprintf
+ 587 0130 0F90      		pop __tmp_reg__
+ 588 0132 0F90      		pop __tmp_reg__
+ 589 0134 0F90      		pop __tmp_reg__
+ 590 0136 0F90      		pop __tmp_reg__
+ 591 0138 0F90      		pop __tmp_reg__
+ 592 013a 0F90      		pop __tmp_reg__
+ 593               	.LCFI7:
+ 594               		.cfi_def_cfa_offset 3
+ 595 013c 00C0      		rjmp .L44
+ 596               	.L48:
+ 304:../../common/command.c ****             print_val_hex8(keyboard_protocol);
+ 597               		.loc 1 304 0
+ 598 013e 0E94 0000 		call host_keyboard_leds
+ 599 0142 1F92      		push __zero_reg__
+ 600               	.LCFI8:
+ 601               		.cfi_def_cfa_offset 4
+ 602 0144 8F93      		push r24
+ 603               	.LCFI9:
+ 604               		.cfi_def_cfa_offset 5
+ 605 0146 80E0      		ldi r24,lo8(__c.4882)
+ 606 0148 90E0      		ldi r25,hi8(__c.4882)
+ 607 014a 9F93      		push r25
+ 608               	.LCFI10:
+ 609               		.cfi_def_cfa_offset 6
+ 610 014c 8F93      		push r24
+ 611               	.LCFI11:
+ 612               		.cfi_def_cfa_offset 7
+ 613 014e 0E94 0000 		call __xprintf
+ 305:../../common/command.c ****             print_val_hex8(keyboard_idle);
+ 614               		.loc 1 305 0
+ 615 0152 8091 0000 		lds r24,keyboard_protocol
+ 616 0156 1F92      		push __zero_reg__
+ 617               	.LCFI12:
+ 618               		.cfi_def_cfa_offset 8
+ 619 0158 8F93      		push r24
+ 620               	.LCFI13:
+ 621               		.cfi_def_cfa_offset 9
+ 622 015a 80E0      		ldi r24,lo8(__c.4884)
+ 623 015c 90E0      		ldi r25,hi8(__c.4884)
+ 624 015e 9F93      		push r25
+ 625               	.LCFI14:
+ 626               		.cfi_def_cfa_offset 10
+ 627 0160 8F93      		push r24
+ 628               	.LCFI15:
+ 629               		.cfi_def_cfa_offset 11
+ 630 0162 0E94 0000 		call __xprintf
+ 306:../../common/command.c **** #ifdef PROTOCOL_PJRC
+ 631               		.loc 1 306 0
+ 632 0166 8091 0000 		lds r24,keyboard_idle
+ 633 016a 1F92      		push __zero_reg__
+ 634               	.LCFI16:
+ 635               		.cfi_def_cfa_offset 12
+ 636 016c 8F93      		push r24
+ 637               	.LCFI17:
+ 638               		.cfi_def_cfa_offset 13
+ 639 016e 80E0      		ldi r24,lo8(__c.4886)
+ 640 0170 90E0      		ldi r25,hi8(__c.4886)
+ 641 0172 9F93      		push r25
+ 642               	.LCFI18:
+ 643               		.cfi_def_cfa_offset 14
+ 644 0174 8F93      		push r24
+ 645               	.LCFI19:
+ 646               		.cfi_def_cfa_offset 15
+ 647 0176 0E94 0000 		call __xprintf
+ 648 017a 8DB7      		in r24,__SP_L__
+ 649 017c 9EB7      		in r25,__SP_H__
+ 650 017e 0C96      		adiw r24,12
+ 651 0180 0FB6      		in __tmp_reg__,__SREG__
+ 652 0182 F894      		cli
+ 653 0184 9EBF      		out __SP_H__,r25
+ 654 0186 0FBE      		out __SREG__,__tmp_reg__
+ 655 0188 8DBF      		out __SP_L__,r24
+ 656               	.LCFI20:
+ 657               		.cfi_def_cfa_offset 3
+ 658 018a 00C0      		rjmp .L44
+ 659               	.L47:
+ 323:../../common/command.c ****             keyboard_nkro = !keyboard_nkro;
+ 660               		.loc 1 323 0
+ 661 018c 0E94 0000 		call clear_keyboard
+ 324:../../common/command.c ****             if (keyboard_nkro)
+ 662               		.loc 1 324 0
+ 663 0190 9091 0000 		lds r25,keyboard_nkro
+ 664 0194 81E0      		ldi r24,lo8(1)
+ 665 0196 8927      		eor r24,r25
+ 666 0198 8093 0000 		sts keyboard_nkro,r24
+ 667 019c 00C0      		rjmp .L44
+ 668               	.L55:
+ 343:../../common/command.c ****             _delay_ms(100);
+ 669               		.loc 1 343 0
+ 670 019e 81E8      		ldi r24,lo8(-127)
+ 671 01a0 90E0      		ldi r25,0
+ 672 01a2 0E94 0000 		call host_system_send
+ 673               	.LBB44:
+ 674               	.LBB45:
+ 675               		.loc 2 163 0
+ 676 01a6 9FEF      		ldi r25,lo8(319999)
+ 677 01a8 21EE      		ldi r18,hi8(319999)
+ 678 01aa 84E0      		ldi r24,hlo8(319999)
+ 679 01ac 9150      		1: subi r25,1
+ 680 01ae 2040      		sbci r18,0
+ 681 01b0 8040      		sbci r24,0
+ 682 01b2 01F4      		brne 1b
+ 683 01b4 00C0      		rjmp .
+ 684 01b6 0000      		nop
+ 685               	.LBE45:
+ 686               	.LBE44:
+ 345:../../common/command.c ****             _delay_ms(500);
+ 687               		.loc 1 345 0
+ 688 01b8 80E0      		ldi r24,0
+ 689 01ba 90E0      		ldi r25,0
+ 690 01bc 0E94 0000 		call host_system_send
+ 691               	.LBB46:
+ 692               	.LBB47:
+ 693               		.loc 2 163 0
+ 694 01c0 9FEF      		ldi r25,lo8(1599999)
+ 695 01c2 29E6      		ldi r18,hi8(1599999)
+ 696 01c4 88E1      		ldi r24,hlo8(1599999)
+ 697 01c6 9150      		1: subi r25,1
+ 698 01c8 2040      		sbci r18,0
+ 699 01ca 8040      		sbci r24,0
+ 700 01cc 01F4      		brne 1b
+ 701 01ce 00C0      		rjmp .
+ 702 01d0 0000      		nop
+ 703 01d2 00C0      		rjmp .L44
+ 704               	.L52:
+ 705               	.LBE47:
+ 706               	.LBE46:
+ 707               	.LBB48:
+ 708               	.LBB49:
  519:../../common/command.c ****             PRINT_SET_VAL(mk_wheel_time_to_max);
  520:../../common/command.c ****             break;
  521:../../common/command.c ****     }
@@ -928,935 +1524,313 @@
  626:../../common/command.c **** 
  627:../../common/command.c **** static void switch_default_layer(uint8_t layer)
  628:../../common/command.c **** {
- 308               		.loc 1 628 0
- 309               		.cfi_startproc
- 310               	.LVL36:
- 311               	/* prologue: function */
- 312               	/* frame size = 0 */
- 313               	/* stack size = 0 */
- 314               	.L__stack_usage = 0
  629:../../common/command.c ****     print("switch_default_layer: "); print_dec(biton32(default_layer_state));
  630:../../common/command.c ****     print(" to "); print_dec(layer); print("\n");
  631:../../common/command.c ****     default_layer_set(1UL<<layer);
- 315               		.loc 1 631 0
- 316 0000 41E0      		ldi r20,lo8(1)
- 317 0002 50E0      		ldi r21,0
- 318 0004 60E0      		ldi r22,0
- 319 0006 70E0      		ldi r23,0
- 320 0008 00C0      		rjmp 2f
- 321               		1:
- 322 000a 440F      		lsl r20
- 323 000c 551F      		rol r21
- 324 000e 661F      		rol r22
- 325 0010 771F      		rol r23
- 326               		2:
- 327 0012 8A95      		dec r24
- 328 0014 02F4      		brpl 1b
- 329 0016 CB01      		movw r24,r22
- 330 0018 BA01      		movw r22,r20
- 331 001a 0E94 0000 		call default_layer_set
- 332               	.LVL37:
+ 709               		.loc 1 631 0
+ 710 01d4 61E0      		ldi r22,lo8(1)
+ 711 01d6 70E0      		ldi r23,0
+ 712 01d8 80E0      		ldi r24,0
+ 713 01da 90E0      		ldi r25,0
+ 714 01dc 00C0      		rjmp .L98
+ 715               	.L51:
+ 716               	.LBE49:
+ 717               	.LBE48:
+ 356:../../common/command.c ****             break;
+ 718               		.loc 1 356 0
+ 719 01de CD51      		subi r28,lo8(-(-29))
+ 720 01e0 00C0      		rjmp .L97
+ 721               	.L54:
+ 359:../../common/command.c ****             break;
+ 722               		.loc 1 359 0
+ 723 01e2 C953      		subi r28,lo8(-(-57))
+ 724               	.L97:
+ 725               	.LBB50:
+ 726               	.LBB51:
+ 727               		.loc 1 631 0
+ 728 01e4 81E0      		ldi r24,lo8(1)
+ 729 01e6 90E0      		ldi r25,0
+ 730 01e8 A0E0      		ldi r26,0
+ 731 01ea B0E0      		ldi r27,0
+ 732 01ec BC01      		movw r22,r24
+ 733 01ee CD01      		movw r24,r26
+ 734 01f0 00C0      		rjmp 2f
+ 735               		1:
+ 736 01f2 660F      		lsl r22
+ 737 01f4 771F      		rol r23
+ 738 01f6 881F      		rol r24
+ 739 01f8 991F      		rol r25
+ 740               		2:
+ 741 01fa CA95      		dec r28
+ 742 01fc 02F4      		brpl 1b
+ 743               	.L98:
+ 744 01fe 0E94 0000 		call default_layer_set
  632:../../common/command.c ****     clear_keyboard();
- 333               		.loc 1 632 0
- 334 001e 0C94 0000 		jmp clear_keyboard
- 335               	.LVL38:
- 336               		.cfi_endproc
- 337               	.LFE115:
- 339               		.section	.text.command_extra,"ax",@progbits
- 340               		.weak	command_extra
- 342               	command_extra:
- 343               	.LFB103:
-  95:../../common/command.c **** {
- 344               		.loc 1 95 0
- 345               		.cfi_startproc
- 346               	.LVL39:
- 347               	/* prologue: function */
- 348               	/* frame size = 0 */
- 349               	/* stack size = 0 */
- 350               	.L__stack_usage = 0
-  97:../../common/command.c **** }
- 351               		.loc 1 97 0
- 352 0000 80E0      		ldi r24,0
- 353               	.LVL40:
- 354 0002 0895      		ret
- 355               		.cfi_endproc
- 356               	.LFE103:
- 358               		.section	.text.command_proc,"ax",@progbits
- 359               	.global	command_proc
- 361               	command_proc:
- 362               	.LFB102:
-  71:../../common/command.c **** {
- 363               		.loc 1 71 0
- 364               		.cfi_startproc
- 365 0000 CF93      		push r28
- 366               	.LCFI0:
- 367               		.cfi_def_cfa_offset 3
- 368               		.cfi_offset 28, -2
- 369               	/* prologue: function */
- 370               	/* frame size = 0 */
- 371               	/* stack size = 1 */
- 372               	.L__stack_usage = 1
- 373 0002 C82F      		mov r28,r24
-  72:../../common/command.c ****     switch (state) {
- 374               		.loc 1 72 0
- 375 0004 8091 0000 		lds r24,state
- 376 0008 8130      		cpi r24,lo8(1)
- 377 000a 01F4      		brne .+2
- 378 000c 00C0      		rjmp .L36
- 379 000e 00F0      		brlo .L35
- 380 0010 8230      		cpi r24,lo8(2)
- 381 0012 01F0      		breq .+2
- 382 0014 00C0      		rjmp .L96
- 383 0016 00C0      		rjmp .L37
- 384               	.L35:
-  74:../../common/command.c ****             if (!IS_COMMAND())
- 385               		.loc 1 74 0
- 386 0018 A091 0000 		lds r26,keyboard_report
- 387 001c B091 0000 		lds r27,keyboard_report+1
- 388 0020 8C91      		ld r24,X
- 389 0022 8232      		cpi r24,lo8(34)
- 390 0024 01F0      		breq .+2
- 391 0026 00C0      		rjmp .L73
-  76:../../common/command.c ****             return (command_extra(code) || command_common(code));
- 392               		.loc 1 76 0
- 393 0028 8C2F      		mov r24,r28
- 394 002a 0E94 0000 		call command_extra
- 395 002e 8111      		cpse r24,__zero_reg__
- 396 0030 00C0      		rjmp .L43
- 397               	.LBB32:
- 398               	.LBB33:
- 169:../../common/command.c ****     switch (code) {
- 399               		.loc 1 169 0
- 400 0032 4C2F      		mov r20,r28
- 401 0034 50E0      		ldi r21,0
- 402 0036 FA01      		movw r30,r20
- 403 0038 3697      		sbiw r30,6
- 404 003a E334      		cpi r30,67
- 405 003c F105      		cpc r31,__zero_reg__
- 406 003e 00F0      		brlo .+2
- 407 0040 00C0      		rjmp .L75
- 408 0042 E050      		subi r30,lo8(-(gs(.L56)))
- 409 0044 F040      		sbci r31,hi8(-(gs(.L56)))
- 410 0046 0C94 0000 		jmp __tablejump2__
- 411               		.section	.progmem.gcc_sw_table.command_proc,"a",@progbits
- 412               		.p2align	1
- 413               	.L56:
- 414 0000 0000      		.word gs(.L40)
- 415 0002 0000      		.word gs(.L41)
- 416 0004 0000      		.word gs(.L42)
- 417 0006 0000      		.word gs(.L75)
- 418 0008 0000      		.word gs(.L75)
- 419 000a 0000      		.word gs(.L43)
- 420 000c 0000      		.word gs(.L75)
- 421 000e 0000      		.word gs(.L75)
- 422 0010 0000      		.word gs(.L44)
- 423 0012 0000      		.word gs(.L75)
- 424 0014 0000      		.word gs(.L45)
- 425 0016 0000      		.word gs(.L46)
- 426 0018 0000      		.word gs(.L75)
- 427 001a 0000      		.word gs(.L75)
- 428 001c 0000      		.word gs(.L75)
- 429 001e 0000      		.word gs(.L75)
- 430 0020 0000      		.word gs(.L47)
- 431 0022 0000      		.word gs(.L48)
- 432 0024 0000      		.word gs(.L75)
- 433 0026 0000      		.word gs(.L43)
- 434 0028 0000      		.word gs(.L75)
- 435 002a 0000      		.word gs(.L49)
- 436 002c 0000      		.word gs(.L75)
- 437 002e 0000      		.word gs(.L75)
- 438 0030 0000      		.word gs(.L50)
- 439 0032 0000      		.word gs(.L50)
- 440 0034 0000      		.word gs(.L50)
- 441 0036 0000      		.word gs(.L50)
- 442 0038 0000      		.word gs(.L50)
- 443 003a 0000      		.word gs(.L50)
- 444 003c 0000      		.word gs(.L50)
- 445 003e 0000      		.word gs(.L50)
- 446 0040 0000      		.word gs(.L50)
- 447 0042 0000      		.word gs(.L51)
- 448 0044 0000      		.word gs(.L75)
- 449 0046 0000      		.word gs(.L51)
- 450 0048 0000      		.word gs(.L75)
- 451 004a 0000      		.word gs(.L75)
- 452 004c 0000      		.word gs(.L75)
- 453 004e 0000      		.word gs(.L75)
- 454 0050 0000      		.word gs(.L75)
- 455 0052 0000      		.word gs(.L75)
- 456 0054 0000      		.word gs(.L75)
- 457 0056 0000      		.word gs(.L75)
- 458 0058 0000      		.word gs(.L75)
- 459 005a 0000      		.word gs(.L75)
- 460 005c 0000      		.word gs(.L75)
- 461 005e 0000      		.word gs(.L51)
- 462 0060 0000      		.word gs(.L75)
- 463 0062 0000      		.word gs(.L75)
- 464 0064 0000      		.word gs(.L43)
- 465 0066 0000      		.word gs(.L52)
- 466 0068 0000      		.word gs(.L53)
- 467 006a 0000      		.word gs(.L53)
- 468 006c 0000      		.word gs(.L53)
- 469 006e 0000      		.word gs(.L53)
- 470 0070 0000      		.word gs(.L53)
- 471 0072 0000      		.word gs(.L53)
- 472 0074 0000      		.word gs(.L53)
- 473 0076 0000      		.word gs(.L53)
- 474 0078 0000      		.word gs(.L53)
- 475 007a 0000      		.word gs(.L53)
- 476 007c 0000      		.word gs(.L53)
- 477 007e 0000      		.word gs(.L53)
- 478 0080 0000      		.word gs(.L54)
- 479 0082 0000      		.word gs(.L75)
- 480 0084 0000      		.word gs(.L55)
- 481               		.section	.text.command_proc
- 482               	.L42:
- 483               	.LBB34:
- 484               	.LBB35:
- 137:../../common/command.c ****     dc.raw = eeconfig_read_debug();
- 485               		.loc 1 137 0
- 486 004a 0E94 0000 		call eeconfig_read_debug
- 145:../../common/command.c ****     kc.raw = eeconfig_read_keymap();
- 487               		.loc 1 145 0
- 488 004e 0E94 0000 		call eeconfig_read_keymap
- 489 0052 00C0      		rjmp .L43
- 490               	.L52:
- 491               	.LBE35:
- 492               	.LBE34:
- 185:../../common/command.c ****             if (host_get_driver()) {
- 493               		.loc 1 185 0
- 494 0054 0E94 0000 		call host_get_driver
- 495 0058 892B      		or r24,r25
- 496 005a 01F0      		breq .L57
- 186:../../common/command.c ****                 host_driver = host_get_driver();
- 497               		.loc 1 186 0
- 498 005c 0E94 0000 		call host_get_driver
- 499 0060 9093 0000 		sts host_driver.4680+1,r25
- 500 0064 8093 0000 		sts host_driver.4680,r24
- 187:../../common/command.c ****                 host_set_driver(0);
- 501               		.loc 1 187 0
- 502 0068 80E0      		ldi r24,0
- 503 006a 90E0      		ldi r25,0
- 504 006c 00C0      		rjmp .L102
- 505               	.L57:
- 190:../../common/command.c ****                 host_set_driver(host_driver);
- 506               		.loc 1 190 0
- 507 006e 8091 0000 		lds r24,host_driver.4680
- 508 0072 9091 0000 		lds r25,host_driver.4680+1
- 509               	.L102:
- 510 0076 0E94 0000 		call host_set_driver
- 511 007a 00C0      		rjmp .L43
- 512               	.L40:
- 199:../../common/command.c ****             debug_matrix   = false;
- 513               		.loc 1 199 0
- 514 007c 8091 0000 		lds r24,debug_config
- 202:../../common/command.c ****             debug_enable   = false;
- 515               		.loc 1 202 0
- 516 0080 817F      		andi r24,lo8(-15)
- 517 0082 8E7F      		andi r24,lo8(~(1<<0))
- 518 0084 8093 0000 		sts debug_config,r24
- 206:../../common/command.c ****             state = CONSOLE;
- 519               		.loc 1 206 0
- 520 0088 81E0      		ldi r24,lo8(1)
- 521 008a 8093 0000 		sts state,r24
- 522 008e 00C0      		rjmp .L43
- 523               	.L55:
- 209:../../common/command.c ****             clear_keyboard();
- 524               		.loc 1 209 0
- 525 0090 0E94 0000 		call clear_keyboard
- 526               	.LBB36:
- 527               	.LBB37:
- 528               		.file 2 "/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h"
-   1:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** /* Copyright (c) 2002, Marek Michalkiewicz
-   2:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    Copyright (c) 2004,2005,2007 Joerg Wunsch
-   3:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    Copyright (c) 2007  Florin-Viorel Petrov
-   4:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    All rights reserved.
-   5:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
-   6:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    Redistribution and use in source and binary forms, with or without
-   7:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    modification, are permitted provided that the following conditions are met:
-   8:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
-   9:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    * Redistributions of source code must retain the above copyright
-  10:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****      notice, this list of conditions and the following disclaimer.
-  11:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
-  12:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    * Redistributions in binary form must reproduce the above copyright
-  13:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****      notice, this list of conditions and the following disclaimer in
-  14:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****      the documentation and/or other materials provided with the
-  15:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****      distribution.
-  16:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
-  17:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    * Neither the name of the copyright holders nor the names of
-  18:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****      contributors may be used to endorse or promote products derived
-  19:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****      from this software without specific prior written permission.
-  20:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
-  21:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  22:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****   AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  23:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-  24:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****   ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
-  25:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****   LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-  26:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****   CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-  27:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****   SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-  28:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****   INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-  29:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****   CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  30:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-  31:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****   POSSIBILITY OF SUCH DAMAGE. */
-  32:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
-  33:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** /* $Id: delay.h.in 2251 2011-09-14 08:20:33Z joerg_wunsch $ */
-  34:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
-  35:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** #ifndef _UTIL_DELAY_H_
-  36:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** #define _UTIL_DELAY_H_ 1
-  37:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
-  38:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** #ifndef __HAS_DELAY_CYCLES
-  39:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** #define __HAS_DELAY_CYCLES 1
-  40:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** #endif
-  41:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
-  42:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** #include <inttypes.h>
-  43:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** #include <util/delay_basic.h>
-  44:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** #include <math.h>
-  45:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
-  46:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** /** \file */
-  47:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** /** \defgroup util_delay <util/delay.h>: Convenience functions for busy-wait delay loops
-  48:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     \code
-  49:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     #define F_CPU 1000000UL  // 1 MHz
-  50:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     //#define F_CPU 14.7456E6
-  51:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     #include <util/delay.h>
-  52:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     \endcode
-  53:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
-  54:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     \note As an alternative method, it is possible to pass the
-  55:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     F_CPU macro down to the compiler from the Makefile.
-  56:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     Obviously, in that case, no \c \#define statement should be
-  57:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     used.
-  58:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
-  59:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     The functions in this header file are wrappers around the basic
-  60:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     busy-wait functions from <util/delay_basic.h>.  They are meant as
-  61:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     convenience functions where actual time values can be specified
-  62:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     rather than a number of cycles to wait for.  The idea behind is
-  63:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     that compile-time constant expressions will be eliminated by
-  64:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     compiler optimization so floating-point expressions can be used
-  65:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     to calculate the number of delay cycles needed based on the CPU
-  66:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     frequency passed by the macro F_CPU.
-  67:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
-  68:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     \note In order for these functions to work as intended, compiler
-  69:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     optimizations <em>must</em> be enabled, and the delay time
-  70:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     <em>must</em> be an expression that is a known constant at
-  71:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     compile-time.  If these requirements are not met, the resulting
-  72:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     delay will be much longer (and basically unpredictable), and
-  73:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     applications that otherwise do not use floating-point calculations
-  74:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     will experience severe code bloat by the floating-point library
-  75:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     routines linked into the application.
-  76:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
-  77:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     The functions available allow the specification of microsecond, and
-  78:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     millisecond delays directly, using the application-supplied macro
-  79:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     F_CPU as the CPU clock frequency (in Hertz).
-  80:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
-  81:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** */
-  82:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
-  83:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** #if !defined(__DOXYGEN__)
-  84:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** static inline void _delay_us(double __us) __attribute__((always_inline));
-  85:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** static inline void _delay_ms(double __ms) __attribute__((always_inline));
-  86:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** #endif
-  87:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
-  88:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** #ifndef F_CPU
-  89:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** /* prevent compiler error by supplying a default */
-  90:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** # warning "F_CPU not defined for <util/delay.h>"
-  91:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** # define F_CPU 1000000UL
-  92:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** #endif
-  93:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
-  94:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** #ifndef __OPTIMIZE__
-  95:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** # warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
-  96:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** #endif
-  97:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
-  98:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** #if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__) && \
-  99:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****   !defined(__DELAY_BACKWARD_COMPATIBLE__) &&	   \
- 100:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****   __STDC_HOSTED__
- 101:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** #  include <math.h>
- 102:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** #endif
- 103:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
- 104:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** /**
- 105:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    \ingroup util_delay
- 106:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
- 107:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    Perform a delay of \c __ms milliseconds, using _delay_loop_2().
- 108:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
- 109:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    The macro F_CPU is supposed to be defined to a
- 110:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    constant defining the CPU clock frequency (in Hertz).
- 111:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
- 112:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    The maximal possible delay is 262.14 ms / F_CPU in MHz.
- 113:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
- 114:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    When the user request delay which exceed the maximum possible one,
- 115:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    _delay_ms() provides a decreased resolution functionality. In this
- 116:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    mode _delay_ms() will work with a resolution of 1/10 ms, providing
- 117:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    delays up to 6.5535 seconds (independent from CPU frequency).  The
- 118:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    user will not be informed about decreased resolution.
- 119:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
- 120:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    If the avr-gcc toolchain has __builtin_avr_delay_cycles(unsigned long)
- 121:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    support, maximal possible delay is 4294967.295 ms/ F_CPU in MHz. For
- 122:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    values greater than the maximal possible delay, overflows results in
- 123:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    no delay i.e., 0ms.
- 124:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
- 125:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    Conversion of __us into clock cycles may not always result in integer.
- 126:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    By default, the clock cycles rounded up to next integer. This ensures that
- 127:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    the user gets atleast __us microseconds of delay.
- 128:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
- 129:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    Alternatively, user can define __DELAY_ROUND_DOWN__ and __DELAY_ROUND_CLOSEST__
- 130:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    to round down and round to closest integer.
- 131:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
- 132:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    Note: The new implementation of _delay_ms(double __ms) with 
- 133:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****     __builtin_avr_delay_cycles(unsigned long) support is not backward compatible. 
- 134:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    User can define __DELAY_BACKWARD_COMPATIBLE__ to get a backward compatible delay.
- 135:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    Also, the backward compatible
- 136:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    algorithm will be chosen if the code is compiled in a <em>freestanding
- 137:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    environment</em> (GCC option \c -ffreestanding), as the math functions
- 138:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****    required for rounding are not available to the compiler then.
- 139:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
- 140:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****  */
- 141:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** void
- 142:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** _delay_ms(double __ms)
- 143:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** {
- 144:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 	uint16_t __ticks;
- 145:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 	double __tmp ; 
- 146:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** #if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__) && \
- 147:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****   !defined(__DELAY_BACKWARD_COMPATIBLE__) &&	   \
- 148:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h ****   __STDC_HOSTED__
- 149:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 	uint32_t __ticks_dc;
- 150:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 	extern void __builtin_avr_delay_cycles(unsigned long);
- 151:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 	__tmp = ((F_CPU) / 1e3) * __ms;
- 152:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
- 153:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 	#if defined(__DELAY_ROUND_DOWN__)
- 154:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 		__ticks_dc = (uint32_t)fabs(__tmp);
- 155:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
- 156:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 	#elif defined(__DELAY_ROUND_CLOSEST__)
- 157:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 		__ticks_dc = (uint32_t)(fabs(__tmp)+0.5);
- 158:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
- 159:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 	#else
- 160:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 		//round up by default
- 161:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
- 162:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 	#endif
- 163:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 
- 164:/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/util/delay.h **** 	__builtin_avr_delay_cycles(__ticks_dc);
- 529               		.loc 2 164 0
- 530 0094 2FEF      		ldi r18,lo8(3199999)
- 531 0096 83ED      		ldi r24,hi8(3199999)
- 532 0098 90E3      		ldi r25,hlo8(3199999)
- 533 009a 2150      		1: subi r18,1
- 534 009c 8040      		sbci r24,0
- 535 009e 9040      		sbci r25,0
- 536 00a0 01F4      		brne 1b
- 537 00a2 00C0      		rjmp .
- 538 00a4 0000      		nop
- 539               	.LBE37:
- 540               	.LBE36:
- 212:../../common/command.c ****             bootloader_jump(); // not return
- 541               		.loc 1 212 0
- 542 00a6 0E94 0000 		call bootloader_jump
- 543 00aa 00C0      		rjmp .L43
- 544               	.L41:
- 216:../../common/command.c ****             if (debug_enable) {
- 545               		.loc 1 216 0
- 546 00ac 8091 0000 		lds r24,debug_config
- 547 00b0 80FF      		sbrs r24,0
- 548 00b2 00C0      		rjmp .L58
- 221:../../common/command.c ****                 debug_enable   = false;
- 549               		.loc 1 221 0
- 550 00b4 817F      		andi r24,lo8(-15)
- 551 00b6 8E7F      		andi r24,lo8(~(1<<0))
- 552 00b8 00C0      		rjmp .L103
- 553               	.L58:
- 224:../../common/command.c ****                 debug_enable   = true;
- 554               		.loc 1 224 0
- 555 00ba 8160      		ori r24,lo8(1<<0)
- 556               	.L103:
- 557 00bc 8093 0000 		sts debug_config,r24
- 558 00c0 00C0      		rjmp .L43
- 559               	.L49:
- 228:../../common/command.c ****             debug_matrix = !debug_matrix;
- 560               		.loc 1 228 0
- 561 00c2 9091 0000 		lds r25,debug_config
- 562 00c6 91FB      		bst r25,1
- 563 00c8 8827      		clr r24
- 564 00ca 80F9      		bld r24,0
- 565 00cc 21E0      		ldi r18,lo8(1)
- 566 00ce 8227      		eor r24,r18
- 567 00d0 80FB      		bst r24,0
- 568 00d2 91F9      		bld r25,1
- 569 00d4 00C0      		rjmp .L105
- 570               	.L44:
- 237:../../common/command.c ****             debug_keyboard = !debug_keyboard;
- 571               		.loc 1 237 0
- 572 00d6 9091 0000 		lds r25,debug_config
- 573 00da 92FB      		bst r25,2
- 574 00dc 8827      		clr r24
- 575 00de 80F9      		bld r24,0
- 576 00e0 21E0      		ldi r18,lo8(1)
- 577 00e2 8227      		eor r24,r18
- 578 00e4 80FB      		bst r24,0
- 579 00e6 92F9      		bld r25,2
- 580 00e8 00C0      		rjmp .L105
- 581               	.L45:
- 246:../../common/command.c ****             debug_mouse = !debug_mouse;
- 582               		.loc 1 246 0
- 583 00ea 9091 0000 		lds r25,debug_config
- 584 00ee 93FB      		bst r25,3
- 585 00f0 8827      		clr r24
- 586 00f2 80F9      		bld r24,0
- 587 00f4 21E0      		ldi r18,lo8(1)
- 588 00f6 8227      		eor r24,r18
- 589 00f8 80FB      		bst r24,0
- 590 00fa 93F9      		bld r25,3
- 591               	.L105:
- 592 00fc 9093 0000 		sts debug_config,r25
- 247:../../common/command.c ****             if (debug_mouse) {
- 593               		.loc 1 247 0
- 594 0100 8823      		tst r24
- 595 0102 01F4      		brne .+2
- 596 0104 00C0      		rjmp .L43
- 249:../../common/command.c ****                 debug_enable = true;
- 597               		.loc 1 249 0
- 598 0106 9160      		ori r25,lo8(1<<0)
- 599 0108 9093 0000 		sts debug_config,r25
- 600 010c 00C0      		rjmp .L43
- 601               	.L48:
- 300:../../common/command.c ****             print_val_hex32(timer_count);
- 602               		.loc 1 300 0
- 603 010e 8091 0000 		lds r24,timer_count
- 604 0112 9091 0000 		lds r25,timer_count+1
- 605 0116 A091 0000 		lds r26,timer_count+2
- 606 011a B091 0000 		lds r27,timer_count+3
- 607 011e BF93      		push r27
- 608               	.LCFI1:
- 609               		.cfi_def_cfa_offset 4
- 610 0120 AF93      		push r26
- 611               	.LCFI2:
- 612               		.cfi_def_cfa_offset 5
- 613 0122 9F93      		push r25
- 614               	.LCFI3:
- 615               		.cfi_def_cfa_offset 6
- 616 0124 8F93      		push r24
- 617               	.LCFI4:
- 618               		.cfi_def_cfa_offset 7
- 619 0126 80E0      		ldi r24,lo8(__c.4694)
- 620 0128 90E0      		ldi r25,hi8(__c.4694)
- 621 012a 9F93      		push r25
- 622               	.LCFI5:
- 623               		.cfi_def_cfa_offset 8
- 624 012c 8F93      		push r24
- 625               	.LCFI6:
- 626               		.cfi_def_cfa_offset 9
- 627 012e 0E94 0000 		call __xprintf
- 628 0132 0F90      		pop __tmp_reg__
- 629 0134 0F90      		pop __tmp_reg__
- 630 0136 0F90      		pop __tmp_reg__
- 631 0138 0F90      		pop __tmp_reg__
- 632 013a 0F90      		pop __tmp_reg__
- 633 013c 0F90      		pop __tmp_reg__
- 634               	.LCFI7:
- 635               		.cfi_def_cfa_offset 3
- 636 013e 00C0      		rjmp .L43
- 637               	.L47:
- 304:../../common/command.c ****             print_val_hex8(host_keyboard_leds());
- 638               		.loc 1 304 0
- 639 0140 0E94 0000 		call host_keyboard_leds
- 640 0144 1F92      		push __zero_reg__
- 641               	.LCFI8:
- 642               		.cfi_def_cfa_offset 4
- 643 0146 8F93      		push r24
- 644               	.LCFI9:
- 645               		.cfi_def_cfa_offset 5
- 646 0148 80E0      		ldi r24,lo8(__c.4697)
- 647 014a 90E0      		ldi r25,hi8(__c.4697)
- 648 014c 9F93      		push r25
- 649               	.LCFI10:
- 650               		.cfi_def_cfa_offset 6
- 651 014e 8F93      		push r24
- 652               	.LCFI11:
- 653               		.cfi_def_cfa_offset 7
- 654 0150 0E94 0000 		call __xprintf
- 305:../../common/command.c ****             print_val_hex8(keyboard_protocol);
- 655               		.loc 1 305 0
- 656 0154 8091 0000 		lds r24,keyboard_protocol
- 657 0158 1F92      		push __zero_reg__
- 658               	.LCFI12:
- 659               		.cfi_def_cfa_offset 8
- 660 015a 8F93      		push r24
- 661               	.LCFI13:
- 662               		.cfi_def_cfa_offset 9
- 663 015c 80E0      		ldi r24,lo8(__c.4699)
- 664 015e 90E0      		ldi r25,hi8(__c.4699)
- 665 0160 9F93      		push r25
- 666               	.LCFI14:
- 667               		.cfi_def_cfa_offset 10
- 668 0162 8F93      		push r24
- 669               	.LCFI15:
- 670               		.cfi_def_cfa_offset 11
- 671 0164 0E94 0000 		call __xprintf
- 306:../../common/command.c ****             print_val_hex8(keyboard_idle);
- 672               		.loc 1 306 0
- 673 0168 8091 0000 		lds r24,keyboard_idle
- 674 016c 1F92      		push __zero_reg__
- 675               	.LCFI16:
- 676               		.cfi_def_cfa_offset 12
- 677 016e 8F93      		push r24
- 678               	.LCFI17:
- 679               		.cfi_def_cfa_offset 13
- 680 0170 80E0      		ldi r24,lo8(__c.4701)
- 681 0172 90E0      		ldi r25,hi8(__c.4701)
- 682 0174 9F93      		push r25
- 683               	.LCFI18:
- 684               		.cfi_def_cfa_offset 14
- 685 0176 8F93      		push r24
- 686               	.LCFI19:
- 687               		.cfi_def_cfa_offset 15
- 688 0178 0E94 0000 		call __xprintf
- 689 017c 8DB7      		in r24,__SP_L__
- 690 017e 9EB7      		in r25,__SP_H__
- 691 0180 0C96      		adiw r24,12
- 692 0182 0FB6      		in __tmp_reg__,__SREG__
- 693 0184 F894      		cli
- 694 0186 9EBF      		out __SP_H__,r25
- 695 0188 0FBE      		out __SREG__,__tmp_reg__
- 696 018a 8DBF      		out __SP_L__,r24
- 697               	.LCFI20:
- 698               		.cfi_def_cfa_offset 3
- 699 018c 00C0      		rjmp .L43
- 700               	.L46:
- 323:../../common/command.c ****             clear_keyboard(); //Prevents stuck keys.
- 701               		.loc 1 323 0
- 702 018e 0E94 0000 		call clear_keyboard
- 324:../../common/command.c ****             keyboard_nkro = !keyboard_nkro;
- 703               		.loc 1 324 0
- 704 0192 8091 0000 		lds r24,keyboard_nkro
- 705 0196 91E0      		ldi r25,lo8(1)
- 706 0198 8927      		eor r24,r25
- 707 019a 8093 0000 		sts keyboard_nkro,r24
- 708 019e 00C0      		rjmp .L43
- 709               	.L54:
- 343:../../common/command.c ****             host_system_send(SYSTEM_POWER_DOWN);
- 710               		.loc 1 343 0
- 711 01a0 81E8      		ldi r24,lo8(-127)
- 712 01a2 90E0      		ldi r25,0
- 713 01a4 0E94 0000 		call host_system_send
- 714               	.LBB38:
- 715               	.LBB39:
- 716               		.loc 2 164 0
- 717 01a8 9FEF      		ldi r25,lo8(319999)
- 718 01aa 21EE      		ldi r18,hi8(319999)
- 719 01ac 84E0      		ldi r24,hlo8(319999)
- 720 01ae 9150      		1: subi r25,1
- 721 01b0 2040      		sbci r18,0
- 722 01b2 8040      		sbci r24,0
- 723 01b4 01F4      		brne 1b
- 724 01b6 00C0      		rjmp .
- 725 01b8 0000      		nop
- 726               	.LBE39:
- 727               	.LBE38:
- 345:../../common/command.c ****             host_system_send(0);
- 728               		.loc 1 345 0
- 729 01ba 80E0      		ldi r24,0
- 730 01bc 90E0      		ldi r25,0
- 731 01be 0E94 0000 		call host_system_send
- 732               	.LBB40:
- 733               	.LBB41:
- 734               		.loc 2 164 0
- 735 01c2 9FEF      		ldi r25,lo8(1599999)
- 736 01c4 29E6      		ldi r18,hi8(1599999)
- 737 01c6 88E1      		ldi r24,hlo8(1599999)
- 738 01c8 9150      		1: subi r25,1
- 739 01ca 2040      		sbci r18,0
- 740 01cc 8040      		sbci r24,0
- 741 01ce 01F4      		brne 1b
- 742 01d0 00C0      		rjmp .
- 743 01d2 0000      		nop
- 744 01d4 00C0      		rjmp .L43
- 745               	.L51:
- 746               	.LBE41:
- 747               	.LBE40:
- 353:../../common/command.c ****             switch_default_layer(0);
- 748               		.loc 1 353 0
- 749 01d6 80E0      		ldi r24,0
- 750 01d8 00C0      		rjmp .L100
- 751               	.L50:
- 356:../../common/command.c ****             switch_default_layer((code - KC_1) + 1);
- 752               		.loc 1 356 0
- 753 01da 8C2F      		mov r24,r28
- 754 01dc 8D51      		subi r24,lo8(-(-29))
- 755 01de 00C0      		rjmp .L100
- 756               	.L53:
- 359:../../common/command.c ****             switch_default_layer((code - KC_F1) + 1);
- 757               		.loc 1 359 0
- 758 01e0 8C2F      		mov r24,r28
- 759 01e2 8953      		subi r24,lo8(-(-57))
- 760               	.L100:
- 761 01e4 0E94 0000 		call switch_default_layer
- 762 01e8 00C0      		rjmp .L43
- 763               	.L75:
-  76:../../common/command.c ****             return (command_extra(code) || command_common(code));
- 764               		.loc 1 76 0
- 765 01ea 80E0      		ldi r24,0
- 766 01ec 90E0      		ldi r25,0
- 767               	.L39:
- 768               	.LBE33:
- 769               	.LBE32:
-  76:../../common/command.c ****             return (command_extra(code) || command_common(code));
- 770               		.loc 1 76 0 is_stmt 0 discriminator 4
- 771 01ee 8170      		andi r24,lo8(1)
- 772 01f0 00C0      		rjmp .L97
- 773               	.L36:
- 774               	.LBB42:
- 775               	.LBB43:
- 383:../../common/command.c ****     switch (code) {
- 776               		.loc 1 383 0 is_stmt 1
- 777 01f2 C431      		cpi r28,lo8(20)
- 778 01f4 01F0      		breq .L62
- 779 01f6 C932      		cpi r28,lo8(41)
- 780 01f8 01F0      		breq .L62
- 781 01fa C031      		cpi r28,lo8(16)
- 782 01fc 01F0      		breq .+2
- 783 01fe 00C0      		rjmp .L77
- 784 0200 00C0      		rjmp .L61
- 785               	.L62:
- 391:../../common/command.c ****             state = ONESHOT;
- 786               		.loc 1 391 0
- 787 0202 1092 0000 		sts state,__zero_reg__
- 788 0206 00C0      		rjmp .L77
- 789               	.L61:
- 398:../../common/command.c ****             state = MOUSEKEY;
- 790               		.loc 1 398 0
- 791 0208 82E0      		ldi r24,lo8(2)
- 792 020a 8093 0000 		sts state,r24
- 793 020e 00C0      		rjmp .L77
- 794               	.L37:
- 795               	.LBE43:
- 796               	.LBE42:
- 797               	.LBB44:
- 798               	.LBB45:
- 548:../../common/command.c ****     switch (code) {
- 799               		.loc 1 548 0
- 800 0210 C932      		cpi r28,lo8(41)
- 801 0212 01F0      		breq .L64
- 802 0214 00F4      		brsh .L70
- 803 0216 C431      		cpi r28,lo8(20)
- 804 0218 01F0      		breq .L64
- 805 021a 00F4      		brsh .L71
- 806 021c C730      		cpi r28,lo8(7)
- 807 021e 01F0      		breq .+2
- 808 0220 00C0      		rjmp .L77
- 809 0222 00C0      		rjmp .L63
- 810               	.L71:
- 811 0224 CE51      		subi r28,lo8(-(-30))
- 812 0226 CA30      		cpi r28,lo8(10)
- 813 0228 00F0      		brlo .+2
- 814 022a 00C0      		rjmp .L77
- 815 022c 00C0      		rjmp .L99
- 816               	.L70:
- 817 022e CE34      		cpi r28,lo8(78)
- 818 0230 01F0      		breq .L67
- 819 0232 00F4      		brsh .L72
- 820 0234 CB34      		cpi r28,lo8(75)
- 821 0236 01F4      		brne .L77
- 822 0238 00C0      		rjmp .L66
- 823               	.L72:
- 824 023a C135      		cpi r28,lo8(81)
- 825 023c 01F0      		breq .L68
- 826 023e C235      		cpi r28,lo8(82)
- 827 0240 01F4      		brne .L77
- 828 0242 00C0      		rjmp .L69
- 829               	.L64:
- 555:../../common/command.c ****             mousekey_param = 0;
- 830               		.loc 1 555 0
- 831 0244 1092 0000 		sts mousekey_param,__zero_reg__
- 558:../../common/command.c ****             state = CONSOLE;
- 832               		.loc 1 558 0
- 833 0248 81E0      		ldi r24,lo8(1)
- 834 024a 8093 0000 		sts state,r24
- 835 024e 00C0      		rjmp .L97
- 836               	.L99:
- 573:../../common/command.c ****             mousekey_param = numkey2num(code);
- 837               		.loc 1 573 0
- 838 0250 EC2F      		mov r30,r28
- 839 0252 F0E0      		ldi r31,0
- 840 0254 E050      		subi r30,lo8(-(CSWTCH.46))
- 841 0256 F040      		sbci r31,hi8(-(CSWTCH.46))
- 842 0258 8081      		ld r24,Z
- 843 025a 8093 0000 		sts mousekey_param,r24
- 844 025e 00C0      		rjmp .L77
- 845               	.L69:
- 577:../../common/command.c ****             mousekey_param_inc(mousekey_param, 1);
- 846               		.loc 1 577 0
- 847 0260 61E0      		ldi r22,lo8(1)
- 848 0262 00C0      		rjmp .L108
- 849               	.L68:
- 580:../../common/command.c ****             mousekey_param_dec(mousekey_param, 1);
- 850               		.loc 1 580 0
- 851 0264 61E0      		ldi r22,lo8(1)
- 852 0266 00C0      		rjmp .L107
- 853               	.L66:
- 583:../../common/command.c ****             mousekey_param_inc(mousekey_param, 10);
- 854               		.loc 1 583 0
- 855 0268 6AE0      		ldi r22,lo8(10)
- 856               	.L108:
- 857 026a 8091 0000 		lds r24,mousekey_param
- 858 026e 0E94 0000 		call mousekey_param_inc
- 859 0272 00C0      		rjmp .L77
+ 745               		.loc 1 632 0
+ 746 0202 0E94 0000 		call clear_keyboard
+ 747 0206 00C0      		rjmp .L44
+ 748               	.L74:
+ 749               	.LBE51:
+ 750               	.LBE50:
+ 751               	.LBE39:
+ 752               	.LBE38:
+  76:../../common/command.c ****         case CONSOLE:
+ 753               		.loc 1 76 0
+ 754 0208 80E0      		ldi r24,0
+ 755               	.L39:
+  76:../../common/command.c ****         case CONSOLE:
+ 756               		.loc 1 76 0 is_stmt 0 discriminator 6
+ 757 020a 8170      		andi r24,lo8(1)
+ 758 020c 00C0      		rjmp .L93
+ 759               	.L35:
+ 760               	.LBB52:
+ 761               	.LBB53:
+ 383:../../common/command.c ****         case KC_H:
+ 762               		.loc 1 383 0 is_stmt 1
+ 763 020e 8431      		cpi r24,lo8(20)
+ 764 0210 01F0      		breq .L60
+ 765 0212 8932      		cpi r24,lo8(41)
+ 766 0214 01F0      		breq .L60
+ 767 0216 8031      		cpi r24,lo8(16)
+ 768 0218 01F0      		breq .+2
+ 769 021a 00C0      		rjmp .L76
+ 398:../../common/command.c ****             return true;
+ 770               		.loc 1 398 0
+ 771 021c 82E0      		ldi r24,lo8(2)
+ 772 021e 8093 0000 		sts state,r24
+ 773 0222 00C0      		rjmp .L76
+ 774               	.L60:
+ 391:../../common/command.c ****             return false;
+ 775               		.loc 1 391 0
+ 776 0224 1092 0000 		sts state,__zero_reg__
+ 777 0228 00C0      		rjmp .L76
+ 778               	.L37:
+ 779               	.LBE53:
+ 780               	.LBE52:
+ 781               	.LBB54:
+ 782               	.LBB55:
+ 548:../../common/command.c ****         case KC_H:
+ 783               		.loc 1 548 0
+ 784 022a 8932      		cpi r24,lo8(41)
+ 785 022c 01F0      		breq .L62
+ 786 022e 00F4      		brsh .L63
+ 787 0230 8431      		cpi r24,lo8(20)
+ 788 0232 01F0      		breq .L62
+ 789 0234 00F4      		brsh .L64
+ 790 0236 8730      		cpi r24,lo8(7)
+ 791 0238 01F0      		breq .+2
+ 792 023a 00C0      		rjmp .L76
+ 589:../../common/command.c ****             mk_interval = MOUSEKEY_INTERVAL;
+ 793               		.loc 1 589 0
+ 794 023c 8EE1      		ldi r24,lo8(30)
+ 795 023e 8093 0000 		sts mk_delay,r24
+ 590:../../common/command.c ****             mk_max_speed = MOUSEKEY_MAX_SPEED;
+ 796               		.loc 1 590 0
+ 797 0242 82E3      		ldi r24,lo8(50)
+ 798 0244 8093 0000 		sts mk_interval,r24
+ 591:../../common/command.c ****             mk_time_to_max = MOUSEKEY_TIME_TO_MAX;
+ 799               		.loc 1 591 0
+ 800 0248 8AE0      		ldi r24,lo8(10)
+ 801 024a 8093 0000 		sts mk_max_speed,r24
+ 592:../../common/command.c ****             mk_wheel_max_speed = MOUSEKEY_WHEEL_MAX_SPEED;
+ 802               		.loc 1 592 0
+ 803 024e 84E1      		ldi r24,lo8(20)
+ 804 0250 8093 0000 		sts mk_time_to_max,r24
+ 593:../../common/command.c ****             mk_wheel_time_to_max = MOUSEKEY_WHEEL_TIME_TO_MAX;
+ 805               		.loc 1 593 0
+ 806 0254 88E0      		ldi r24,lo8(8)
+ 807 0256 8093 0000 		sts mk_wheel_max_speed,r24
+ 594:../../common/command.c ****             print("set default values.\n");
+ 808               		.loc 1 594 0
+ 809 025a 88E2      		ldi r24,lo8(40)
+ 810 025c 8093 0000 		sts mk_wheel_time_to_max,r24
+ 811 0260 00C0      		rjmp .L76
+ 812               	.L64:
+ 548:../../common/command.c ****         case KC_H:
+ 813               		.loc 1 548 0
+ 814 0262 CE51      		subi r28,lo8(-(-30))
+ 815 0264 CA30      		cpi r28,lo8(10)
+ 816 0266 00F4      		brsh .L76
+ 817 0268 EC2F      		mov r30,r28
+ 818 026a F0E0      		ldi r31,0
+ 819 026c E050      		subi r30,lo8(-(CSWTCH.45))
+ 820 026e F040      		sbci r31,hi8(-(CSWTCH.45))
+ 573:../../common/command.c ****             print("selected parameter: "); pdec(mousekey_param); print("\n");
+ 821               		.loc 1 573 0
+ 822 0270 8081      		ld r24,Z
+ 823 0272 8093 0000 		sts mousekey_param,r24
+ 824 0276 00C0      		rjmp .L76
+ 825               	.L63:
+ 548:../../common/command.c ****         case KC_H:
+ 826               		.loc 1 548 0
+ 827 0278 8E34      		cpi r24,lo8(78)
+ 828 027a 01F0      		breq .L67
+ 829 027c 00F4      		brsh .L68
+ 830 027e 8B34      		cpi r24,lo8(75)
+ 831 0280 01F4      		brne .L76
+ 583:../../common/command.c ****             break;
+ 832               		.loc 1 583 0
+ 833 0282 6AE0      		ldi r22,lo8(10)
+ 834 0284 00C0      		rjmp .L102
+ 835               	.L68:
+ 548:../../common/command.c ****         case KC_H:
+ 836               		.loc 1 548 0
+ 837 0286 8135      		cpi r24,lo8(81)
+ 838 0288 01F0      		breq .L70
+ 839 028a 8235      		cpi r24,lo8(82)
+ 840 028c 01F4      		brne .L76
+ 577:../../common/command.c ****             break;
+ 841               		.loc 1 577 0
+ 842 028e 61E0      		ldi r22,lo8(1)
+ 843 0290 00C0      		rjmp .L102
+ 844               	.L62:
+ 555:../../common/command.c ****             print("\nQuit Mousekey Console\n");
+ 845               		.loc 1 555 0
+ 846 0292 1092 0000 		sts mousekey_param,__zero_reg__
+ 558:../../common/command.c ****             return false;
+ 847               		.loc 1 558 0
+ 848 0296 81E0      		ldi r24,lo8(1)
+ 849 0298 8093 0000 		sts state,r24
+ 850 029c 00C0      		rjmp .L93
+ 851               	.L70:
+ 580:../../common/command.c ****             break;
+ 852               		.loc 1 580 0
+ 853 029e 61E0      		ldi r22,lo8(1)
+ 854 02a0 00C0      		rjmp .L101
+ 855               	.L102:
+ 583:../../common/command.c ****             break;
+ 856               		.loc 1 583 0
+ 857 02a2 8091 0000 		lds r24,mousekey_param
+ 858 02a6 0E94 0000 		call mousekey_param_inc
+ 859 02aa 00C0      		rjmp .L76
  860               	.L67:
- 586:../../common/command.c ****             mousekey_param_dec(mousekey_param, 10);
+ 586:../../common/command.c ****             break;
  861               		.loc 1 586 0
- 862 0274 6AE0      		ldi r22,lo8(10)
- 863               	.L107:
- 864 0276 8091 0000 		lds r24,mousekey_param
- 865 027a 0E94 0000 		call mousekey_param_dec
- 866 027e 00C0      		rjmp .L77
- 867               	.L63:
- 589:../../common/command.c ****             mk_delay = MOUSEKEY_DELAY/10;
- 868               		.loc 1 589 0
- 869 0280 8EE1      		ldi r24,lo8(30)
- 870 0282 8093 0000 		sts mk_delay,r24
- 590:../../common/command.c ****             mk_interval = MOUSEKEY_INTERVAL;
- 871               		.loc 1 590 0
- 872 0286 82E3      		ldi r24,lo8(50)
- 873 0288 8093 0000 		sts mk_interval,r24
- 591:../../common/command.c ****             mk_max_speed = MOUSEKEY_MAX_SPEED;
- 874               		.loc 1 591 0
- 875 028c 8AE0      		ldi r24,lo8(10)
- 876 028e 8093 0000 		sts mk_max_speed,r24
- 592:../../common/command.c ****             mk_time_to_max = MOUSEKEY_TIME_TO_MAX;
- 877               		.loc 1 592 0
- 878 0292 84E1      		ldi r24,lo8(20)
- 879 0294 8093 0000 		sts mk_time_to_max,r24
- 593:../../common/command.c ****             mk_wheel_max_speed = MOUSEKEY_WHEEL_MAX_SPEED;
- 880               		.loc 1 593 0
- 881 0298 88E0      		ldi r24,lo8(8)
- 882 029a 8093 0000 		sts mk_wheel_max_speed,r24
- 594:../../common/command.c ****             mk_wheel_time_to_max = MOUSEKEY_WHEEL_TIME_TO_MAX;
- 883               		.loc 1 594 0
- 884 029e 88E2      		ldi r24,lo8(40)
- 885 02a0 8093 0000 		sts mk_wheel_time_to_max,r24
- 886 02a4 00C0      		rjmp .L77
- 887               	.L96:
- 888               	.LBE45:
- 889               	.LBE44:
-  86:../../common/command.c ****             state = ONESHOT;
- 890               		.loc 1 86 0
- 891 02a6 1092 0000 		sts state,__zero_reg__
- 892               	.L73:
-  75:../../common/command.c ****                 return false;
- 893               		.loc 1 75 0
- 894 02aa 80E0      		ldi r24,0
- 895 02ac 00C0      		rjmp .L97
- 896               	.L77:
- 897               	.LBB47:
- 898               	.LBB46:
-  89:../../common/command.c ****     return true;
- 899               		.loc 1 89 0
- 900 02ae 81E0      		ldi r24,lo8(1)
- 901 02b0 00C0      		rjmp .L97
- 902               	.L43:
- 903               	.LBE46:
- 904               	.LBE47:
-  76:../../common/command.c ****             return (command_extra(code) || command_common(code));
- 905               		.loc 1 76 0
- 906 02b2 81E0      		ldi r24,lo8(1)
- 907 02b4 90E0      		ldi r25,0
- 908 02b6 00C0      		rjmp .L39
- 909               	.L97:
- 910               	/* epilogue start */
-  90:../../common/command.c **** }
- 911               		.loc 1 90 0
- 912 02b8 CF91      		pop r28
- 913 02ba 0895      		ret
- 914               		.cfi_endproc
- 915               	.LFE102:
- 917               		.comm	mk_wheel_time_to_max,1,1
- 918               		.comm	mk_wheel_max_speed,1,1
- 919               		.comm	mk_time_to_max,1,1
- 920               		.comm	mk_max_speed,1,1
- 921               		.comm	mk_interval,1,1
- 922               		.comm	mk_delay,1,1
- 923               		.comm	keymap_config,1,1
- 924               		.local	state
- 925               		.comm	state,1,1
- 926               		.local	host_driver.4680
- 927               		.comm	host_driver.4680,2,1
- 928               		.section	.progmem.data,"a",@progbits
- 931               	__c.4694:
- 932 0000 7469 6D65 		.string	"timer_count: %04lX\n"
- 932      725F 636F 
- 932      756E 743A 
- 932      2025 3034 
- 932      6C58 0A00 
- 935               	__c.4697:
- 936 0014 686F 7374 		.string	"host_keyboard_leds(): %X\n"
- 936      5F6B 6579 
- 936      626F 6172 
- 936      645F 6C65 
- 936      6473 2829 
- 939               	__c.4699:
- 940 002e 6B65 7962 		.string	"keyboard_protocol: %X\n"
- 940      6F61 7264 
- 940      5F70 726F 
- 940      746F 636F 
- 940      6C3A 2025 
- 943               	__c.4701:
- 944 0045 6B65 7962 		.string	"keyboard_idle: %X\n"
- 944      6F61 7264 
- 944      5F69 646C 
- 944      653A 2025 
- 944      580A 00
- 945               		.local	mousekey_param
- 946               		.comm	mousekey_param,1,1
- 947               		.section	.rodata
- 950               	CSWTCH.46:
- 951 0000 01        		.byte	1
- 952 0001 02        		.byte	2
- 953 0002 03        		.byte	3
- 954 0003 04        		.byte	4
- 955 0004 05        		.byte	5
- 956 0005 06        		.byte	6
- 957 0006 07        		.byte	7
- 958 0007 08        		.byte	8
- 959 0008 09        		.byte	9
- 960 0009 00        		.byte	0
- 961               		.text
- 962               	.Letext0:
- 963               		.file 3 "/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/stdint.h"
- 964               		.file 4 "../../common/report.h"
- 965               		.file 5 "../../common/host_driver.h"
- 966               		.file 6 "../../common/keymap.h"
- 967               		.file 7 "../../common/debug_config.h"
- 968               		.file 8 "../../protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/USBTask.h"
- 969               		.file 9 "../../common/host.h"
- 970               		.file 10 "../../common/timer.h"
- 971               		.file 11 "../../common/action_util.h"
- 972               		.file 12 "../../common/mousekey.h"
- 973               		.file 13 "../../common/keycode.h"
- 974               		.file 14 "../../common/action_layer.h"
- 975               		.file 15 "../../common/action.h"
+ 862 02ac 6AE0      		ldi r22,lo8(10)
+ 863               	.L101:
+ 864 02ae 8091 0000 		lds r24,mousekey_param
+ 865 02b2 0E94 0000 		call mousekey_param_dec
+ 866 02b6 00C0      		rjmp .L76
+ 867               	.L103:
+ 868               	.LBE55:
+ 869               	.LBE54:
+  86:../../common/command.c ****             return false;
+ 870               		.loc 1 86 0
+ 871 02b8 1092 0000 		sts state,__zero_reg__
+ 872               	.L72:
+  75:../../common/command.c ****             return (command_extra(code) || command_common(code));
+ 873               		.loc 1 75 0
+ 874 02bc 80E0      		ldi r24,0
+ 875 02be 00C0      		rjmp .L93
+ 876               	.L76:
+  89:../../common/command.c **** }
+ 877               		.loc 1 89 0
+ 878 02c0 81E0      		ldi r24,lo8(1)
+ 879 02c2 00C0      		rjmp .L93
+ 880               	.L44:
+  76:../../common/command.c ****         case CONSOLE:
+ 881               		.loc 1 76 0
+ 882 02c4 81E0      		ldi r24,lo8(1)
+ 883 02c6 00C0      		rjmp .L39
+ 884               	.L93:
+ 885               	/* epilogue start */
+  90:../../common/command.c **** 
+ 886               		.loc 1 90 0
+ 887 02c8 CF91      		pop r28
+ 888 02ca 0895      		ret
+ 889               		.cfi_endproc
+ 890               	.LFE102:
+ 892               		.section	.rodata
+ 895               	CSWTCH.45:
+ 896 0000 01        		.byte	1
+ 897 0001 02        		.byte	2
+ 898 0002 03        		.byte	3
+ 899 0003 04        		.byte	4
+ 900 0004 05        		.byte	5
+ 901 0005 06        		.byte	6
+ 902 0006 07        		.byte	7
+ 903 0007 08        		.byte	8
+ 904 0008 09        		.byte	9
+ 905 0009 00        		.byte	0
+ 906               		.section	.progmem.data,"a",@progbits
+ 909               	__c.4886:
+ 910 0000 6B65 7962 		.string	"keyboard_idle: %X\n"
+ 910      6F61 7264 
+ 910      5F69 646C 
+ 910      653A 2025 
+ 910      580A 00
+ 913               	__c.4884:
+ 914 0013 6B65 7962 		.string	"keyboard_protocol: %X\n"
+ 914      6F61 7264 
+ 914      5F70 726F 
+ 914      746F 636F 
+ 914      6C3A 2025 
+ 917               	__c.4882:
+ 918 002a 686F 7374 		.string	"host_keyboard_leds(): %X\n"
+ 918      5F6B 6579 
+ 918      626F 6172 
+ 918      645F 6C65 
+ 918      6473 2829 
+ 921               	__c.4879:
+ 922 0044 7469 6D65 		.string	"timer_count: %04lX\n"
+ 922      725F 636F 
+ 922      756E 743A 
+ 922      2025 3034 
+ 922      6C58 0A00 
+ 923               		.local	host_driver.4865
+ 924               		.comm	host_driver.4865,2,1
+ 925               		.local	mousekey_param
+ 926               		.comm	mousekey_param,1,1
+ 927               		.local	state
+ 928               		.comm	state,1,1
+ 929               		.comm	mk_wheel_time_to_max,1,1
+ 930               		.comm	mk_wheel_max_speed,1,1
+ 931               		.comm	mk_time_to_max,1,1
+ 932               		.comm	mk_max_speed,1,1
+ 933               		.comm	mk_interval,1,1
+ 934               		.comm	mk_delay,1,1
+ 935               		.comm	keymap_config,1,1
+ 936               		.text
+ 937               	.Letext0:
+ 938               		.file 3 "/usr/local/Cellar/avr-gcc/4.9.2/avr/include/stdint.h"
+ 939               		.file 4 "../../common/report.h"
+ 940               		.file 5 "../../common/host_driver.h"
+ 941               		.file 6 "../../common/keymap.h"
+ 942               		.file 7 "../../common/debug_config.h"
+ 943               		.file 8 "../../protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/USBTask.h"
+ 944               		.file 9 "../../common/host.h"
+ 945               		.file 10 "../../common/timer.h"
+ 946               		.file 11 "../../common/action_util.h"
+ 947               		.file 12 "../../common/mousekey.h"
+ 948               		.file 13 "../../common/keycode.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 command.c
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccZwA5dA.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccZwA5dA.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccZwA5dA.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccZwA5dA.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccZwA5dA.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccZwA5dA.s:12     .text.mousekey_param_inc:0000000000000000 mousekey_param_inc
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccGxykkb.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccGxykkb.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccGxykkb.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccGxykkb.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccGxykkb.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccGxykkb.s:12     .text.mousekey_param_inc:0000000000000000 mousekey_param_inc
                             *COM*:0000000000000001 mk_delay
                             *COM*:0000000000000001 mk_interval
                             *COM*:0000000000000001 mk_max_speed
                             *COM*:0000000000000001 mk_time_to_max
                             *COM*:0000000000000001 mk_wheel_max_speed
                             *COM*:0000000000000001 mk_wheel_time_to_max
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccZwA5dA.s:184    .text.mousekey_param_dec:0000000000000000 mousekey_param_dec
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccZwA5dA.s:306    .text.switch_default_layer:0000000000000000 switch_default_layer
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccZwA5dA.s:342    .text.command_extra:0000000000000000 command_extra
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccZwA5dA.s:361    .text.command_proc:0000000000000000 command_proc
-                             .bss:0000000000000000 state
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccZwA5dA.s:925    .bss:0000000000000001 host_driver.4680
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccZwA5dA.s:931    .progmem.data:0000000000000000 __c.4694
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccZwA5dA.s:935    .progmem.data:0000000000000014 __c.4697
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccZwA5dA.s:939    .progmem.data:000000000000002e __c.4699
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccZwA5dA.s:943    .progmem.data:0000000000000045 __c.4701
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccZwA5dA.s:927    .bss:0000000000000003 mousekey_param
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccZwA5dA.s:950    .rodata:0000000000000000 CSWTCH.46
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccGxykkb.s:182    .text.mousekey_param_dec:0000000000000000 mousekey_param_dec
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccGxykkb.s:302    .text.command_extra:0000000000000000 command_extra
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccGxykkb.s:321    .text.command_proc:0000000000000000 command_proc
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccGxykkb.s:926    .bss:0000000000000003 state
+                             .bss:0000000000000000 host_driver.4865
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccGxykkb.s:921    .progmem.data:0000000000000044 __c.4879
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccGxykkb.s:917    .progmem.data:000000000000002a __c.4882
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccGxykkb.s:913    .progmem.data:0000000000000013 __c.4884
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccGxykkb.s:909    .progmem.data:0000000000000000 __c.4886
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccGxykkb.s:895    .rodata:0000000000000000 CSWTCH.45
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccGxykkb.s:924    .bss:0000000000000002 mousekey_param
                             *COM*:0000000000000001 keymap_config
 
 UNDEFINED SYMBOLS
-default_layer_set
-clear_keyboard
 keyboard_report
 __tablejump2__
 eeconfig_read_debug
@@ -1864,6 +1838,7 @@ eeconfig_read_keymap
 host_get_driver
 host_set_driver
 debug_config
+clear_keyboard
 bootloader_jump
 timer_count
 __xprintf
@@ -1872,5 +1847,6 @@ keyboard_protocol
 keyboard_idle
 keyboard_nkro
 host_system_send
+default_layer_set
 __do_copy_data
 __do_clear_bss

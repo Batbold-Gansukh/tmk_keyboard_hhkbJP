@@ -100,44 +100,42 @@
   71 0002 F0E0      		ldi r31,0
   72 0004 EE0F      		lsl r30
   73 0006 FF1F      		rol r31
-  74 0008 E050      		subi r30,lo8(-(fn_actions-384))
-  75 000a F040      		sbci r31,hi8(-(fn_actions-384))
-  76               	.LVL4:
-  77               	/* #APP */
-  78               	 ;  32 "keymap_common.c" 1
-  79 000c 2591      		lpm r18, Z+
-  80 000e 3491      		lpm r19, Z
-  81               		
-  82               	 ;  0 "" 2
-  83               	.LVL5:
-  84               	/* #NOAPP */
-  85               	.LBE3:
+  74               	.LVL4:
+  75 0008 E050      		subi r30,lo8(-(fn_actions-384))
+  76 000a F040      		sbci r31,hi8(-(fn_actions-384))
+  77               	.LVL5:
+  78               	.LBE3:
   33:keymap_common.c **** }
-  86               		.loc 1 33 0
-  87 0010 C901      		movw r24,r18
-  88               	.LVL6:
-  89 0012 0895      		ret
-  90               		.cfi_endproc
-  91               	.LFE103:
-  93               		.comm	keymap_config,1,1
-  94               		.text
-  95               	.Letext0:
-  96               		.file 2 "/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/stdint.h"
-  97               		.file 3 "../../common/keyboard.h"
-  98               		.file 4 "../../common/action_code.h"
-  99               		.file 5 "../../common/keymap.h"
- 100               		.file 6 "../../protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/USBTask.h"
- 101               		.file 7 "keymap_common.h"
- 102               		.file 8 "../../common/keycode.h"
+  79               		.loc 1 33 0
+  80               	/* #APP */
+  81               	 ;  32 "keymap_common.c" 1
+  82 000c 8591      		lpm r24, Z+
+  83 000e 9491      		lpm r25, Z
+  84               		
+  85               	 ;  0 "" 2
+  86               	/* #NOAPP */
+  87 0010 0895      		ret
+  88               		.cfi_endproc
+  89               	.LFE103:
+  91               		.comm	keymap_config,1,1
+  92               		.text
+  93               	.Letext0:
+  94               		.file 2 "/usr/local/Cellar/avr-gcc/4.9.3/avr/include/stdint.h"
+  95               		.file 3 "../../common/keyboard.h"
+  96               		.file 4 "../../common/action_code.h"
+  97               		.file 5 "../../common/keymap.h"
+  98               		.file 6 "../../protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/USBTask.h"
+  99               		.file 7 "keymap_common.h"
+ 100               		.file 8 "../../common/keycode.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 keymap_common.c
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccU5B1nY.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccU5B1nY.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccU5B1nY.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccU5B1nY.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccU5B1nY.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccU5B1nY.s:13     .text.keymap_key_to_keycode:0000000000000000 keymap_key_to_keycode
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccU5B1nY.s:59     .text.keymap_fn_to_action:0000000000000000 keymap_fn_to_action
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccvZuaN7.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccvZuaN7.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccvZuaN7.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccvZuaN7.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccvZuaN7.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccvZuaN7.s:13     .text.keymap_key_to_keycode:0000000000000000 keymap_key_to_keycode
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccvZuaN7.s:59     .text.keymap_fn_to_action:0000000000000000 keymap_fn_to_action
                             *COM*:0000000000000001 keymap_config
 
 UNDEFINED SYMBOLS

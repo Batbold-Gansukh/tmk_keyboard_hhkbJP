@@ -136,7 +136,7 @@
   90 0000 E091 0000 		lds r30,driver
   91 0004 F091 0000 		lds r31,driver+1
   92 0008 3097      		sbiw r30,0
-  93 000a 01F0      		breq .L5
+  93 000a 01F0      		breq .L6
   54:../../common/host.c ****     (*driver->send_keyboard)(report);
   94               		.loc 1 54 0
   95 000c 0280      		ldd __tmp_reg__,Z+2
@@ -144,7 +144,7 @@
   97 0010 E02D      		mov r30,__tmp_reg__
   98 0012 0994      		ijmp
   99               	.LVL3:
- 100               	.L5:
+ 100               	.L6:
  101 0014 0895      		ret
  102               		.cfi_endproc
  103               	.LFE102:
@@ -176,7 +176,7 @@
  118 0000 E091 0000 		lds r30,driver
  119 0004 F091 0000 		lds r31,driver+1
  120 0008 3097      		sbiw r30,0
- 121 000a 01F0      		breq .L7
+ 121 000a 01F0      		breq .L8
   68:../../common/host.c ****     (*driver->send_mouse)(report);
  122               		.loc 1 68 0
  123 000c 0480      		ldd __tmp_reg__,Z+4
@@ -184,7 +184,7 @@
  125 0010 E02D      		mov r30,__tmp_reg__
  126 0012 0994      		ijmp
  127               	.LVL5:
- 128               	.L7:
+ 128               	.L8:
  129 0014 0895      		ret
  130               		.cfi_endproc
  131               	.LFE103:
@@ -209,7 +209,7 @@
  147 0004 3091 0000 		lds r19,last_system_report+1
  148 0008 8217      		cp r24,r18
  149 000a 9307      		cpc r25,r19
- 150 000c 01F0      		breq .L9
+ 150 000c 01F0      		breq .L10
   74:../../common/host.c ****     last_system_report = report;
  151               		.loc 1 74 0
  152 000e 9093 0000 		sts last_system_report+1,r25
@@ -220,7 +220,7 @@
  155 0016 E091 0000 		lds r30,driver
  156 001a F091 0000 		lds r31,driver+1
  157 001e 3097      		sbiw r30,0
- 158 0020 01F0      		breq .L9
+ 158 0020 01F0      		breq .L10
   77:../../common/host.c ****     (*driver->send_system)(report);
  159               		.loc 1 77 0
  160 0022 0680      		ldd __tmp_reg__,Z+6
@@ -228,7 +228,7 @@
  162 0026 E02D      		mov r30,__tmp_reg__
  163 0028 0994      		ijmp
  164               	.LVL7:
- 165               	.L9:
+ 165               	.L10:
  166 002a 0895      		ret
  167               		.cfi_endproc
  168               	.LFE104:
@@ -253,7 +253,7 @@
  184 0004 3091 0000 		lds r19,last_consumer_report+1
  185 0008 8217      		cp r24,r18
  186 000a 9307      		cpc r25,r19
- 187 000c 01F0      		breq .L16
+ 187 000c 01F0      		breq .L17
   83:../../common/host.c ****     last_consumer_report = report;
  188               		.loc 1 83 0
  189 000e 9093 0000 		sts last_consumer_report+1,r25
@@ -264,7 +264,7 @@
  192 0016 E091 0000 		lds r30,driver
  193 001a F091 0000 		lds r31,driver+1
  194 001e 3097      		sbiw r30,0
- 195 0020 01F0      		breq .L16
+ 195 0020 01F0      		breq .L17
   86:../../common/host.c ****     (*driver->send_consumer)(report);
  196               		.loc 1 86 0
  197 0022 0084      		ldd __tmp_reg__,Z+8
@@ -272,7 +272,7 @@
  199 0026 E02D      		mov r30,__tmp_reg__
  200 0028 0994      		ijmp
  201               	.LVL9:
- 202               	.L16:
+ 202               	.L17:
  203 002a 0895      		ret
  204               		.cfi_endproc
  205               	.LFE105:
@@ -319,43 +319,43 @@
  239 0008 0895      		ret
  240               		.cfi_endproc
  241               	.LFE107:
- 243               	.global	keyboard_nkro
- 244               		.data
- 247               	keyboard_nkro:
- 248 0000 01        		.byte	1
- 249               		.local	driver
- 250               		.comm	driver,2,1
- 251               		.local	last_system_report
- 252               		.comm	last_system_report,2,1
- 253               		.local	last_consumer_report
- 254               		.comm	last_consumer_report,2,1
+ 243               		.local	last_consumer_report
+ 244               		.comm	last_consumer_report,2,1
+ 245               		.local	last_system_report
+ 246               		.comm	last_system_report,2,1
+ 247               		.local	driver
+ 248               		.comm	driver,2,1
+ 249               	.global	keyboard_nkro
+ 250               		.data
+ 253               	keyboard_nkro:
+ 254 0000 01        		.byte	1
  255               		.text
  256               	.Letext0:
- 257               		.file 2 "/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/stdint.h"
+ 257               		.file 2 "/usr/local/Cellar/avr-gcc/4.9.2/avr/include/stdint.h"
  258               		.file 3 "../../common/report.h"
  259               		.file 4 "../../common/host_driver.h"
  260               		.file 5 "../../common/debug_config.h"
  261               		.file 6 "../../protocol/lufa/LUFA-120730/LUFA/Drivers/USB/Core/USBTask.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 host.c
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccCnW8ao.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccCnW8ao.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccCnW8ao.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccCnW8ao.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccCnW8ao.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccCnW8ao.s:13     .text.host_set_driver:0000000000000000 host_set_driver
-                             .bss:0000000000000000 driver
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccCnW8ao.s:33     .text.host_get_driver:0000000000000000 host_get_driver
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccCnW8ao.s:51     .text.host_keyboard_leds:0000000000000000 host_keyboard_leds
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccCnW8ao.s:80     .text.host_keyboard_send:0000000000000000 host_keyboard_send
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccCnW8ao.s:108    .text.host_mouse_send:0000000000000000 host_mouse_send
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccCnW8ao.s:136    .text.host_system_send:0000000000000000 host_system_send
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccCnW8ao.s:250    .bss:0000000000000002 last_system_report
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccCnW8ao.s:173    .text.host_consumer_send:0000000000000000 host_consumer_send
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccCnW8ao.s:252    .bss:0000000000000004 last_consumer_report
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccCnW8ao.s:210    .text.host_last_sysytem_report:0000000000000000 host_last_sysytem_report
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccCnW8ao.s:228    .text.host_last_consumer_report:0000000000000000 host_last_consumer_report
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccCnW8ao.s:247    .data:0000000000000000 keyboard_nkro
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccAd5XLO.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccAd5XLO.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccAd5XLO.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccAd5XLO.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccAd5XLO.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccAd5XLO.s:13     .text.host_set_driver:0000000000000000 host_set_driver
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccAd5XLO.s:246    .bss:0000000000000004 driver
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccAd5XLO.s:33     .text.host_get_driver:0000000000000000 host_get_driver
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccAd5XLO.s:51     .text.host_keyboard_leds:0000000000000000 host_keyboard_leds
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccAd5XLO.s:80     .text.host_keyboard_send:0000000000000000 host_keyboard_send
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccAd5XLO.s:108    .text.host_mouse_send:0000000000000000 host_mouse_send
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccAd5XLO.s:136    .text.host_system_send:0000000000000000 host_system_send
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccAd5XLO.s:244    .bss:0000000000000002 last_system_report
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccAd5XLO.s:173    .text.host_consumer_send:0000000000000000 host_consumer_send
+                             .bss:0000000000000000 last_consumer_report
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccAd5XLO.s:210    .text.host_last_sysytem_report:0000000000000000 host_last_sysytem_report
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccAd5XLO.s:228    .text.host_last_consumer_report:0000000000000000 host_last_consumer_report
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccAd5XLO.s:253    .data:0000000000000000 keyboard_nkro
 
 UNDEFINED SYMBOLS
 __do_copy_data

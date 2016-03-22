@@ -268,25 +268,25 @@
  247               	.LFE9:
  249               		.text
  250               	.Letext0:
- 251               		.file 2 "/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/stdint.h"
- 252               		.file 3 "/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/avr/eeprom.h"
+ 251               		.file 2 "/usr/local/Cellar/avr-gcc/4.9.2/avr/include/stdint.h"
+ 252               		.file 3 "/usr/local/Cellar/avr-gcc/4.9.2/avr/include/avr/eeprom.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 eeconfig.c
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccuR4ZWG.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccuR4ZWG.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccuR4ZWG.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccuR4ZWG.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccuR4ZWG.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccuR4ZWG.s:13     .text.eeconfig_init:0000000000000000 eeconfig_init
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccuR4ZWG.s:59     .text.eeconfig_enable:0000000000000000 eeconfig_enable
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccuR4ZWG.s:80     .text.eeconfig_disable:0000000000000000 eeconfig_disable
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccuR4ZWG.s:101    .text.eeconfig_is_enabled:0000000000000000 eeconfig_is_enabled
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccuR4ZWG.s:129    .text.eeconfig_read_debug:0000000000000000 eeconfig_read_debug
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccuR4ZWG.s:148    .text.eeconfig_write_debug:0000000000000000 eeconfig_write_debug
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccuR4ZWG.s:170    .text.eeconfig_read_default_layer:0000000000000000 eeconfig_read_default_layer
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccuR4ZWG.s:189    .text.eeconfig_write_default_layer:0000000000000000 eeconfig_write_default_layer
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccuR4ZWG.s:211    .text.eeconfig_read_keymap:0000000000000000 eeconfig_read_keymap
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccuR4ZWG.s:230    .text.eeconfig_write_keymap:0000000000000000 eeconfig_write_keymap
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccpBY9F3.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccpBY9F3.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccpBY9F3.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccpBY9F3.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccpBY9F3.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccpBY9F3.s:13     .text.eeconfig_init:0000000000000000 eeconfig_init
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccpBY9F3.s:59     .text.eeconfig_enable:0000000000000000 eeconfig_enable
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccpBY9F3.s:80     .text.eeconfig_disable:0000000000000000 eeconfig_disable
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccpBY9F3.s:101    .text.eeconfig_is_enabled:0000000000000000 eeconfig_is_enabled
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccpBY9F3.s:129    .text.eeconfig_read_debug:0000000000000000 eeconfig_read_debug
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccpBY9F3.s:148    .text.eeconfig_write_debug:0000000000000000 eeconfig_write_debug
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccpBY9F3.s:170    .text.eeconfig_read_default_layer:0000000000000000 eeconfig_read_default_layer
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccpBY9F3.s:189    .text.eeconfig_write_default_layer:0000000000000000 eeconfig_write_default_layer
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccpBY9F3.s:211    .text.eeconfig_read_keymap:0000000000000000 eeconfig_read_keymap
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccpBY9F3.s:230    .text.eeconfig_write_keymap:0000000000000000 eeconfig_write_keymap
 
 UNDEFINED SYMBOLS
 __eewr_word_m32u4

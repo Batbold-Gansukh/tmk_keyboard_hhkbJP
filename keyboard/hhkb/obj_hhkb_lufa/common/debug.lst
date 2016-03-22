@@ -14,16 +14,16 @@
   16               		.text
   17               	.Letext0:
   18               		.file 1 "../../common/debug_config.h"
-  19               		.file 2 "/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/stdint.h"
+  19               		.file 2 "/usr/local/Cellar/avr-gcc/4.9.2/avr/include/stdint.h"
   20               		.file 3 "../../common/debug.c"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 debug.c
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccEUHbv9.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccEUHbv9.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccEUHbv9.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccEUHbv9.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccEUHbv9.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccEUHbv9.s:14     .bss:0000000000000000 debug_config
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cco51GUK.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cco51GUK.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cco51GUK.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cco51GUK.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cco51GUK.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cco51GUK.s:14     .bss:0000000000000000 debug_config
 
 UNDEFINED SYMBOLS
 __do_clear_bss

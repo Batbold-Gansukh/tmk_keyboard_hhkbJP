@@ -504,14 +504,14 @@
   59               	.LFE84:
   61               		.text
   62               	.Letext0:
-  63               		.file 3 "/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/stdint.h"
+  63               		.file 3 "/usr/local/Cellar/avr-gcc/4.9.2/avr/include/stdint.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 Device_AVR8.c
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccgHWXH0.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccgHWXH0.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccgHWXH0.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccgHWXH0.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccgHWXH0.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccgHWXH0.s:13     .text.USB_Device_SendRemoteWakeup:0000000000000000 USB_Device_SendRemoteWakeup
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccb7TGTE.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccb7TGTE.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccb7TGTE.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccb7TGTE.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccb7TGTE.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//ccb7TGTE.s:13     .text.USB_Device_SendRemoteWakeup:0000000000000000 USB_Device_SendRemoteWakeup
 
 NO UNDEFINED SYMBOLS

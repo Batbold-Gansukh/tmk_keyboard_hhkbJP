@@ -143,12 +143,12 @@
  102               		.loc 1 44 0
  103 0002 0E94 0000 		call matrix_scan
  104               	.LVL0:
+ 105               	.LBB2:
   45:../../common/suspend.c ****     for (uint8_t r = 0; r < MATRIX_ROWS; r++) {
- 105               		.loc 1 45 0
- 106 0006 C0E0      		ldi r28,0
- 107               	.LVL1:
- 108               	.L4:
- 109               	.LBB2:
+ 106               		.loc 1 45 0
+ 107 0006 C0E0      		ldi r28,0
+ 108               	.LVL1:
+ 109               	.L4:
   46:../../common/suspend.c ****         if (matrix_get_row(r)) return true;
  110               		.loc 1 46 0
  111 0008 8C2F      		mov r24,r28
@@ -157,24 +157,24 @@
  114 000e 8111      		cpse r24,__zero_reg__
  115 0010 00C0      		rjmp .L5
   45:../../common/suspend.c ****     for (uint8_t r = 0; r < MATRIX_ROWS; r++) {
- 116               		.loc 1 45 0
+ 116               		.loc 1 45 0 discriminator 2
  117 0012 CF5F      		subi r28,lo8(-(1))
  118               	.LVL3:
  119 0014 C031      		cpi r28,lo8(16)
  120 0016 01F4      		brne .L4
  121 0018 00C0      		rjmp .L3
- 122               	.LVL4:
- 123               	.L5:
- 124               		.loc 1 46 0
- 125 001a 81E0      		ldi r24,lo8(1)
- 126               	.L3:
- 127               	/* epilogue start */
- 128               	.LBE2:
+ 122               	.L5:
+ 123               		.loc 1 46 0
+ 124 001a 81E0      		ldi r24,lo8(1)
+ 125               	.L3:
+ 126               	/* epilogue start */
+ 127               	.LBE2:
   47:../../common/suspend.c ****     }
   48:../../common/suspend.c ****     return false;
   49:../../common/suspend.c **** }
- 129               		.loc 1 49 0
- 130 001c CF91      		pop r28
+ 128               		.loc 1 49 0
+ 129 001c CF91      		pop r28
+ 130               	.LVL4:
  131 001e 0895      		ret
  132               		.cfi_endproc
  133               	.LFE5:
@@ -251,20 +251,20 @@
  182               	.LFE7:
  184               		.text
  185               	.Letext0:
- 186               		.file 2 "/usr/local/Cellar/avr-gcc/4.7.2/lib/gcc/avr/4.7.2/../../../../avr/include/stdint.h"
+ 186               		.file 2 "/usr/local/Cellar/avr-gcc/4.9.2/avr/include/stdint.h"
  187               		.file 3 "../../common/matrix.h"
  188               		.file 4 "../../common/action.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 suspend.c
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccgWOJQn.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccgWOJQn.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccgWOJQn.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccgWOJQn.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccgWOJQn.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccgWOJQn.s:13     .text.suspend_power_down:0000000000000000 suspend_power_down
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccgWOJQn.s:90     .text.suspend_wakeup_condition:0000000000000000 suspend_wakeup_condition
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccgWOJQn.s:138    .text.suspend_wakeup_init:0000000000000000 suspend_wakeup_init
-/var/folders/kj/w_bbx2ws73sgrgbctpd6c4hr0000gn/T//ccgWOJQn.s:155    .text.__vector_12:0000000000000000 __vector_12
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cc9Koc59.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cc9Koc59.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cc9Koc59.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cc9Koc59.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cc9Koc59.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cc9Koc59.s:13     .text.suspend_power_down:0000000000000000 suspend_power_down
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cc9Koc59.s:90     .text.suspend_wakeup_condition:0000000000000000 suspend_wakeup_condition
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cc9Koc59.s:138    .text.suspend_wakeup_init:0000000000000000 suspend_wakeup_init
+/var/folders/67/vcrp0s4s10x_6hfx2yflxzbc0000gn/T//cc9Koc59.s:155    .text.__vector_12:0000000000000000 __vector_12
 
 UNDEFINED SYMBOLS
 matrix_scan

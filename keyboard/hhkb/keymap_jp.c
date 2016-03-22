@@ -12,11 +12,11 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 
     /* Layer 0: Default Layer */
     [0] = \
-    KEYMAP_JP(ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, GRV,BSPC, \
-              TAB, Q,   W,   F,   P,   G,   J,   L,   U,   Y,   SCLN,   LBRC,RBRC, \
-              LGUI,A,   R,   S,   T,   D,   H,   N,   E,   I,   O,QUOT,BSLS,ENT, \
-              LSFT,Z,   X,   C,   V,   B,   K,   M,   COMM,DOT, SLSH,RO,  UP,  FN8, \
-              FN1, ZKHK,LCTL,LALT,FN2,     SPC,      FN9,KANA,RALT,FN1, LEFT,DOWN,RGHT),
+    KEYMAP_JP(ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,    MINS, EQL, GRV,BSPC, \
+              TAB, Q,   W,   F,   P,   G,   J,   L,   U,   Y,   SCLN, LBRC, RBRC, \
+              LGUI,A,   R,   S,   T,   D,   H,   N,   E,   I,   O,    QUOT, BSLS,ENT, \
+              LSFT,Z,   X,   C,   V,   B,   K,   M,   COMM,DOT, SLSH, RSFT, UP,  FN8, \
+              LCTL,ZKHK,LCTL,LALT,FN2,     SPC,       FN9 ,RCTL,RALT, FN1,  LEFT,DOWN,RGHT),
 
     /* Layer 1: HHKB mode (HHKB Fn)
      * ,-----------------------------------------------------------.
@@ -58,9 +58,9 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
               TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS,     TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS),
     [5] = \
     KEYMAP_JP(PWR, TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS, TRNS, TRNS, TRNS, TRNS, \
-              TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,LBRACKET,RBRACKET,TRNS,TRNS,TRNS, TRNS, \
+              TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN6,FN7,TRNS, TRNS,TRNS,TRNS, \
               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,KP_ASTERISK,KP_PLUS,MINUS,SLASH,TRNS,TRNS,TRNS,ENT, \
-              TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN6, FN7,TRNS,TRNS,TRNS,TRNS,TRNS, \
+              TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
               TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS,     TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS),
     [6] = \
     KEYMAP_JP(ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, JYEN,BSPC, \
